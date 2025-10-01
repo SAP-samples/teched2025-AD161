@@ -1,10 +1,8 @@
-# Exercise 1 - Build CAP app XFlights
+# Exercise 1 - Build CAP app xflights
 
-In this exercise, we will create the XFlights app from scratch.
-
+In this exercise, we will create the xflights app from scratch.
 
 After completing these steps you will have a running CAP app and can query its data via OData requests.
-
 
 All file or directory paths in this exercise are relative to the workspace folder _ws_
 crated in the [Preparation](../ex0/README.md) section.
@@ -33,7 +31,6 @@ In the terminal, change to directory _xflights_ and run `cds watch`:
 cd xflights
 cds watch
 ```
-
 
 See the output in the terminal:
 ```
@@ -289,7 +286,7 @@ the section for the rest service to see the data.
 Notice how the connection data has become part of the Flight data.
 
 
-## Exercise 1.8 - Export API service as integration package
+## Exercise 1.8 - Export API service
 
 After completing these steps you will have an API package for
 the new service `sap.capire.flights.data`.
@@ -329,7 +326,7 @@ annotate sap.common.Languages with @cds.autoexpose:false;
 ```
 
 
-## Exercise 1.9 - Stop `cds watch`
+## Exercise 1.9 - Cleanup
 
 If you haven't done yet, stop `cds watch` by typing `Ctrl + C` into the terminal.
 
@@ -338,7 +335,7 @@ If you haven't done yet, stop `cds watch` by typing `Ctrl + C` into the terminal
 
 ## Summary
 
-You've now created CAP app XFlights that serves as source for flight masterdata.
+You've now created CAP app xflights that serves as source for flight masterdata.
 
-Continue to - [Exercise 2 - Exercise 2 Description](../ex2/README.md)
+Continue to - [Exercise 2 - Build CAP app xtravels](../ex2/README.md)
 

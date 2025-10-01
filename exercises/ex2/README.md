@@ -1,9 +1,7 @@
-# Exercise 2 - Exercise 2 Description
+# Exercise 2 - Build CAP app xtravels
 
-In this exercise, we will create...
-
-a second CAP app called XTravels. This app will consume the flights masterdata provided
-by the XFlights app.
+In this exercise, we will create a second CAP app called xtravels.
+This app will consume the flights masterdata provided by the XFlights app.
 This time, we don't build the application from scratch, but start with
 an almost complete app.
 
@@ -248,7 +246,7 @@ e.g. also directly in the database. For more information, visit session ... link
 Go to the [index page](http://localhost:4004/) of the xtravels app and start the 
 [xtravels web app](http://localhost:4004/travels/webapp/index.html).
 
-## Exercise 2.7 - Stop cds watch
+## Exercise 2.7 - Cleanup
 
 As clean-up for the next exercise, stop `cds watch` both
 in the xtravels and in the xflights terminal.
@@ -258,6 +256,6 @@ Close the xflights terminal.
 
 ## Summary
 
-You've now 
+You've now created CAP app xtravels and consumed the masterdata served by the xflights app.
 
-Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
+Continue to - [Exercise 3 - Consume S/4 Data Product Customer](../ex3/README.md)

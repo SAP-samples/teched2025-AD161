@@ -2,32 +2,63 @@
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2025 session called Session ID - Session Title.  
+This repository contains the material for the SAP TechEd 2025 session called AD161 - Integration of SAP Business Data Cloud with CAP and SAP Build.  
 
 ## Overview
 
-This session introduces attendees to...
+This session introduces attendees to Data Federation with SAP Cloud Application Programming Model (CAP),
+and in particular shows to integrate a Data Product of SAP Business Data Cloud into a CAP application.
 
 ## Requirements
 
-The requirements to follow the exercises in this repository are...
+The instructors will assign a user and a password to you. This is needed in exercise 4 to deploy to HANA Cloud.
+
+The user will be of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique number that is assigned to you.
 
 ## Exercises
 
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
+The exercise is divided in five parts.
+In the Getting Started section we prepare the _cds toolkit_ and set up the local workspace.
+In exercise 1 we will create a CAP app "xflights" that serves flight master data.
+In exercise 2 we will create a CAP app "xtravels" that consumes the masterdata from "xflights".
+In exercise 3 we will import an S/4 Data Product to the "xtravels" app and run it locally in mock mode.
+In exercise 4 we will deploy the database model of "xtravels" to a HANA Cloud, connect the Data Product with
+a BDC tenant and run the app in hybrid mode.
 
 - [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
-- [Exercise 2 - Second Exercise Description](exercises/ex2/)
-    - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
-    - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
+- [Exercise 1 - Build CAP app xflights](exercises/ex1/)
+    - [Exercise 1.1 - Create xflights project](exercises/ex1#exercise-11-create-xflights-project)
+    - [Exercise 1.2 - Add the domain model](exercises/ex1#exercise-12-add-the-domain-model)
+    - [Exercise 1.3 - Add OData service](exercises/ex1#exercise-13-add-odata-service)
+    - [Exercise 1.4 - Add test data](exercises/ex1#exercise-14-add-test-data)
+    - [Exercise 1.5 - Fiori preview](exercises/ex1#exercise-15-fiori-preview)
+    - [Exercise 1.6 - Localized metadata](exercises/ex1#exercise-16-localized-metadata)
+    - [Exercise 1.7 - Add API service](exercises/ex1#exercise-17-add-api-service)
+    - [Exercise 1.8 - Export API service](exercises/ex1#exercise-18-export-api-service)
+    - [Exercise 1.9 - Cleanup](exercises/ex1#exercise-19-cleanup)
+- [Exercise 2 - Build CAP app xtravels](exercises/ex2/)
+    - [Exercise 2.1 - Prepare](exercises/ex2#exercise-21-prepare)
+    - [Exercise 2.2 - Import API package for flights](exercises/ex2#exercise-22-import-api-package-for-flights)
+    - [Exercise 2.3 - Use the masterdata](exercises/ex2#exercise-23-use-the-masterdata)
+    - [Exercise 2.4 - Inspect how the xflights data is used](exercises/ex2#exercise-24-inspect-how-the-xflights-masterdata-is-used)
+    - [Exercise 2.5 - Run the XTravels app with flights being mocked](exercises/ex2#exercise-25-run-the-xtravels-app-with-flights-being-mocked)
+    - [Exercise 2.6 - Get flights data from xflights app](exercises/ex2#exercise-26-get-flights-data-from-xflights-app)
+    - [Exercise 2.7 - Cleanup](exercises/ex2#exercise-27-cleanup)
+- [Exercise 3 - Consume S/4 Data Product Customer](exercises/ex2/)
+    - [Exercise 3.1 - Discovery](exercises/ex3#exercise-31-discovery)
+    - [Exercise 3.2 - Download Data Product metadata](exercises/ex3#exercise-32-download-data-product-metadata)
+    - [Exercise 3.3 - Import Data Product metadata](exercises/ex3#exercise-33-import-data-product-metadata)
+    - [Exercise 3.4 - Add consumption view](exercises/ex3#exercise-34-add-consumption-view)
+    - [Exercise 3.5 - Use the Data Product in the model](exercises/ex3#exercise-35-use-the-data-product-in-the-model)
+    - [Exercise 3.6 - Mock](exercises/ex3#exercise-36-mock)
+    - [Exercise 3.7 - Cleanup](exercises/ex3#exercise-37-cleanup)
+- [Exercise 4 - Deploy to SAP HANA Cloud](exercises/ex2/)
+    - [Exercise 4.1 - Log on to Cloud Foundry](exercises/ex3#exercise-41-log-on-to-cloud-foundry)
+    - [Exercise 4.2 - Deploy to SAP HANA Cloud](exercises/ex3#exercise-42-deploy-to-sap-hana-cloud)
+    - [Exercise 4.3 - Run in hybrid mode](exercises/ex3#exercise-43-run-in-hybrid-mode)
+    - [Exercise 4.4 - Connect to BDC share](exercises/ex3#exercise-44-connect-to-bdc-share)
 
-  
-**OR** Link to the Tutorial Navigator for example...
-
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
+Start the exercises [here](exercises/ex0/).
 
 **IMPORTANT**
 

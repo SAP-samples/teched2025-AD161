@@ -1,13 +1,12 @@
-# Exercise 4 - Deploy to HANA
+# Exercise 4 - Deploy to SAP HANA Cloud
 
 In this exercise, we will deploy the database model of the xtravels app
 to an instance of SAP HANA Cloud and connect the Data Product entity `Customer`
 to a BDC tenant.
-
-
-We now want to run the xtravels app in hybrid mode. This means the
+We will run the xtravels app in hybrid mode. This means the
 app still runs locally on your laptop, but is connected to an HDI container
 in a HANA Cloud instance.
+Finally, 
 
 
 
@@ -18,15 +17,13 @@ After completing these steps you will have created...
 A few preparation steps are necessary before we can deploy to SAP HANA Cloud.
 
 We have prepared a subaccount in SAP BTP with users for this exercise.
-The username is `capworkshopuser+0XX@gmail.com`, where `XX` is the number of your place.
+The username is `capworkshopuser+0XX@gmail.com`, where `XX` is your number.
 
 To be able to deploy the database part of your app to BTP, use the 
 Cloud Foundry command line interface to log on:
 ```sh
 cf l -a https://api.cf.eu10-005.hana.ondemand.com --origin aoykcp1ee-platform
 ```
-
-Also need to set org and space?
 
 At the prompt, provide user and password:
 ```
@@ -48,9 +45,7 @@ cf cups grantor-dp-admin -p grantor-dp-admin.json
 ```
 
 
-
-
-## Exercise 4.2 - Deploy to SAP HANA
+## Exercise 4.2 - Deploy to SAP HANA Cloud
 
 
 Before we actually deploy, go to the xtravels terminal and run
@@ -77,7 +72,7 @@ You can see the HDI container in ...
 Note that a file `.cdsrc-private.json` has been created in the _xtravels_ folder.
 
 
-## Exercise 4.3 - Run xtravels in hybrid mode
+## Exercise 4.3 - Run in hybrid mode
 
 After completing these steps you will have...
 
@@ -218,6 +213,6 @@ has changed, because you no longer see the local mock data, but the data from th
 
 ## Summary
 
-You've now ...
 
-Continue to - [Exercise 3 - Excercise 3 ](../ex3/README.md)
+
+

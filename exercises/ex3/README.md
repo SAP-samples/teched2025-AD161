@@ -1,4 +1,4 @@
-# Exercise 3 - Consume S/4 Data Product "Customer"
+# Exercise 3 - Consume S/4 Data Product Customer
 
 In this exercise, we will import the Data Product "Customer" from S/4.
 We will then replace entity `Passenger` in the xtravels app with entity
@@ -93,7 +93,7 @@ npm install
 
 
 
-## Exercise 3.4 - Add consumption views
+## Exercise 3.4 - Add consumption view
 
 After completing these steps you will have a CDS view that acts as
 interface to the imported API.
@@ -214,6 +214,7 @@ Stop `cds watch` by typing `Ctrl + C` into the xtravels terminal.
 
 ## Summary
 
-You've now ...
+You've now imported S/4 Data Product "Customer" and tested the app locally with
+the Data Product entities being mocked.
 
-Continue to - [Exercise 4](../ex4/README.md)
+Continue to - [Exercise 4 - Deploy to SAP HANA Cloud](../ex4/README.md)
