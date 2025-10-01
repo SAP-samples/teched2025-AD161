@@ -181,7 +181,7 @@ grant the required privileges to the HDI user.
 
 
 We need to bind the user provided service `grantor-dp-admin` that
-we have created in the beginning odf this exercise.
+we have created in the beginning of this exercise.
 Go to the xtravels terminal and run
 ```sh
 cds bind grantor-dp-admin --to grantor-dp-admin

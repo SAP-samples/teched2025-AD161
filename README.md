@@ -56,7 +56,7 @@ cises/ex1/README.md#exercise-12---add-the-domain-model
     - [Exercise 3.7 - Cleanup](exercises/ex3/README.md#exercise---37-cleanup)
 - [Exercise 4 - Deploy to SAP HANA Cloud](exercises/ex2/)
     - [Exercise 4.1 - Log on to Cloud Foundry](exercises/ex4/README.md#exercise-41---log-on-to-cloud-foundry)
-    - [Exercise 4.2 - Deploy to SAP HANA Cloud](exercises/ex4/README.md#exercise---42-deploy-to-sap-hana-cloud)
+    - [Exercise 4.2 - Deploy to SAP HANA Cloud](exercises/ex4/README.md#exercise-42---deploy-to-sap-hana-cloud)
     - [Exercise 4.3 - Run in hybrid mode](exercises/ex4/README.md#exercise-43---run-in-hybrid-mode)
     - [Exercise 4.4 - Connect to BDC share](exercises/ex4/README.md#exercise-44---connect-to-bdc-share)
 

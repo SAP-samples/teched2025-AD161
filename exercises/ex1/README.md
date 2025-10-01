@@ -175,7 +175,7 @@ We will now add some CSV files with data to the XFlights app.
 Copy the folder [assets/ex1/data](../../assets/ex1/data) into folder _xflights/db_.
 The result should look like this:
 
-<br>![](/exercises/ex0/images/00_00_0010.png)
+<br>![](/exercises/ex0/images/01_04_0010.png)
 
 
 cds watch automatically restarts and detects the data files:

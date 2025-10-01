@@ -43,7 +43,7 @@ At the bottom of the screen, follow the link to the
 The ORD ID uniquely identifies this API.
 
 Download the CSN Interop JSON. It will probably be stored
-as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TEXX\Downloads_.
+as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
 
 Copy the file to folder _xtravels_.
 
