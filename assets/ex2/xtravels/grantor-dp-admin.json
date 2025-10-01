@@ -1,0 +1,7 @@
+{
+  "host": "0cbafe94-79ad-462f-82b4-08f731e2e21c.hna0.prod-eu10.hanacloud.ondemand.com",
+  "port": "443",
+  "user": "DP_ADMIN",
+  "password": "...",
+  "tags": [ "hana" ] 
+}
