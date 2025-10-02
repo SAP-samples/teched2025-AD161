@@ -1,0 +1,26 @@
+{
+  "name": "@capire/xtravels",
+  "version": "1.0.0",
+  "description": "CAP SFlight travel service demo TE2025",
+  "scripts": {
+    "lint": "npx eslint .",
+    "start": "cds-serve",
+    "test": "chest test",
+    "jest": "npx jest"
+  },
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@cap-js/xsrv-federation": ".plugins/fed-xrv",
+    "@cap-js/dp-by-synonym": ".plugins/dp-syn",
+    "@sap-cloud-sdk/http-client": "^4",
+    "@sap/xsenv": "^6",
+    "@sap/xssec": "^4.9",
+    "@sap/cds": ">=9.3",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-test": "*",
+    "@cap-js/sqlite": ">=2"
+  },
+  "license": "Apache-2.0"
+}
