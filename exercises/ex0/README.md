@@ -47,7 +47,7 @@ Ignore folder _xtravels_ for the time being, it will only be used in [Exercise 2
 ## Preparation 3 - Copying 
 
 In the course of the exercises, you need to copy some files from [assets](../assets)
-into the workspace. The simplest way to do this is to open folder _C:\Users\TE-XX\techeed2025-AD161\assets_
+into the workspace. The simplest way to do this is to open folder _C:\Users\TE-XX\teched2025-AD161\assets_
 in Windows Explorer and then copy the files from there via Drag & Drop.
 
 

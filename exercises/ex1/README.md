@@ -16,7 +16,7 @@ In VS Code, open a terminal and create the xflights project with
 ```sh
 cds init xflights
 ```
-This creates a directory _xflights_.
+This creates a directory _xflights_ with the basic structure for a CAP app.
 
 In folder _xflights_, add a file _.env_ with this content:
 ```
@@ -108,6 +108,18 @@ reacts immediately with new output like this:
 
 This means that cds watch detected the changes in _db/schema.cds_ and automatically
 bootstrapped an in-memory SQLite database when restarting the server process.
+
+
+
+
+### __TODO__
+Error: The module '\\?\C:\SAPDevelop\node\cap\DEV\cds-dk\node_modules\better-sqlite3\build\Release\better_sqlite3.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION 108. This version of Node.js requires
+NODE_MODULE_VERSION 127. Please try re-compiling or re-installing
+
+do we have to run _npm install_?
+
 
 
 
@@ -204,7 +216,7 @@ manually configure the columns to be displayed. This can be avoided
 by adding a few Fiori `@UI.LineItems` annotations that define a default layout
 for entites `Flights` and `Connections`.
 
-In folder _xflights/app_, create a new file _associations.cds_
+In folder _xflights/app_, create a new file _layout.cds_
 and copy the contents of [assets/ex1/layout.cds](../../assets/ex1/layout.cds)
 into the new file.
 

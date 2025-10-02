@@ -30,6 +30,9 @@ Click on the tile for Data Product "Customer".
 
 
 
+__TODO__ Add some links:
+https://api.sap.com/dataproduct/sap-s4com-Customer-v1/overview
+
 ## Exercise 3.2 - Download Data Product metadata
 
 After completing these steps you will have a CSN file describing the Data Product

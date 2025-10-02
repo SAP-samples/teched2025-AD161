@@ -9,11 +9,18 @@ This repository contains the material for the SAP TechEd 2025 session called AD1
 This session introduces attendees to Data Federation with SAP Cloud Application Programming Model (CAP),
 and in particular shows to integrate a Data Product of SAP Business Data Cloud into a CAP application.
 
+
+
+
+
+
+
+
+
 ## Requirements
 
-The instructors will assign a user and a password to you. This is needed in exercise 4 to deploy to HANA Cloud.
-
-The user will be of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique number that is assigned to you.
+The instructors will assign a user and a password to you. This will only be needed in exercise 4 to deploy to SAP HANA Cloud.
+The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique number that is assigned to you.
 
 ## Exercises
 
@@ -22,10 +29,9 @@ In the Getting Started section we prepare the _cds toolkit_ and set up the local
 In exercise 1 we will create a CAP app "xflights" that serves flight master data.
 In exercise 2 we will create a CAP app "xtravels" that consumes the masterdata from "xflights".
 In exercise 3 we will import an S/4 Data Product to the "xtravels" app and run it locally in mock mode.
-In exercise 4 we will deploy the database model of "xtravels" to a HANA Cloud, connect the Data Product with
-a BDC tenant and run the app in hybrid mode.
+In exercise 4 we will deploy the database model of "xtravels" to a HANA Cloud, connect the Data
+Product with a BDC tenant and run the app in hybrid mode.
 
-cises/ex1/README.md#exercise-12---add-the-domain-model
 
 - [Getting Started](exercises/ex0/)
 - [Exercise 1 - Build CAP app xflights](exercises/ex1/)

@@ -61,7 +61,7 @@ is used to satisfy the new dependendcy. In the _node_modules_ folder you will fi
 
 ## Exercise 2.3 - Use the masterdata
 
-There already is an empty file _db/masterdata_. Add this content into this file:
+There already is an empty file _xtravels/db/masterdata_. Add this content into this file:
 ```cds
 using { sap.capire.flights.data as external } from 'xflights-flights-data';
 namespace sap.capire.travels.masterdata;
@@ -108,6 +108,19 @@ In the console for _xtravels_, start the xtravels app.
 cds watch
 ```
 
+
+If you see errors like
+```
+[persistent-queue] - DataFederationService: Emit failed: Error: Error during request to remote service: Error
+```
+then
+* ensure to stop all instances of `cds watch`
+* go to your home directory
+* delete file `.cds-services.json`
+* restart `cds watch` in the xtravels terminal
+
+
+
 The output indicates that imported service `sap.capire.flights.data` is mocked:
 ```
 [cds] - mocking sap.capire.flights.data {
@@ -116,6 +129,9 @@ The output indicates that imported service `sap.capire.flights.data` is mocked:
   impl: '..\\node_modules\\@sap\\cds\\srv\\app-service.js'
 }
 ```
+
+
+
 The entities in this service are for mocking represented as a tables on the
 SQLite in-database and filled with data from the _csv_ files from the imported package:
 ```
