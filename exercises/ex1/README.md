@@ -192,7 +192,7 @@ maintenance UI for the xflights app, but this is not part of this lecture.
     ```
 -->
 
-4. Open the automatically served index page in your browser: [localhost:4005](http://localhost:4005/).
+4. Open the automatically served index page in your browser at [localhost:4005](http://localhost:4005/).
 The entities are exposed via OData.
 
     <br>![](/exercises/ex1/images/01_03_0020-60.png)
@@ -216,7 +216,7 @@ The result should look like this:
 
 2. Observe the console output: `cds watch` automatically restarts and detects the data files:
 
-    <br>![](/exercises/ex1/images/01_04_0010.png)
+    <br>![](/exercises/ex1/images/01_04_0020.png)
 
 <!--
     ```
