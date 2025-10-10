@@ -12,19 +12,16 @@ crated in the [Preparation](../ex0/README.md) section.
 After completing these steps you will have the basic project strucure of the xflights app.
 
 1. In VS Code, open a terminal.
-    <br>![](/exercises/ex1/images/01_01_0010-100.png)
 
-1. In VS Code, open a terminal.
     <br>![](/exercises/ex1/images/01_01_0010.png)
 
-1. In VS Code, open a terminal.
-    <br>![](/exercises/ex1/images/01_01_0011.png)
-
-2. In VS Code, open a terminal and create the xflights project with
+2. Go to the terminal and create the xflights project with
     ```sh
     cds init xflights
     ```
     This creates a directory _xflights_ with the basic structure for a CAP app.
+
+    <br>![](/exercises/ex1/images/01_01_0020.png)
 
 3. In folder _xflights_, add a file _.env_ with this content:
     ```
@@ -41,6 +38,13 @@ After completing these steps you will have the basic project strucure of the xfl
     When we add further components to the app, `cds watch` will automatically pick it up.
 
 5. See the output in the terminal:
+
+    <br>![](/exercises/ex1/images/01_01_0030.png)
+
+    Note that due to the _.env_ file, xflights is started on port 4005.
+    This becomes important later, when we start the xtravels app in parallel.
+
+<!--
     ```
     cds serve all --with-mocks --in-memory? 
     ( live reload enabled for browsers ) 
@@ -63,20 +67,15 @@ After completing these steps you will have the basic project strucure of the xfl
         No service definitions found in loaded models.
         Waiting for some to arrive...
     ```
+-->
 
-    Note that due to the _.env_ file, xflights is started on port 4005.
-    This becomes important later, when we start the xtravels app in parallel.
 
 
 ## Exercise 1.2 - Add the domain model
 
 After completing these steps you will have defined the essential entities of the xflights app.
 
-1. The first part of the new app is the domain model.
-In folder _xflights/db_, create a file named _schema.cds_.
-Copy the content of [assets/ex1/schema.cds](../../assets/ex1/schema.cds)
-into the new file. The file defines the following entities:
-
+The first part of the new app is the domain model with these entities:
     * Airlines  
       A list of airlines that operate flights
     * Airports  
@@ -92,8 +91,19 @@ into the new file. The file defines the following entities:
     <br>![](/exercises/ex1/images/01_02_0010.png)
 
 
-2. Observe the console output for `cds watch`. As soon as you save the file _schema.cds_,
+1. In folder _xflights/db_, create a file named _schema.cds_.
+
+2. Copy the content of [assets/ex1/schema.cds](../../assets/ex1/schema.cds) into the new file. 
+
+3. Observe the console output for `cds watch`. As soon as you save the file _schema.cds_,
 the still running cds watch reacts immediately with new output like this:
+
+    <br>![](/exercises/ex1/images/01_02_0020.png)
+
+    `cds watch` detected the changes in _db/schema.cds_ and automatically
+    bootstrapped an in-memory SQLite database when restarting the server process.
+
+<!--
     ```
     [cds] - loaded model from 3 file(s):
 
@@ -112,21 +122,16 @@ the still running cds watch reacts immediately with new output like this:
         No service definitions found in loaded models.
         Waiting for some to arrive...
     ```
+-->
 
-    cds watch detected the changes in _db/schema.cds_ and automatically
-    bootstrapped an in-memory SQLite database when restarting the server process.
-
-
-
-
-### __TODO__
+<!--
 Error: The module '\\?\C:\SAPDevelop\node\cap\DEV\cds-dk\node_modules\better-sqlite3\build\Release\better_sqlite3.node'
 was compiled against a different Node.js version using
 NODE_MODULE_VERSION 108. This version of Node.js requires
 NODE_MODULE_VERSION 127. Please try re-compiling or re-installing
 
 do we have to run _npm install_?
-
+-->
 
 
 
@@ -137,7 +142,9 @@ After completing these steps you will have an OData service for the _xflights_ a
 Now we add an OData service that allows to see the data. This could be extended to a full fledged
 maintenance UI for the xflights app, but this is not part of this lecture.
 
-1. In folder _xflights/srv_, create a file _fiori-service.cds_ and fill it with this content:
+1. In folder _xflights/srv_, create a file _fiori-service.cds_.
+
+2. Fill the file with this content:
     ```cds
     using { sap.capire.flights as my } from '../db/schema';
 
@@ -149,9 +156,15 @@ maintenance UI for the xflights app, but this is not part of this lecture.
       entity Supplements as projection on my.Supplements;
     }
     ```
-    This service simply exposes all the metadata entities as one-to-one projections.
+    This defines a service that simply exposes all the metadata entities as one-to-one projections.
 
-2. See output of `cds watch`:
+3. Observe the output of `cds watch`:
+
+    <br>![](/exercises/ex1/images/01_03_0010.png)
+
+    Service `FlightsService` is now served as OData service.
+
+<!--
     ```
     [cds] - loaded model from 4 file(s):
 
@@ -177,26 +190,35 @@ maintenance UI for the xflights app, but this is not part of this lecture.
     [cds] - server v9.3.1 launched in 6595 ms
     [cds] - [ terminate with ^C ]
     ```
+-->
 
-    Open the automatically served index page in your browser: [localhost:4005](http://localhost:4005/).
-    The entities are exposed via OData, but are still empty.
+4. Open the automatically served index page in your browser: [localhost:4005](http://localhost:4005/).
+The entities are exposed via OData.
 
+    <br>![](/exercises/ex1/images/01_03_0020-60.png)
+
+5. Click on the link for `Flights`. You will see that the entities are empty.
 
 
 ## Exercise 1.4 - Add test data
 
-After completing these steps you will have test data in the _xflights_ app.
+After completing these steps you will have test data in the xflights app.
 
-Now we have a service that allows to see the content of the metadata entities,
+Now we have a service that allows to query the content of the metadata entities,
 but this is still a bit boring, as we don't have any data in the tables.
 We will now add some CSV files with data to the xflights app.
 
 1. Copy the folder [assets/ex1/data](../../assets/ex1/data) into folder _xflights/db_.
 The result should look like this:
-<br>![](/exercises/ex1/images/01_04_0010.png)
+
+    <br>![](/exercises/ex1/images/01_04_0010.png)
 
 
-2. Observe the console output: cds watch automatically restarts and detects the data files:
+2. Observe the console output: `cds watch` automatically restarts and detects the data files:
+
+    <br>![](/exercises/ex1/images/01_04_0010.png)
+
+<!--
     ```
     [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
     [cds] - connect to db > sqlite { url: ':memory:' }
@@ -209,39 +231,90 @@ The result should look like this:
       > init from db\data\sap.capire.flights-Airlines.csv 
     /> successfully deployed to in-memory database.
     ```
+-->
 
-3. Go back to the index page [localhost:4005](http://localhost:4005/) and click on any of the files to see the new content.
+3. Go back to the index page [localhost:4005](http://localhost:4005/) and click on any of the entities to see the new content.
 
 
 ## Exercise 1.5 - Fiori preview
 
 After completing these steps you will have preconfigured columns in the Fiori preview.
 
-If you use the Fiori preview functionality of the index page, you have to
+If you want use the Fiori preview functionality of the index page, you have to
 manually configure the columns to be displayed. This can be avoided
-by adding a few Fiori `@UI.LineItems` annotations that define a default layout
+by adding a few Fiori `@UI.LineItem` annotations that define a default layout
 for entites `Flights` and `Connections`.
 
-1. In folder _xflights/app_, create a new file _layout.cds_ and copy the contents
-of [assets/ex1/layout.cds](../../assets/ex1/layout.cds) into the new file.
+1. In folder _xflights/app_, create a new file _layout.cds_.
 
-2. Wait until `cds watch` has picked up the changes, then go back to the
+2. Fill the file with this content:
+    ```cds
+    using { FlightsService } from '../srv/fiori-service';
+
+    annotate FlightsService.Connections with @UI.LineItem: [
+      { Value: ID },
+      { Value: (airline.ID) },
+      { Value: (origin.ID) },
+      { Value: (destination.ID) },
+      { Value: departure },
+      { Value: arrival },
+      { Value: distance }
+    ];
+
+    annotate FlightsService.Flights with @UI.LineItem: [
+      { Value: (flight.ID) },
+      { Value: date },
+      { Value: aircraft },
+      { Value: price },
+      { Value: (currency.code) },
+      { Value: maximum_seats },
+      { Value: occupied_seats }
+    ];
+    ```
+
+3. Wait until `cds watch` has picked up the changes. Then go back to the
 index page on [localhost:4005](http://localhost:4005/) and click the
-"Fiori proview" link for entitiy `Flight` or `Connections`.
+"Fiori preview" link for entity `Flights` or `Connections`.
+
+    <br>![](/exercises/ex1/images/01_05_0010-60.png)
+    The columns specified in the `@UI.LineItem` annotation are shown by default.
 
 
 ## Exercise 1.6 - Localized metadata
 
 After completing these steps you will have localized labels in the Fiori preview.
 
-In the Fiori preview, you see that the columns labels are just the element names.
+In the Fiori preview, you see that the columns labels are simply the element names.
 We want to display appropriate labels in the correct language.
 
-1. In folder _xflights/db_, add a file _labels.cds_ and copy the content of
-[assets/ex1/labels.cds](../../assets/ex1/labels.cds) into the new file. This adds
-the `@title` annotation to some of the elements of the domain model entities.
+1. In folder _xflights/db_, add a file _labels.cds_.
 
-2. The values of the annotations are `i18n` keys. We need to also get the respective texts into our app.
+2. Fill the new file with this content:
+    ```cds
+    using { sap.capire.flights } from './schema';
+
+    annotate flights.Connections with {
+      ID          @title: '{i18n>Flight}';
+      airline     @title: '{i18n>Airline}';
+      origin      @title: '{i18n>Origin}';
+      destination @title: '{i18n>Destination}';
+      departure   @title: '{i18n>Departure}';
+      arrival     @title: '{i18n>Arrival}';
+      distance    @title: '{i18n>Distance}';
+    }
+
+    annotate flights.Flights with {
+      flight         @title: '{i18n>Flight}';
+      date           @title: '{i18n>FlightDate}';
+      aircraft       @title: '{i18n>PlaneType}';
+      price          @title: '{i18n>FlightPrice}';
+      maximum_seats  @title: '{i18n>MaximumSeats}';
+      occupied_seats @title: '{i18n>OccupiedSeats}';
+    }
+    ```
+    The annotations provide a title for some of the elements of the domain model entities.
+
+3. The values of the annotations are `i18n` keys. We need to also get the respective texts into our app.
 Copy the folder [assets/ex1/_i18n](../../assets/ex1/_i18n) into folder _xflights_.
 
     The result should look like this:
@@ -249,6 +322,8 @@ Copy the folder [assets/ex1/_i18n](../../assets/ex1/_i18n) into folder _xflights
 
 3. Go back to the browser window with the Fiori preview and refresh.
 Notice the change in the column labels.
+    <br>![](/exercises/ex1/images/01_06_0020-60.png)
+
 
 
 ## Exercise 1.7 - Add API service
@@ -256,7 +331,9 @@ Notice the change in the column labels.
 After completing these steps you will have an additional service
 that acts as an API to retrieve some data from the _xflights_ app.
 
-1. In folder _xflights/srv_, add a file _data-service.cds_ with this content:
+1. In folder _xflights/srv_, add a file _data-service.cds_.
+
+2. Fill the file with this content:
     ```cds
     using { sap, sap.capire.flights as my } from '../db/schema';
 
@@ -279,7 +356,6 @@ that acts as an API to retrieve some data from the _xflights_ app.
       @readonly entity Supplements as projection on my.Supplements;
     }
 
-
     // temporary workaround for taming @cds.autoexpose
     annotate sap.common.Currencies with @cds.autoexpose:false;
     annotate sap.common.Countries with @cds.autoexpose:false;
@@ -295,12 +371,15 @@ that acts as an API to retrieve some data from the _xflights_ app.
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
     (which basically is an extension of SQL that adds support for path expressions).
 
-2. Assuming that `cds watch` is still running, you can go to the index page in the browser
-and see the new service being presented via these protocols.
+3. `cds watch` automatically picks up the new service. In the browser, go back to the index page
+on [localhost:4005](http://localhost:4005/) and see the new service being presented via these protocols.
 
-3. Click for example the [Flights](http://localhost:4005/odata/v4/data/Flights) link in
+    <br>![](/exercises/ex1/images/01_07_0010-60.png)
+
+
+4. Click for example the [Flights](http://localhost:4005/rest/data/Flights) link in
 the section for the rest service to see the data.
-Notice how the connection data has become part of the Flight data.
+Notice how the connection data (e.g. columns `departure` and `arrival`) have become part of the Flight data.
 
 
 ## Exercise 1.8 - Export API service
@@ -308,15 +387,14 @@ Notice how the connection data has become part of the Flight data.
 After completing these steps you will have an API package for
 the new service `sap.capire.flights.data`.
 
-In [Exercise 2](../ex2/README.md) we will create the _xtravels_ app,
-which calls the API service `sap.capire.flights.data` of _xflights_
-to get flights data. In order to do that, _xtravels_ needs a definition
+In [Exercise 2](../ex2/README.md) we will create the xtravels app,
+which calls the API service `sap.capire.flights.data` of xflights
+to get flights data. In order to do that, xtravels needs a definition
 of the API.
 
-We now export the new service as an "API package" that can be seemlessly integrated
-in other apps.
-This package contains everything that is needed in a consuming app, and it also
-contains some test data.
+We now export the API service `sap.capire.flights.data` as an "API package" that can be
+seemlessly integrated in other apps.
+This package contains everything that is needed in a consuming app, including some test data.
 
 1. In the terminal, stop `cds watch` via `Ctrl+C`.
 
@@ -327,12 +405,17 @@ contains some test data.
     This creates the API package directly inside our workspace.
 
 3. Have a look at the new folder _apis/flights-data_.
-<br>![](/exercises/ex1/images/01_08_0010.png)
 
-    The most important part is the service definition in _apis/flights-data/services.csn_.
-    Note that here the `query` part has been stripped off from the entities, as they are
-    not relevant for defining the API. Besides that, the localized metadata that is used
-    in the service is part of the package as well as some test data.
+    <br>![](/exercises/ex1/images/01_08_0010.png)
+
+    * The most important part is the service definition in _apis/flights-data/services.csn_.
+      It is a CSN that contains only the entities exposed in service `sap.capire.flights.data`.
+      Note that the CSN only describes the API: the `query` sections are not present in the entities.
+    * The API package has a _package.json_ that defines a name `xflights-flights-data` for the package.
+      This name will in the next exercise be used to import the API package.
+    * The package has an _\_i18n_ folder with the localized metadata that is used in the service.
+    * There is a _data_ folder with some test data. This data is extracted by starting the app in the
+      background and querying the entities in the service.
 
 4. As the auto-exposure mechanism of the compiler doesn't yet seemlessly work
 together with exporting and importing APIs, we need to apply a workaround.
@@ -348,7 +431,6 @@ Add these lines to the file _apis/flights-data/index.cds_:
 ## Exercise 1.9 - Cleanup
 
 If you haven't done yet, stop `cds watch` by typing `Ctrl+C` into the terminal.
-
 
 
 
