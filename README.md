@@ -23,9 +23,23 @@ the interface definition and builds on top of it.
 In the first part of this session, we build two CAP apps: _xflights_ is an app to that holds masterdata
 for flights, airlines, ... and provides an API to access the data. _xtravels_ allows to book travels and flights
 and makes use of the masterdata provided by _xflights_.
-In the second part of the session, we extebnd the _xtravels_ app and also consume a BDC Data Product.
+
+
+In the second part of the session, we extend the _xtravels_ app and also consume a BDC Data Product.
 
 <br>![](./assets/images/i_0020.png)
+
+We focus on the CAP part of this integration. I.e. we assume that there already is a BDC tenant with
+the required Data Product installed, and that we have access to that tenant.
+In the SAP HANA Cloud Instance we are using for the session, we have already created
+a HANA Remote Source pointing to the BDC tenant, as well as a schema that contains virtual tables
+pointing to the corresponding share tables in the BDC tenant. In the session we will connect
+the entities in the CAP app to these virtual tables, following the Data Federation pattern
+established in the first part of the session.
+
+
+
+
 
 ## Requirements
 

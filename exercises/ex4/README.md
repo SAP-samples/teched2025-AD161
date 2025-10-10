@@ -3,10 +3,11 @@
 In this exercise, we will deploy the database model of the xtravels app
 to an instance of SAP HANA Cloud and connect the Data Product entity `Customer`
 to a BDC tenant.
-We will run the xtravels app in hybrid mode. This means the
-app still runs locally on your laptop, but is connected to an HDI container
-in a HANA Cloud instance.
-Finally, 
+We will run the xtravels app in hybrid mode: the app still runs locally on your laptop,
+but is connected to an HDI container in a HANA Cloud instance.
+
+
+
 
 
 

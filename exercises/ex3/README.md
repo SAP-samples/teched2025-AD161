@@ -1,6 +1,6 @@
 # Exercise 3 - Consume S/4 Data Product Customer
 
-In this exercise, we will import the Data Product "Customer" from S/4.
+In this exercise, we will import the metadata for Data Product "Customer" from S/4.
 We will then replace entity `Passenger` in the xtravels app with entity
 `Customer` from the Data Product.
 
@@ -8,26 +8,25 @@ We will then replace entity `Passenger` in the xtravels app with entity
 
 ## Exercise 3.1 - Discovery
 
-After completing these steps you will have created...
+After completing these steps you will have found Data Product "Customer" from S/4
+in [SAP Business Accelerator Hub](https://api.sap.com/).
 
-Go to [SAP Business Accelerator Hub](https://api.sap.com/).
+1. Go to [SAP Business Accelerator Hub](https://api.sap.com/).
 
-<br>![](/exercises/ex3/images/03_01_0010.png)
+    <br>![](/exercises/ex3/images/03_01_0010.png)
 
-In the top row, go to [Data Products](https://api.sap.com/dataproducts).
+2. In the top row, go to [Data Products](https://api.sap.com/dataproducts).
 
-<br>![](/exercises/ex3/images/03_01_0020.png)
+    <br>![](/exercises/ex3/images/03_01_0020.png)
 
-Here you can browse the available Data Products.
+3. Here you can browse the available Data Products.
 Enter "Customer"  in the search field and press "Return".
 
-<br>![](/exercises/ex3/images/03_01_0030.png)
+    <br>![](/exercises/ex3/images/03_01_0030.png)
 
-Click on the tile for Data Product "Customer".
+4. Click on the tile for Data Product "Customer".
 
-<br>![](/exercises/ex3/images/03_01_0040.png)
-
-
+    <br>![](/exercises/ex3/images/03_01_0040.png)
 
 
 __TODO__ Add some links:
@@ -35,64 +34,63 @@ https://api.sap.com/dataproduct/sap-s4com-Customer-v1/overview
 
 ## Exercise 3.2 - Download Data Product metadata
 
-After completing these steps you will have a CSN file describing the Data Product
-downloaded to the xtravels folder.
+After completing these steps you will have downloaded a CSN file with the metadata of
+Data Product "Customer" to _ws/xtravels_.
 
-At the bottom of the screen, follow the link to the
+1. At the bottom of the screen, follow the link to the
 [Delta Sharing API](https://api.sap.com/api/sap-s4com-Customer-v1/overview).
 
-<br>![](/exercises/ex3/images/03_02_0010.png)
+    <br>![](/exercises/ex3/images/03_02_0010.png)
 
-The ORD ID uniquely identifies this API.
+    The ORD ID uniquely identifies this API.
 
-Download the CSN Interop JSON. It will probably be stored
+2. Download the CSN Interop JSON. It will probably be stored
 as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
 
-Copy the file to folder _xtravels_.
+3. Copy the file to folder _xtravels_.
 
 
 ## Exercise 3.3 - Import Data Product metadata
 
-After completing these steps you will have imported the Data Product
+After completing these steps you will have imported the Data Product's
 metadata as API package into your xtravels project.
 
-Go to the terminal of the xtravels app.
-Import the Data Product metadata to the CDS model of the xtravel app
+1. Go to the terminal of the xtravels app.
+
+2. Import the Data Product metadata to the CDS model of the xtravel app
 with this command:
+  ```sh
+  cds import --data-product sap-s4com-Customer-v1.json
+  ```
 
-```sh
-cds import --data-product sap-s4com-Customer-v1.json
-```
+    The import creates a folder _xtravels\apis\imported\sap-s4com-customer-v1_
+    that structurally is almost identical to the API package of the xflights app.
+    <br>![](/exercises/ex3/images/03_03_0010.png)
 
-The import creates a folder _xtravels\apis\imported\sap-s4com-customer-v1_
-that structurally is almost identical to the API package of the xflights app.
-
-br>![](/exercises/ex3/images/03_03_0010.png)
-
-The most interesting file in this folder is _services.cds_.
+3. Have a look at file _services.cd_.
 Here you find the Data Product `Customer` represented as a service,
 and the data sets of the Data Product are represented as entities:
-```cds
-@cds.external : true
-@data.product : true
-@protocol : 'none'
-service sap.s4com.Customer.v1 {
-  entity Customer {
-    key Customer : String(10);
-    CustomerName : String(80);
-    CustomerFullName : String(220);
-    //...
-  }
-  //...
-}
-```
+    ```cds
+    @cds.external : true
+    @data.product : true
+    @protocol : 'none'
+    service sap.s4com.Customer.v1 {
+      entity Customer {
+        key Customer : String(10);
+        CustomerName : String(80);
+        CustomerFullName : String(220);
+        //...
+      }
+      //...
+    }
+    ```
 
-The name of the service reflects the ORD ID of the Data product.
+    The name of the service reflects the ORD ID of the Data product.
 
-Finally, in the xtravels terminal, run
-```sh
-npm install
-```
+4. In the xtravels terminal, run
+    ```sh
+    npm install
+    ```
 
 
 
@@ -101,21 +99,21 @@ npm install
 After completing these steps you will have a CDS view that acts as
 interface to the imported API.
 
-In folder _xtravels/db_, add a new file _customer.cds_ and add this content:
-```cds
-using { sap.s4com.Customer.v1 as Cust } from 'sap-s4com-customer-v1';
+1. In folder _xtravels/db_, add a new file _customer.cds_ and add this content:
+    ```cds
+    using { sap.s4com.Customer.v1 as Cust } from 'sap-s4com-customer-v1';
 
-namespace sap.capire.travels.masterdata;
+    namespace sap.capire.travels.masterdata;
 
-entity Customers as projection on Cust.Customer {
-  Customer as ID,
-  CustomerName as FullName,
-  StreetName as Street,
-  PostalCode,
-  CityName as City,
-  TelephoneNumber1 as PhoneNumber
-}
-```
+    entity Customers as projection on Cust.Customer {
+      Customer as ID,
+      CustomerName as FullName,
+      StreetName as Street,
+      PostalCode,
+      CityName as City,
+      TelephoneNumber1 as PhoneNumber
+    }
+    ```
 
 This is a so called "consumption" view that acts as single point of
 access to the Data Product. I.e. all references to the Data Product
@@ -132,31 +130,29 @@ entity `Passengers`, which we are going to replace.
 After completing these steps you will have replaced entity `Passenger`
 with entity `Customer` of the Data Product.
 
-In file _xtravels/db/schema.cds_, below the `using` directives at the top of the file,
-add
-```cds
-using {
-  sap.capire.travels.masterdata.Customers // the consumption view
-} from './customer';
-```
+1. In file _xtravels/db/schema.cds_, below the `using` directives at the top of the file, add
+    ```cds
+    using {
+      sap.capire.travels.masterdata.Customers // the consumption view
+    } from './customer';
+    ```
 
-In the same file, adapt entity `Travels` so that
-it now uses the consumption view `Customer` instead
-of entity `Passengers`. Change the target of association `Customer`
-from
-```cds
-Customer     : Association to Passengers;
-```
-to
-```cds
-Customer     : Association to Customers;
-```
+2. In the same file, adapt entity `Travels` so that it now uses the consumption view `Customer` instead
+of entity `Passengers`.  
+    Change the target of association `Customer` from
+    ```cds
+    Customer     : Association to Passengers;
+    ```
+    to
+    ```cds
+    Customer     : Association to Customers;
+    ```
 
-In file _xtravels/srv/travel-service.cds_, add a projections for
-`Customer` below the projection for `Passenger` inside service `TravelService`:
-```cds
-  entity Customers as projection on db.masterdata.Customers;
-```
+3. In file _xtravels/srv/travel-service.cds_, add a projections for
+    `Customer` below the projection for `Passenger` inside service `TravelService`:
+    ```cds
+      entity Customers as projection on db.masterdata.Customers;
+    ```
 
 No further adaptations of the model are necessary. This of course is only possible
 because the xtravels app was from the beginning designed in such a way that
@@ -172,38 +168,38 @@ Following the CAP principle of "local development and testing", we first want
 to test our xtravels app with the Data Product entities being mocked by local
 tables in a SQLite in-memory database.
 
-We first add some test data. Copy file
+1. Add some test data. Copy file
 [assets/ex3/sap.s4com-Customer.v1.Customer.csv](../../assets/ex3/sap.s4com-Customer.v1.Customer.csv)
 to folder _xtravels/db/data_. This provides some test data for mocking the
 `Customer` entity.
 
-<br>![](/exercises/ex3/images/03_06_0010.png)
+    <br>![](/exercises/ex3/images/03_06_0010.png)
 
 
-In the xtravels terminal, run
-```sh
-cds watch
-```
+2. In the xtravels terminal, run
+  ```sh
+  cds watch
+  ```
 
-The console output indicates that a local table is created for `Customer`
+3. Observe the console output. It indicates that a local table is created for `Customer`
 and is filled with the data from the csv file.
-```
-[cds] - connect to db > sqlite { url: ':memory:' }
-  > init from ..\apis\flights-data\data\sap.capire.flights.data.Supplements.csv 
-  > init from ..\apis\flights-data\data\sap.capire.flights.data.Flights.csv 
-  > init from ..\apis\flights-data\data\sap.capire.flights.data.Airports.csv 
-  > init from ..\apis\flights-data\data\sap.capire.flights.data.Airlines.csv 
-  > init from db\data\sap.s4com-Customer.v1.Customer.csv    // <---------------------
-  > init from db\data\sap.capire.travels-TravelStatus.texts.csv 
-  > init from db\data\sap.capire.travels-TravelStatus.csv 
-  > init from db\data\sap.capire.travels-Travels.csv 
-  > init from db\data\sap.capire.travels-TravelAgencies.csv 
-  > init from db\data\sap.capire.travels-Passengers.csv 
-  > init from db\data\sap.capire.travels-Bookings.Supplements.csv 
-  > init from db\data\sap.capire.travels-Bookings.csv
-```
+    ```
+    [cds] - connect to db > sqlite { url: ':memory:' }
+      > init from ..\apis\flights-data\data\sap.capire.flights.data.Supplements.csv 
+      > init from ..\apis\flights-data\data\sap.capire.flights.data.Flights.csv 
+      > init from ..\apis\flights-data\data\sap.capire.flights.data.Airports.csv 
+      > init from ..\apis\flights-data\data\sap.capire.flights.data.Airlines.csv 
+      > init from db\data\sap.s4com-Customer.v1.Customer.csv    // <---------------------
+      > init from db\data\sap.capire.travels-TravelStatus.texts.csv 
+      > init from db\data\sap.capire.travels-TravelStatus.csv 
+      > init from db\data\sap.capire.travels-Travels.csv 
+      > init from db\data\sap.capire.travels-TravelAgencies.csv 
+      > init from db\data\sap.capire.travels-Passengers.csv 
+      > init from db\data\sap.capire.travels-Bookings.Supplements.csv 
+      > init from db\data\sap.capire.travels-Bookings.csv
+    ```
 
-Go to the [index page](http://localhost:4004/) of the xtravels app and start the 
+4. Go to the [index page](http://localhost:4004/) of the xtravels app and start the 
 [xtravels web app](http://localhost:4004/travels/webapp/index.html).
 The app should look like the last time you have started it, only now the data
 for "Customer" and some labels have changed.

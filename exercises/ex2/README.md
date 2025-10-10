@@ -56,28 +56,30 @@ some projections on the imported API in this file.
 Now we import the API package with the flight data that we have exported from the
 xflights app in the previous exercise.
 
-In the _xtravels_ terminal, execute
-```sh
-npm add xflights-flights-data
-```
+1. In the _xtravels_ terminal, execute
+    ```sh
+    npm add xflights-flights-data
+    ```
 
-A new dependency has been added to _xtravels/package.json_:
-```jsonc
-{
-  // ...
-  "dependencies": {
-    // ...
-    "xflights-flights-data": "^1.0.0"
-  }
-}
-```
-
-As there is a _package.json_ with a workspace definition in the workspace folder _ws_, the exported package
-is used to satisfy the new dependendcy. In the _node_modules_ folder you will find a symbolic link.
+2. Look into _xtravels/package.json_. A new dependency has been added:
+    ```jsonc
+    {
+      // ...
+      "dependencies": {
+        // ...
+        "xflights-flights-data": "^1.0.0"
+      }
+    }
+    ```
+    As there is a _package.json_ with a workspace definition in the workspace's root folder _ws_,
+    the exported package in _ws/apis_ is used to satisfy this new dependendcy.
+    In _ws/node\_modules_ you will find a symbolic link for _xflights-flight-data_ pointing
+    to _ws/apis/flights-data_.
 
 
 
 ## Exercise 2.3 - Use the masterdata
+
 
 There already is an empty file _xtravels/db/masterdata_. Add this content into this file:
 ```cds
@@ -138,6 +140,7 @@ then
 * restart `cds watch` in the xtravels terminal
 
 
+
 The output indicates that imported service `sap.capire.flights.data` is mocked:
 ```
 [cds] - mocking sap.capire.flights.data {
@@ -148,8 +151,8 @@ The output indicates that imported service `sap.capire.flights.data` is mocked:
 ```
 
 
-The entities in this service are for mocking represented as a tables on the
-SQLite in-database and filled with data from the _csv_ files from the imported package:
+The entities in this service are for mocking represented as a tables in the
+SQLite in-memory database and are filled with data from the _csv_ files from the imported package:
 ```
 [cds] - connect to db > sqlite { url: ':memory:' }
   > init from ..\apis\flights-data\data\sap.capire.flights.data.Supplements.csv 
@@ -170,31 +173,31 @@ data from the XFlights app. -->
 
 ## Exercise 2.6 - Get flights data from xflights app
 
-But now we want to really use the XFlights app as data source for the master data of XTravels.
+Now we want to connect to the XFlights app as data source for the master data of XTravels.
 
+1. Stop `cds watch` in XTravels by typing `Ctrl+C` in the xtravels terminal.
 
-First, stop `cds watch` in XTravels by typing `Ctrl + C` in the xtravels terminal.
+2. Start `cds watch` in the xflights terminal:
+    ```sh
+    cds watch
+    ```
 
-Then, start `cds watch` in the xflights terminal:
-```sh
-cds watch
-```
+3. Restart `cds watch` in the xtravels terminal:
+    ```sh
+    cds watch
+    ```
 
-Then, restart `cds watch` in the xtravels terminal:
-```sh
-cds watch
-```
-Observe the output.
-This time the xtravels app recognizes that there is another app (xflights) that
-exposes service `sap.capire.flights.data` and connects to that service
-rather than mocking it:
-```
-[cds] - connect to sap.capire.flights.data > hcql { url: 'http://localhost:4005/hcql/data' }
-[cds] - using auth strategy {
-  kind: 'mocked',
-  impl: '..\\node_modules\\@sap\\cds\\lib\\srv\\middlewares\\auth\\basic-auth.js'
-}
-```
+4. Observe the output.
+    This time the xtravels app recognizes that there is another app (xflights) that
+    exposes service `sap.capire.flights.data` and connects to that service
+    rather than mocking it:
+    ```
+    [cds] - connect to sap.capire.flights.data > hcql { url: 'http://localhost:4005/hcql/data' }
+    [cds] - using auth strategy {
+      kind: 'mocked',
+      impl: '..\\node_modules\\@sap\\cds\\lib\\srv\\middlewares\\auth\\basic-auth.js'
+    }
+    ```
 
 
 , you will recognize ... 
@@ -263,10 +266,10 @@ the output of the xflights terminal:
 
 
 
-Note: in our simple example here the "test" data exported to the API package
+Note: in our simple example the "test" data exported to the API package
 is the same as the data in the running XFlights app. So by just looking at the UI
 you can't see any difference between the real data federation scenario and running
-XTravels with mocked master-date. In real applications, this is different, of course.
+xtravels with mocked master-date. In real applications, this is different, of course.
 
 Besides the "initial load replication", we are working on other ways of integration,
 e.g. also directly in the database. For more information, visit session ... link to Daniel's deep dive.
