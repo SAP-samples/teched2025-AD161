@@ -1,7 +1,7 @@
 # Exercise 2 - Build CAP app xtravels
 
 In this exercise, we will create a second CAP app called xtravels.
-This app will consume the flights masterdata provided by the XFlights app.
+This app will consume the flights masterdata provided by the xflights app.
 This time, we don't build the application from scratch, but start with
 an almost complete app.
 
@@ -18,18 +18,36 @@ almost finished xtravels app.
 
 You may have noticed that there are some errors. This is ok - for now.
 
-In VS code, split the terminal:
-<br>![](/exercises/ex2/images/02_01_0015.png)
+1. Have a look at file _xtravels/db/master-data.cds_. It is empty. If we had wanted to build a "monolithic"
+app, the entities for flights, airlines, etc. would be located here. Instead, we will later place
+some projections on the imported API in this file.
+
+2. Have a look at the main entities of _xtravels_ in file _xtravels/db/schema.cds_:
+    * Travels
+      A list of travel bookings. Each booking assigned to a customer and consists
+      of some flight bookings.
+    * Bookings
+      A list of flight bookings. This entity has an association `Flight`, which currently is broken, as
+      
+       Each booking refers to a flight from the Flights entity
+      (which is currently missing, but will be added soon) and can aslo have some
+      supplements (which refer to a Supplements entity that is also not yet there).
+    * Passengers
+      The list of customers which book the travels.
+
+    <br>![](/exercises/ex2/images/02_01_0020.png)
 
 
-In the new terminal window, change to the _xtravels_ folder:
-```sh
-cd xtravels
-```
+3. In VS code, split the terminal:
+<br>![](/exercises/ex2/images/02_01_0030.png)
 
-Your VS code window should now look like this:
+4. In the new terminal window, change to the _xtravels_ folder:
+    ```sh
+    cd xtravels
+    ```
 
-<br>![](/exercises/ex2/images/02_01_0020.png)
+    Your VS code window should now look like this:
+    <br>![](/exercises/ex2/images/02_01_0040.png)
 
 
 
@@ -120,7 +138,6 @@ then
 * restart `cds watch` in the xtravels terminal
 
 
-
 The output indicates that imported service `sap.capire.flights.data` is mocked:
 ```
 [cds] - mocking sap.capire.flights.data {
@@ -129,7 +146,6 @@ The output indicates that imported service `sap.capire.flights.data` is mocked:
   impl: '..\\node_modules\\@sap\\cds\\srv\\app-service.js'
 }
 ```
-
 
 
 The entities in this service are for mocking represented as a tables on the
@@ -244,9 +260,6 @@ the output of the xflights terminal:
   }
 }
 ```
-
-
-
 
 
 

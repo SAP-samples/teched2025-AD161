@@ -7,15 +7,25 @@ This repository contains the material for the SAP TechEd 2025 session called AD1
 ## Overview
 
 This session introduces attendees to Data Federation with SAP Cloud Application Programming Model (CAP),
-and in particular shows to integrate a Data Product of SAP Business Data Cloud into a CAP application.
+and in particular shows how to integrate a Data Product of SAP Business Data Cloud into a CAP application.
 
+CAP Data Federation is about sharing data between two CAP apps or between a CAP and and another party.
+We distinguish between what a developer needs to do in the model ("above the scenes") and the technical
+connection. The latter should not be reflected in the model, but happens automatically in the background
+("behind the scenes"), controlled by some configuration.
 
+<br>![Data Federation CAP-2-CAP](./assets/images/i_0010.png)
 
+The picture shows Data Federation between two CAP apps, but the general pattern is similar for other use cases.
+The producing app provides an interface to the data and publishes its definition. The consuming app imports
+the interface definition and builds on top of it.
 
+In the first part of this session, we build two CAP apps: _xflights_ is an app to that holds masterdata
+for flights, airlines, ... and provides an API to access the data. _xtravels_ allows to book travels and flights
+and makes use of the masterdata provided by _xflights_.
+In the second part of the session, we extebnd the _xtravels_ app and also consume a BDC Data Product.
 
-
-
-
+<br>![](./assets/images/i_0020.png)
 
 ## Requirements
 
@@ -26,12 +36,11 @@ The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique nu
 
 The exercise is divided in five parts.
 In the Getting Started section we prepare the _cds toolkit_ and set up the local workspace.
-In exercise 1 we will create a CAP app "xflights" that serves flight master data.
-In exercise 2 we will create a CAP app "xtravels" that consumes the masterdata from "xflights".
+In exercise 1 we will create CAP app "xflights" that serves flight master data.
+In exercise 2 we will create CAP app "xtravels" that consumes the masterdata from "xflights".
 In exercise 3 we will import an S/4 Data Product to the "xtravels" app and run it locally in mock mode.
 In exercise 4 we will deploy the database model of "xtravels" to a HANA Cloud, connect the Data
 Product with a BDC tenant and run the app in hybrid mode.
-
 
 - [Getting Started](exercises/ex0/)
 - [Exercise 1 - Build CAP app xflights](exercises/ex1/)

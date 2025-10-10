@@ -21,7 +21,7 @@ Check the version:
 ```sh
 cds v
 ```
-You should have version `9.x` of `cds` and `cds-dk`.
+You should have version `9.4.x` of `cds` and `cds-dk`.
 
 You may need to add `C:\Users\TE-XX\AppData\Roaming\npm` to the `PATH` environment variable.
 
@@ -46,9 +46,9 @@ Ignore folder _xtravels_ for the time being, it will only be used in [Exercise 2
 
 ## Preparation 3 - Copying 
 
-In the course of the exercises, you need to copy some files from [assets](../assets)
+In the course of the exercises, you will need to copy some files from [assets](../assets)
 into the workspace. The simplest way to do this is to open folder _C:\Users\TE-XX\teched2025-AD161\assets_
-in Windows Explorer and then copy the files from there via Drag & Drop.
+in Windows Explorer and then copy the files from there into VS Code via Drag & Drop.
 
 
 ## Summary
