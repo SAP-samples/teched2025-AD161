@@ -4,10 +4,19 @@
 
 This repository contains the material for the SAP TechEd 2025 session called AD161 - Integration of SAP Business Data Cloud with CAP and SAP Build.  
 
+## Names
+
+In this document we use the following abbreviations:
+* CAP for [SAP Cloud Application Model](https://cap.cloud.sap/docs/)
+* HANA for [SAP HANA Cloud](https://www.sap.com/products/data-cloud/hana.html)
+* BTP for [SAP Business Technology Platform](https://www.sap.com/products/technology-platform.html)
+* BDC for[SAP Business Data Cloud](https://www.sap.com/products/data-cloud/hana.html)
+
+
 ## Overview
 
-This session introduces attendees to Data Federation with SAP Cloud Application Programming Model (CAP),
-and in particular shows how to integrate a Data Product of SAP Business Data Cloud into a CAP application.
+This session introduces attendees to Data Federation with CAP,
+and in particular shows how to integrate a Data Product of BDC into a CAP application.
 
 CAP Data Federation is about sharing data between two CAP apps or between a CAP and and another party.
 We distinguish between what a developer needs to do in the model ("above the scenes") and the technical

@@ -29,7 +29,7 @@ After completing these steps you will have the basic project strucure of the xfl
     cd xflights
     cds watch
     ```
-    When we add stuff to the app, `cds watch` will automatically pick it up.
+    When we add further components to the app, `cds watch` will automatically pick it up.
 
 4. See the output in the terminal:
     ```
