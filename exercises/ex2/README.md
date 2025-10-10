@@ -222,7 +222,7 @@ it makes calls to XFlights and fetches the required data from there.
 ```
 
 
-<br>![](/exercises/ex2/images/02_06_0011.png)
+<br>![](/exercises/ex2/images/02_06_0012.png)
 
 
 The call goes to the xflights app, where you can see how it is served in
