@@ -33,12 +33,9 @@ We focus on the CAP part of this integration. I.e. we assume that there already 
 the required Data Product installed, and that we have access to that tenant.
 In the SAP HANA Cloud Instance we are using for the session, we have already created
 a HANA Remote Source pointing to the BDC tenant, as well as a schema that contains virtual tables
-pointing to the corresponding share tables in the BDC tenant. In the session we will connect
+pointing to the corresponding share tables in the BDC tenant. In the session, we will connect
 the entities in the CAP app to these virtual tables, following the Data Federation pattern
 established in the first part of the session.
-
-
-
 
 
 ## Requirements

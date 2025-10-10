@@ -7,66 +7,62 @@ We will run the xtravels app in hybrid mode: the app still runs locally on your 
 but is connected to an HDI container in a HANA Cloud instance.
 
 
-
-
-
-
 ## Exercise 4.1 - Log on to Cloud Foundry
 
-After completing these steps you will have created...
+After completing these steps you will have executed a few preparation steps
+that are necessary before we can deploy to SAP HANA Cloud.
 
-A few preparation steps are necessary before we can deploy to SAP HANA Cloud.
+We have prepared a subaccount in SAP BTP that has access to an instance of SAP HANA Cloud.
+In the subaccount, there already are users users for this exercise.
+Your username is `capworkshopuser+0XX@gmail.com`, where `XX` is the number
+assigned to you in the beginning of the session.
 
-We have prepared a subaccount in SAP BTP with users for this exercise.
-The username is `capworkshopuser+0XX@gmail.com`, where `XX` is your number.
 
-To be able to deploy the database part of your app to BTP, use the 
-Cloud Foundry command line interface to log on:
-```sh
-cf l -a https://api.cf.eu10-005.hana.ondemand.com --origin aoykcp1ee-platform
-```
 
-At the prompt, provide user and password:
-```
-User: capworkshopuser+0XX@gmail.com
-Password: ...
-```
+1. Use the Cloud Foundry command line interface to log on:
+  ```sh
+  cf l -a https://api.cf.eu10-005.hana.ondemand.com --origin aoykcp1ee-platform
+  ```
+
+2. At the prompt, provide user and password (replace XX with your number):
+  ```
+  User: capworkshopuser+0XX@gmail.com
+  Password: ...
+  ```
+
 
 You can access BTP Cockpit for the subaccount ...
 
-The BTP subaccount already has access to an instance of SAP HANA Cloud.
 
 
-In a later step we need a user provided Cloud Foundry service.
+3. In a later step we need a user provided Cloud Foundry service.
 The credentials for this service are defined in file _xtravels/grantor-dp-admin.json_.
-Open this file in VS Code and replace the three dots by the password. Save the file.
-Then go to the xtravels terminal and create the service by running
-```sh
-cf cups grantor-dp-admin -p grantor-dp-admin.json
-```
+Open this file in VS Code and replace the three dots by the password.
+
+4. Go to the xtravels terminal and create the service by running
+    ```sh
+    cf cups grantor-dp-admin -p grantor-dp-admin.json
+    ```
 
 
 ## Exercise 4.2 - Deploy to SAP HANA Cloud
 
+1. Before we actually deploy, go to the xtravels terminal and run
+    ```sh
+    cds build --for hana
+    ```
 
-Before we actually deploy, go to the xtravels terminal and run
-```sh
-cds build --for hana
-```
-
-Look at the build output in _xtravels/gen/db/src/gen_.
+2. Look at the build output in _xtravels/gen/db/src/gen_.
 The Data Product entities are still mocked, so you will find corresponding
 _.hdbtable_ files, like _sap.s4com.Customer.v1.Customer.hdbtable_.
 
+3. Deploy the database schema of your xtravels app to SAP HANA Cloud: In the xtravels terminal, run
+    ```sh
+    cds deploy --to hana
+    ```
+    This will automatically create an HDI container in the HANA Cloud instance and 
+    deploy the database model of your app to it.
 
-Deploy the database schema of your xtravels app to SAP HANA Cloud.
-In the xtravels terminal, run
-```sh
-cds deploy --to hana
-```
-
-This will automatically create an HDI container in the HANA Cloud instance and
-deploy the database model of your app to it.
 
 You can see the HDI container in ...
 
@@ -75,50 +71,54 @@ Note that a file `.cdsrc-private.json` has been created in the _xtravels_ folder
 
 ## Exercise 4.3 - Run in hybrid mode
 
-After completing these steps you will have...
+After completing these steps you will have your xtravels app running locally on your laptop,
+connected to a SAP HANA Cloud instance.
 
+1. Start `cds watch` in hybrid mode: In the xtravels terminal, run
+    ```sh
+    cds watch --profile hybrid
+    ```
 
-Start `cds watch` in hybrid mode. In the xtravels terminal, run
-```sh
-cds watch --profile hybrid
-```
-
-Observe the console output. It shows that the app is started locally,
+2. Observe the console output. It shows that the app is started locally,
 but this time it is connected to the HANA Cloud instance:
-```
-[cds] - connect to db > hana {
-  database_id: '...',
-  host: '...hanacloud.ondemand.com',
-  port: '443',
-  driver: 'com.sap.db.jdbc.Driver',
-  url: '...',
-  schema: '...',
-  certificate: '...',
-  hdi_user: '...',
-  hdi_password: '...',
-  user: '...',
-  password: '...'
-}
-```
+    ```
+    [cds] - connect to db > hana {
+      database_id: '...',
+      host: '...hanacloud.ondemand.com',
+      port: '443',
+      driver: 'com.sap.db.jdbc.Driver',
+      url: '...',
+      schema: '...',
+      certificate: '...',
+      hdi_user: '...',
+      hdi_password: '...',
+      user: '...',
+      password: '...'
+    }
+    ```
+    For the Data Product entity, still a regular table is created and filled with the test data.
 
-For the Data Product entity, still a regular table is created and filled with the test data.
-When opening the [xtravels web app](http://localhost:4004/travels/webapp/index.html),
-you can still see the same test data as before.
+3. Open the [xtravels web app](http://localhost:4004/travels/webapp/index.html).
+You can still see the same test data as before, but now the data isn't coming from an
+SQLite in-memory database, but from a (mock table in the) HANA instance.
 
-Stop `cds watch` by typing `Ctrl + C` into the xtravels terminal.
+4. Stop `cds watch` by typing `Ctrl+C` into the xtravels terminal.
+
 
 
 ## Exercise 4.4 - Connect to BDC share
 
-After completing these steps you will have...
+After completing these steps you will have connected the Data Product entity
+in your CDS model with a delta share in a real BDC tenant.
 
-Finally, we want to connect the Data Product entity in your CDS model with
-a delta share in a real BDC tenant.
-For this, we have prepared a schema in the HANA Cloud Instance that contains virtual
-tables that via a HANA Remote Source access the delta share tables in a BDC tenant.
+In this exercise, we focus on the CAP part of the integration. We have already
+* prepared a BDC tenant with a share for the Data Product "Customer"
+* a HANA remote source in our HANA instance, which points to the share
+* a schema in our HANA instance, wich virtual tables pointing to the share tables in the BDC tenant
 
-We will now connect the Data Product entity XXX in the xtravels app
-to these virtual tables via synonyms.
+<br>![](/exercises/ex4/images/04_04_0010.png)
+
+We will now connect the Data Product XXX in the xtravels app to these virtual tables via synonyms.
 
 We could create the necessary _.hdbsynonym_ files manually, but this is a bit tedious.
 The xtravels app already contains a build plugin, which modifies the output of `cds build`
@@ -159,7 +159,7 @@ For this we use the granting mechanism of HDI.
 In folder _xtravels/db_, add a folder _src_.
 In this new folder, add a file _.hdbgrants_.
 
-<br>![](/exercises/ex4/images/04_04_0010.png)
+<br>![](/exercises/ex4/images/04_04_0020.png)
 
 Add this content into the new file:
 ```json
