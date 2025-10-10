@@ -9,19 +9,19 @@ In this document, `XX` is the number that has been assigned to you for this sess
 
 ## Preparation 1 - Install the cds toolkit
 
-Open a console (Command Prompt).
-<br>![](/exercises/ex0/images/00_01_0010.png)
+1. Open a console (Command Prompt).
+    <br>![](/exercises/ex0/images/00_01_0010.png)
 
-Install the newest version of the _cds toolkit_ globally. In the console, run the command
-```sh
-npm add -g @sap/cds-dk
-```
+2. Install the newest version of the _cds toolkit_ globally. In the console, run the command
+    ```sh
+    npm add -g @sap/cds-dk
+    ```
 
-Check the version:
-```sh
-cds v
-```
-You should have version `9.4.x` of `cds` and `cds-dk`.
+3. Check the version:
+    ```sh
+    cds v
+    ```
+    You should have version `9.4.x` of `@sap/cds` and `@sap/cds-dk`.
 
 You may need to add `C:\Users\TE-XX\AppData\Roaming\npm` to the `PATH` environment variable.
 

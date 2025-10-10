@@ -11,19 +11,28 @@ crated in the [Preparation](../ex0/README.md) section.
 
 After completing these steps you will have the basic project strucure of the xflights app.
 
-1. In VS Code, open a terminal and create the xflights project with
+1. In VS Code, open a terminal.
+    <br>![](/exercises/ex1/images/01_01_0010-100.png)
+
+1. In VS Code, open a terminal.
+    <br>![](/exercises/ex1/images/01_01_0010.png)
+
+1. In VS Code, open a terminal.
+    <br>![](/exercises/ex1/images/01_01_0011.png)
+
+2. In VS Code, open a terminal and create the xflights project with
     ```sh
     cds init xflights
     ```
     This creates a directory _xflights_ with the basic structure for a CAP app.
 
-2. In folder _xflights_, add a file _.env_ with this content:
+3. In folder _xflights_, add a file _.env_ with this content:
     ```
     # Start on port 4005 by default, leaving 4004 for the xtravels app
     cds.server.port = 4005
     ```
 
-3. Even though the app is still empty, we already now start it.
+4. Even though the app is still empty, we already now start it.
     In the terminal, change to directory _xflights_ and run `cds watch`:
     ```sh
     cd xflights
@@ -31,7 +40,7 @@ After completing these steps you will have the basic project strucure of the xfl
     ```
     When we add further components to the app, `cds watch` will automatically pick it up.
 
-4. See the output in the terminal:
+5. See the output in the terminal:
     ```
     cds serve all --with-mocks --in-memory? 
     ( live reload enabled for browsers ) 
