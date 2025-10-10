@@ -76,19 +76,19 @@ After completing these steps you will have the basic project strucure of the xfl
 After completing these steps you will have defined the essential entities of the xflights app.
 
 The first part of the new app is the domain model with these entities:
-    * Airlines  
-      A list of airlines that operate flights
-    * Airports  
-      Airports where flights depart and arrive  
-    * Connections  
-      Defines flight connections. Each connection is operated by an airline
-      and has a departure and an arrival airport.
-    * Flights  
-      Lists the concrete flights, i.e. a connection operated at a given date.
-    * Supplements  
-      Things you can add to a flight, like additional luggage, food, drinks.
+* Airlines  
+  A list of airlines that operate flights
+* Airports  
+  Airports where flights depart and arrive  
+* Connections  
+  Defines flight connections. Each connection is operated by an airline
+  and has a departure and an arrival airport.
+* Flights  
+  Lists the concrete flights, i.e. a connection operated at a given date.
+* Supplements  
+  Things you can add to a flight, like additional luggage, food, drinks.
 
-    <br>![](/exercises/ex1/images/01_02_0010.png)
+<br>![](/exercises/ex1/images/01_02_0010.png)
 
 
 1. In folder _xflights/db_, create a file named _schema.cds_.
