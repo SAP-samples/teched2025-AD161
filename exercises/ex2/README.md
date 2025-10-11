@@ -4,7 +4,9 @@ In this exercise, we will create a second CAP app called xtravels.
 It is kind of a travel agency app, where you can book travels and flights.
 xtravels will consume the flights masterdata provided by the xflights app.
 This time, we don't build the application from scratch, but start with
-an almost complete app.
+an almost complete app. The only thing that is missing is the master-data entities
+`Flights` and `Supplements`, which we will get by importing the API package
+provided in the previous exercise.
 
 
 All file or directory paths in this exercise are relative to the workspace folder _ws_
