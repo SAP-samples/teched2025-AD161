@@ -277,6 +277,7 @@ index page on [localhost:4005](http://localhost:4005/) and click the
 "Fiori preview" link for entity `Flights` or `Connections`.
 
     <br>![](/exercises/ex1/images/01_05_0010-60.png)
+
     The columns specified in the `@UI.LineItem` annotation are shown by default.
 
 
