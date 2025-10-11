@@ -117,7 +117,7 @@ The imported entities `Flights` and `Supplements` are used in various places:
 
 
 
-## Exercise 2.5 - Run the XTravels app with flights being mocked
+## Exercise 2.5 - Run the xtravels app with flights being mocked
 
 After completing these steps you will have xtravels running with the entities
 from the API package being mocked by local entities.
@@ -188,7 +188,7 @@ e.g. also directly in the database.
 For more information, visit session ... __TODO__ link to Daniel's deep dive.
 
 
-1. Stop `cds watch` in the xtravels terminal by typing `Ctrl-C`.
+1. Stop `cds watch` in the xtravels terminal by typing `Ctrl+C`.
 
 2. Start `cds watch` in the xflights terminal:
     ```sh
@@ -200,7 +200,7 @@ For more information, visit session ... __TODO__ link to Daniel's deep dive.
     cds watch
     ```
 
-4. Observe the output of `cds watch` in the xtravels terminal.
+4. Observe the output of `cds watch` in the xtravels terminal.  
 This time the xtravels app recognizes that there is another app (xflights) that
 exposes service `sap.capire.flights.data` and connects to that service
 rather than mocking it (note that no csv data is loaded for the entites
@@ -234,7 +234,7 @@ of this service).
 ```
 -->
 
-5. Observe the output of `cds watch` in the xflights terminal.
+5. Observe the output of `cds watch` in the xflights terminal.  
 Here you can see the incoming calls (from xtravels) to `GET` the
 data from entities `Flights` and `Supplements`.
 
@@ -295,9 +295,9 @@ and start the [xtravels web app](http://localhost:4004/travels/webapp/index.html
 In order to keep things simple, we will again use mocked master-data entities
 `Flights` and `Supplements` in the remaining exercises.
 
-1. Stop `cds watch` in the xtravels terminal by typing `Ctrl-C`.
+1. Stop `cds watch` in the xtravels terminal by typing `Ctrl+C`.
 
-2. Stop `cds watch` in the xflights terminal by typing `Ctrl-C`.
+2. Stop `cds watch` in the xflights terminal by typing `Ctrl+C`.
 
 3. Close the xflights terminal.
 
