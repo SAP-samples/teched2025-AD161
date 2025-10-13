@@ -33,7 +33,7 @@ assigned to you in the beginning of the session.
 
 1. Go to the xtravels terminal and execute
     ```sh
-    cf l -a https://api.cf.eu10-005.hana.ondemand.com --origin aoykcp1ee-platform
+    cf login -a https://api.cf.eu10-005.hana.ondemand.com --origin aoykcp1ee-platform
     ```
 
 2. At the prompt, enter user and password. Replace XX with your number and
@@ -48,7 +48,7 @@ use the password provided to you at the beginning of the session.
 ## Exercise 4.2 - Deploy to SAP HANA Cloud
 
 After completing these steps you will have deployed the database model
-of xtravels to HANA. The Data Product entities are still represented as plain tables.
+of xtravels to HANA. The Data Product entities are still mocked as plain tables.
 
 1. Before we actually deploy, go to the xtravels terminal and run
     ```sh
@@ -58,6 +58,8 @@ of xtravels to HANA. The Data Product entities are still represented as plain ta
 2. Look at the build output in _xtravels/gen/db/src/gen_.  
 The Data Product entities are still mocked, so you will find corresponding _.hdbtable_ files,
 like _sap.s4com.Customer.v1.Customer.hdbtable_.
+
+    <br>![](/exercises/ex4/images/04_02_0010.png)
 
 3. Deploy the database schema of your xtravels app to SAP HANA Cloud: in the xtravels terminal, run
     ```sh
@@ -106,8 +108,8 @@ but this time it is connected to the HANA Cloud instance:
     ```
 -->
 
-3. Open the [xtravels web app](http://localhost:4004/travels/webapp/index.html).
-You can still see the same test data as before, but now the data isn't coming from an
+3. Open the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
+You still see the same test data as before, but now the data isn't coming from an
 SQLite in-memory database, but from a (mock table in the) HANA instance.
 
 4. Stop `cds watch` by typing `Ctrl+C` into the xtravels terminal.
@@ -298,14 +300,18 @@ case sensitive names in BDC with "unquoted" names database names in CAP CDS.
     points to a delta share table in a BDC tenant filled with sample data of an S/4
     test system.
 
-5. Again start the app in hybrid mode:
+5. Start the app in hybrid mode:
     ```sh
     cds watch --profile hybrid
     ```
 
-6. Go to the [xtravels web app](http://localhost:4004/travels/webapp/index.html)
-and look at the data. You will notice that the customer data (names, address, ...)
+6. Go to the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
+Look at the data. You will notice that the customer data (names, address, ...)
 has changed, because you no longer see the local mock data, but the data from the BDC tenant.
+
+    <br>![](/exercises/ex4/images/04_06_0010.png)
+
+
 
 
 

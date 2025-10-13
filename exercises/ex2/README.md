@@ -167,7 +167,7 @@ and are filled with _csv_ data from the imported package:
 4. Open the automatically served index page in your browser at [localhost:4004](http://localhost:4004/).
 
 5. Click the link [/travels/webapp](http://localhost:4004/travels/webapp/index.html) to start the Fiori UI.
-You should see a full fledged xtravels app, looking similar to this:
+You should see a full fledged xtravels app:
 
     <br>![](/exercises/ex2/images/02_05_0020.png)
 

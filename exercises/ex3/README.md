@@ -64,7 +64,7 @@ metadata as API package into your xtravels project.
 
 1. Go to the terminal of the xtravels app.
 
-2. Import the Data Product metadata to the CDS model of the xtravel app
+2. Import the Data Product metadata to the CDS model of the xtravels app
 with this command:
     ```sh
     cds import --data-product sap-s4com-Customer-v1.json
@@ -217,6 +217,9 @@ and is filled with the data from the csv file.
 
     <br>![](/exercises/ex3/images/03_06_0020.png)
 
+    Have a look into the csv file: it only contains data for the columns we actually use
+    in the consumption view.
+
 <!--
     ```
     [cds] - connect to db > sqlite { url: ':memory:' }
@@ -239,10 +242,10 @@ and is filled with the data from the csv file.
 
 5. Click the link [/travels/webapp](http://localhost:4004/travels/webapp/index.html) to start the Fiori UI.  
 
-The app should look like the last time you have started it.
+    <br>![](/exercises/ex3/images/03_06_0020.png)
+
+The app looks almost like the last time you have started it.
 This time, however, we see different data for "Customer", namely the test data we have just added via the csv file.
-Some labels have changed as well, as the imported Data Product has its own `@title` annotations and
-its own _\_i18n_ texts.
 
 
 
