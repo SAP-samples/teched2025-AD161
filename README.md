@@ -40,7 +40,7 @@ In the second part of the session, we extend the _xtravels_ app and also consume
 
 We focus on the CAP part of this integration. I.e. we assume that there already is a BDC tenant with
 the required Data Product installed, and that we have access to that tenant.
-In the SAP HANA Cloud Instance we are using for the session, we have already created
+In the HANA Cloud Instance we are using for the session, we have already created
 a HANA Remote Source pointing to the BDC tenant, as well as a schema that contains virtual tables
 pointing to the corresponding share tables in the BDC tenant. In the session, we will connect
 the entities in the CAP app to these virtual tables, following the Data Federation pattern
@@ -93,7 +93,9 @@ Product with a BDC tenant and run the app in hybrid mode.
     - [Exercise 4.1 - Log on to Cloud Foundry](exercises/ex4/README.md#exercise-41---log-on-to-cloud-foundry)
     - [Exercise 4.2 - Deploy to SAP HANA Cloud](exercises/ex4/README.md#exercise-42---deploy-to-sap-hana-cloud)
     - [Exercise 4.3 - Run in hybrid mode](exercises/ex4/README.md#exercise-43---run-in-hybrid-mode)
-    - [Exercise 4.4 - Connect to BDC share](exercises/ex4/README.md#exercise-44---connect-to-bdc-share)
+    - [Exercise 4.4 - Create grantor service](exercises/ex4/README.md#exercise-44--create-grantor-service)
+    - [Exercise 4.5 - (optional) Manually connect to BDC share](exercises/ex4/README.md#exercise-45--optional-manually-connect-to-bdc-share)
+    - [Exercise 4.6 - Connect to BDC share](exercises/ex4/README.md#exercise-44---connect-to-bdc-share)
 
 Start the exercises [here](exercises/ex0/).
 

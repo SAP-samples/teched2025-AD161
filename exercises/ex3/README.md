@@ -242,7 +242,7 @@ and is filled with the data from the csv file.
 The app should look like the last time you have started it.
 This time, however, we see different data for "Customer", namely the test data we have just added via the csv file.
 Some labels have changed as well, as the imported Data Product has its own `@title` annotations and
-its own _\_i18_ texts.
+its own _\_i18n_ texts.
 
 
 
