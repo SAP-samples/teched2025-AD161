@@ -55,6 +55,8 @@ as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
 
 3. Copy the file to folder _xtravels_ in your workspace.
 
+__TODO__ add screenshot
+
 
 
 ## Exercise 3.3 - Import Data Product metadata
@@ -178,7 +180,7 @@ of entity `Passengers`.
     Customer     : Association to Customers;
     ```
 
-3. In file _xtravels/srv/travel-service.cds_, add a projections for
+3. In file _xtravels/srv/travel-service.cds_, add a projection for
     `Customer` below the projection for `Passenger` inside service `TravelService`:
     ```cds
       entity Customers as projection on db.masterdata.Customers;

@@ -21,11 +21,11 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
 <br>![](/exercises/ex2/images/02_01_0010.png)
 
 1. Have a look at the main entities of xtravels in file _xtravels/db/schema.cds_:
-    * Travels  
+    * Travels:  
       A list of travels. Each travel is assigned to a customer and has some flight bookings.
-    * Passengers  
+    * Passengers:  
       The list of customers.
-    * Bookings  
+    * Bookings:  
       A list of flight bookings. This entity has an association to a `Flights` entity,
       and there is also an association to a `Supplements`entity.
       Both association targets are currently missing. The using directives in the beginning of
@@ -65,7 +65,7 @@ that we have exported from the xflights app in the previous exercise.
     <br>![](/exercises/ex2/images/02_02_0010.png)
     
     Due to the workspace definition in _package.json_ (the one in the _ws_ folder),
-    the exported API package in _apis_ is used to satisfy this new dependendcy.
+    the exported API package in _apis_ is used to satisfy this new dependency.
     In _node\_modules_, you will find a symbolic link for _xflights-flight-data_ pointing
     to _apis/flights-data_.
 
@@ -75,7 +75,7 @@ that we have exported from the xflights app in the previous exercise.
 
 After completing this step you will have a complete xtravels app.
 
-Add the following content to the empty file _xtravels/db/masterdata_ to
+Add the following content to the empty file _xtravels/db/master-data.cds_ to
 provide the missing entities `Flights` and `Supplements`:
 
 ```cds

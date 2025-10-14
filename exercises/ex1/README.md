@@ -9,7 +9,7 @@ crated in the [Preparation](../ex0/README.md) section.
 
 ## Exercise 1.1 - Create xflights project
 
-After completing these steps you will have the basic project strucure of the xflights app.
+After completing these steps you will have the basic project structure of the xflights app.
 
 1. In VS Code, open a terminal.
 
@@ -17,9 +17,10 @@ After completing these steps you will have the basic project strucure of the xfl
 
 2. Go to the terminal and create the xflights project with
     ```sh
-    cds init xflights
+    cds init xflights && cd xflights
     ```
     This creates a directory _xflights_ with the basic structure for a CAP app.
+    Then it also changes your current directory to _xflights_.
 
     <br>![](/exercises/ex1/images/01_01_0020.png)
 
@@ -30,9 +31,8 @@ After completing these steps you will have the basic project strucure of the xfl
     ```
 
 4. Even though the app is still empty, we already now start it.
-    In the terminal, change to directory _xflights_ and run `cds watch`:
+    In the terminal, run `cds watch`:
     ```sh
-    cd xflights
     cds watch
     ```
     When we add further components to the app, `cds watch` will automatically pick it up.
@@ -243,7 +243,7 @@ After completing these steps you will have preconfigured columns in the Fiori pr
 If you want use the Fiori preview functionality of the index page, you have to
 manually configure the columns to be displayed. This can be avoided
 by adding a few Fiori `@UI.LineItem` annotations that define a default layout
-for entites `Flights` and `Connections`.
+for entities `Flights` and `Connections`.
 
 1. In folder _xflights/app_, create a new file _layout.cds_.
 
@@ -366,7 +366,8 @@ that acts as an API to retrieve some data from the _xflights_ app.
     In this service, entity `Flights` is not a simple one-to-one projection of the
     respective entity in the domain model. Instead of having two separate entities
     for connections and flights, we pull in the connection data directly
-    into the `Flights` entity ("denormalization").
+    into the `Flights` entity ("denormalization"). This is done via the `flight`
+    association that is part of entity `sap.capire.flights.Flights`.
 
     We have added some annotations to the service that control how the data of the entities
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
@@ -394,12 +395,12 @@ to get flights data. In order to do that, xtravels needs a definition
 of the API.
 
 We now export the API service `sap.capire.flights.data` as an "API package" that can be
-seemlessly integrated in other apps.
+seamlessly integrated in other apps.
 This package contains everything that is needed in a consuming app, including some test data.
 
 1. In the terminal, stop `cds watch` via `Ctrl+C`.
 
-2. Run the command
+2. Run the command (assuming you are still in folder _xflights_):
     ```sh
     cds export -s sap.capire.flights.data --to ../apis/flights-data
     ```
@@ -418,7 +419,7 @@ This package contains everything that is needed in a consuming app, including so
     * There is a _data_ folder with some test data. This data is extracted by starting the app in the
       background and querying the entities in the service.
 
-4. As the auto-exposure mechanism of the compiler doesn't yet seemlessly work
+4. As the auto-exposure mechanism of the compiler doesn't yet seamlessly work
 together with exporting and importing APIs, we need to apply a workaround.
 Add these lines to the file _apis/flights-data/index.cds_:
     ```cds

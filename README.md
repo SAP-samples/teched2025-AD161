@@ -18,7 +18,7 @@ In this document we use the following abbreviations:
 This session introduces attendees to Data Federation with CAP,
 and in particular shows how to integrate a Data Product of BDC into a CAP application.
 
-CAP Data Federation is about sharing data between two CAP apps or between a CAP and and another party.
+CAP Data Federation is about sharing data between two CAP apps or between a CAP app and another party.
 We distinguish between what a developer needs to do in the model ("above the scenes") and the technical
 connection. The latter should not be reflected in the model, but happens automatically in the background
 ("behind the scenes"), controlled by some configuration.
