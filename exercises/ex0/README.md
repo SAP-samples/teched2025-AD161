@@ -7,6 +7,8 @@ where you develop the apps.
 
 In this document, `XX` is the number that has been assigned to you for this session.
 
+
+
 ## Preparation 1 - Install the cds toolkit
 
 1. Open a console (Command Prompt).
@@ -26,6 +28,7 @@ In this document, `XX` is the number that has been assigned to you for this sess
 You may need to add `C:\Users\TE-XX\AppData\Roaming\npm` to the `PATH` environment variable.
 
 
+
 ## Preparation 2 - Setup workspace
 
 Clone the repo for this session. It containes a folder _ws_ where you will be
@@ -39,16 +42,26 @@ code .
 ```
 
 You should see this folder structure:
+
 <br>![](/exercises/ex0/images/00_02_0010.png)
 
 Ignore folder _xtravels_ for the time being, it will only be used in [Exercise 2](../ex2/README.md).
 
 
-## Preparation 3 - Copying 
+
+## Preparation 3 - (optional) Activate auto-save
+
+Each time you change a file, don't forget to save with `Ctrl+S` or via the "File" menu.
+Alternatively you can also activate the "Auto Save"  feature of VS code via the "File menu".
+
+
+
+## Preparation 4 - Copying 
 
 In the course of the exercises, you will need to copy some files from [assets](../../assets)
 into the workspace. The simplest way to do this is to open folder _C:\Users\TE-XX\teched2025-AD161\assets_
 in Windows Explorer and then copy the files from there into VS Code via Drag & Drop.
+
 
 
 ## Summary
