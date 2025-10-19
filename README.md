@@ -7,10 +7,10 @@ This repository contains the material for the SAP TechEd 2025 session called AD1
 ## Names
 
 In this document we use the following abbreviations:
-* CAP for [SAP Cloud Application Model](https://cap.cloud.sap/docs/)
+* CAP for [SAP Cloud Application Programming Model](https://cap.cloud.sap/docs/)
 * HANA for [SAP HANA Cloud](https://www.sap.com/products/data-cloud/hana.html)
 * BTP for [SAP Business Technology Platform](https://www.sap.com/products/technology-platform.html)
-* BDC for[SAP Business Data Cloud](https://www.sap.com/products/data-cloud/hana.html)
+* BDC for [SAP Business Data Cloud](https://www.sap.com/products/data-cloud/hana.html)
 
 
 ## Overview
@@ -29,7 +29,7 @@ The picture shows Data Federation between two CAP apps, but the general pattern 
 The producing app provides an interface to the data and publishes its definition. The consuming app imports
 the interface definition and builds on top of it.
 
-In the first part of this session, we build two CAP apps: _xflights_ is an app to that holds masterdata
+In the first part of this session, we build two CAP apps: _xflights_ is an app that holds masterdata
 for flights, airlines, ... and provides an API to access the data. _xtravels_ allows to book travels and flights
 and makes use of the masterdata provided by _xflights_.
 
