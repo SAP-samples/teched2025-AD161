@@ -55,7 +55,8 @@ as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
 
 3. Copy the file to folder _xtravels_ in your workspace.
 
-__TODO__ add screenshot
+    <br>![](/exercises/ex3/images/03_02_0020.png)
+
 
 
 

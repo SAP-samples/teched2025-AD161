@@ -110,7 +110,7 @@ but this time it is connected to the HANA Cloud instance:
 
 3. Open the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
 You still see the same test data as before, but now the data isn't coming from an
-SQLite in-memory database, but from a (mock table in the) HANA instance.
+SQLite in-memory database, but from a mock table in the HANA instance.
 
 4. Stop `cds watch` by typing `Ctrl+C` into the xtravels terminal.
 
@@ -167,7 +167,8 @@ you have used above to log on to CF.
 If you have enough time, you can now manually create all the necessary artefacts to
 connect the `Customer` entity in the imported API package via a synonym to the
 virtual table in schema `DP_VT_CUSTOMER`. Alternatively, you can directly
-jump to [Exercise 4.4 - Connect to BDC share](exercises/ex4/README.md#exercise-44---connect-to-bdc-share)
+jump to [Exercise 4.4 - Connect to BDC share](exercises/ex4/README.md#exercise-46---connect-to-bdc-share)
+
 and let CAP do the necessary steps.
 
 1. Open file _xtravels/db/customer.cds_ and add the following line at the end of the file:
@@ -178,6 +179,8 @@ and let CAP do the necessary steps.
     With this annotation, no table will be created for the entity.
 
 2. Move the file _sap.s4com-Customer.v1.Customer.csv_ from folder _xtravels/db/data_ to folder _xtravels_.
+
+    <br>![](/exercises/ex4/images/04_05_0010.png)
 
 3. In folder _xtravels/db/src_, create a file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ with the following content:
     ```json
@@ -208,7 +211,7 @@ and let CAP do the necessary steps.
     This mapping view is necessary to align the naming convention of CAP for database names
     with the case sensitive names in the BDC share.
 
-5. In the same folder, creat a file _.hdbconfig_ with the following content:
+5. In the same folder, creat a file _.hdiconfig_ with the following content:
     ```json
     {
       "file_suffixes": {
@@ -221,6 +224,11 @@ and let CAP do the necessary steps.
       }
     }
     ```
+
+    Your folder structure should now look like this:
+
+    <br>![](/exercises/ex4/images/04_05_0030.png)
+
 
 6. Deploy to HANA: in the xtravels terminal, run
     ```sh
@@ -250,6 +258,9 @@ by the `cds build`. In order for this to work, we have to clean up a bit:
     * Move the file _sap.s4com-Customer.v1.Customer.csv_ from folder _xtravels_ back to folder _xtravels/db/data_.
     * In file _xtravels/db/customer.cds_, remove the line with the `annotate` statement.
 
+    Your folder structure should now look like this:
+
+    <br>![](/exercises/ex4/images/04_05_0040.png)
 
 
 ## Exercise 4.6 - Connect to BDC share
@@ -310,8 +321,6 @@ Look at the data. You will notice that the customer data (names, address, ...)
 has changed, because you no longer see the local mock data, but the data from the BDC tenant.
 
     <br>![](/exercises/ex4/images/04_06_0010.png)
-
-
 
 
 

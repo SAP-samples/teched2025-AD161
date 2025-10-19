@@ -404,9 +404,19 @@ This package contains everything that is needed in a consuming app, including so
     ```sh
     cds export -s sap.capire.flights.data --to ../apis/flights-data
     ```
-    This creates the API package directly inside our workspace.
+    This creates the API package as folder _apis/flights-data_ directly in our workspace in folder.
 
-3. Have a look at the new folder _apis/flights-data_.
+3. Add these lines to the file _apis/flights-data/index.cds_:
+    ```cds
+    // Workaround for @cds.autoexpose kicking in too eagerly ...
+    annotate sap.common.Currencies with @cds.autoexpose:false;
+    annotate sap.common.Countries with @cds.autoexpose:false;
+    annotate sap.common.Languages with @cds.autoexpose:false;
+    ```
+    As the auto-exposure mechanism of the compiler doesn't yet seamlessly work together
+    with exporting and importing APIs, we need to apply a workaround.
+
+4. Have a look at the new folder _apis/flights-data_.
 
     <br>![](/exercises/ex1/images/01_08_0010.png)
 
@@ -419,15 +429,6 @@ This package contains everything that is needed in a consuming app, including so
     * There is a _data_ folder with some test data. This data is extracted by starting the app in the
       background and querying the entities in the service.
 
-4. As the auto-exposure mechanism of the compiler doesn't yet seamlessly work
-together with exporting and importing APIs, we need to apply a workaround.
-Add these lines to the file _apis/flights-data/index.cds_:
-    ```cds
-    // Workaround for @cds.autoexpose kicking in too eagerly ...
-    annotate sap.common.Currencies with @cds.autoexpose:false;
-    annotate sap.common.Countries with @cds.autoexpose:false;
-    annotate sap.common.Languages with @cds.autoexpose:false;
-    ```
 
 
 ## Exercise 1.9 - Cleanup

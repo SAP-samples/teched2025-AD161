@@ -33,7 +33,7 @@ developing the CAP applications. Go to that folder and start VS Code.
 ```sh
 cd C:\Users\TE-XX
 git clone https://github.com/SAP-samples/teched2025-AD161.git
-cd techeed2025-AD161
+cd teched2025-AD161
 cd ws
 code .
 ```
@@ -46,7 +46,7 @@ Ignore folder _xtravels_ for the time being, it will only be used in [Exercise 2
 
 ## Preparation 3 - Copying 
 
-In the course of the exercises, you will need to copy some files from [assets](../assets)
+In the course of the exercises, you will need to copy some files from [assets](../../assets)
 into the workspace. The simplest way to do this is to open folder _C:\Users\TE-XX\teched2025-AD161\assets_
 in Windows Explorer and then copy the files from there into VS Code via Drag & Drop.
 
