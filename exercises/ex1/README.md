@@ -414,7 +414,7 @@ This package contains everything that is needed in a consuming app, including so
     annotate sap.common.Languages with @cds.autoexpose:false;
     ```
     As the auto-exposure mechanism of the compiler doesn't yet seamlessly work together
-    with exporting and importing APIs, we need to apply a workaround.
+    with exporting and importing APIs, we need to apply these annotations as a workaround.
 
 4. Have a look at the new folder _apis/flights-data_.
 

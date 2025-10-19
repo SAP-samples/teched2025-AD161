@@ -167,8 +167,7 @@ you have used above to log on to CF.
 If you have enough time, you can now manually create all the necessary artefacts to
 connect the `Customer` entity in the imported API package via a synonym to the
 virtual table in schema `DP_VT_CUSTOMER`. Alternatively, you can directly
-jump to [Exercise 4.4 - Connect to BDC share](exercises/ex4/README.md#exercise-46---connect-to-bdc-share)
-
+jump to [Exercise 4.6 - Connect to BDC share](./README.md#exercise-46---connect-to-bdc-share)
 and let CAP do the necessary steps.
 
 1. Open file _xtravels/db/customer.cds_ and add the following line at the end of the file:
