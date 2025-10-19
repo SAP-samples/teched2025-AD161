@@ -4,7 +4,7 @@ In this exercise, we will create the xflights app from scratch. We will run the 
 and query its data via OData requests.
 
 All file or directory paths in this exercise are relative to the workspace folder _ws_
-crated in the [Preparation](../ex0/README.md) section.
+created in the [Preparation](../ex0/README.md) section.
 
 
 ## Exercise 1.1 - Create xflights project
