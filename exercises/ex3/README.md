@@ -245,9 +245,10 @@ and is filled with the data from the csv file.
 
 5. Click the link [/travels/webapp](http://localhost:4004/travels/webapp/index.html) to start the Fiori UI.  
 
-    <br>![](/exercises/ex3/images/03_06_0020.png)
+    <br>![](/exercises/ex3/images/03_06_0030.png)
 
-The app looks almost like the last time you have started it.
+The app looks almost like the last time you have started it
+in [Exercise 2.5](../ex2/README.md#exercise-25---run-the-xtravels-app-with-flights-being-mocked).
 This time, however, we see different data for "Customer", namely the test data we have just added via the csv file.
 
 
