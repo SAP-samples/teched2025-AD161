@@ -10,7 +10,7 @@ provided in the previous exercise.
 
 
 All file or directory paths in this exercise are relative to the workspace folder _ws_
-crated in the [Preparation](../ex0/README.md) section.
+created in the [Preparation](../ex0/README.md) section.
 
 
 ## Exercise 2.1 - Prepare

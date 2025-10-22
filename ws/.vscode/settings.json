@@ -1,0 +1,6 @@
+{
+  "terminal.integrated.splitCwd": "initial",
+  "files.exclude": {
+    ".vscode": true
+  }
+}

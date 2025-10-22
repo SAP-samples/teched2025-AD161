@@ -103,6 +103,9 @@ the still running cds watch reacts immediately with new output like this:
     `cds watch` detected the changes in _db/schema.cds_ and automatically
     bootstrapped an in-memory SQLite database when restarting the server process.
 
+    It can happen that `cds watch` doesn't detect a change automatically.
+    In that case, simply stop it via `Ctrl+C` and restart it.
+
 <!--
     ```
     [cds] - loaded model from 3 file(s):

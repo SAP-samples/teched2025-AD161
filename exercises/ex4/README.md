@@ -281,8 +281,7 @@ the grantor service that provides access to the schema.
       "cds": {
         "requires": {
           "sap.s4com.Customer.v1": {
-            "schema": "DP_VT_CUSTOMER",
-            "credentials": "grantor-dp-admin"
+            "schema": "DP_VT_CUSTOMER"
           }
         }
       }
