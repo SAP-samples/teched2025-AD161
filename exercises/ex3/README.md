@@ -1,14 +1,14 @@
 # Exercise 3 - Consume S/4 Data Product Customer
 
 From a modelling point of view, there is no difference between consuming
-data from another CAP app (like we did in the previous exercise) or consuming
+data from another CAP app (like you did in the previous exercise) or consuming
 a Data Product:
-* we import a package that describes the API
-* we define consumption views on top of the imported entities 
-* we use the consumption views in the model
+* you import a package that describes the API
+* you define consumption views on top of the imported entities 
+* you use the consumption views in the model
 
-In this exercise, we will import the metadata for S/4 Data Product "Customer" to the xtravels app.
-We will then replace local entity `Passenger` with entity `Customer` from the Data Product.
+In this exercise, you will import the metadata for S/4 Data Product "Customer" to the xtravels app.
+You will then replace local entity `Passenger` with entity `Customer` from the Data Product.
 
 <br>![](/exercises/ex3/images/03_00_0010.png)
 
@@ -150,11 +150,11 @@ in your app's model and custom code should address this entity.
 
 In the consumption view, you select only those elements of the Data Product entity
 that you actually want to use in your application.
-Here we also rename the fields of the imported Data Product entity `Customer` so
-that the names match those of entity `Passengers`, which we are going to replace.
+In addition, the fields of the imported Data Product entity `Customer` are renamed so
+that they match those of entity `Passengers`, which you are going to replace.
 
-We won't use the other entities of the Data Product in our xtravels app,
-thus we don't add consumption views for them.
+You won't use the other entities of the Data Product in our xtravels app,
+thus you don't add consumption views for them.
 
 
 
@@ -198,8 +198,8 @@ entity `Passengers` can easily be replaced by the Data Product entity `Customers
 After completing these steps you will have run the xtravels app with
 the Data Product entity `Customers` being mocked by a local table.
 
-Following the CAP principle of "local development and testing", we first want
-to test our xtravels app with the Data Product entities being mocked by local
+Following the CAP principle of "local development and testing", you first
+test the xtravels app with the Data Product entities being mocked by local
 tables in a SQLite in-memory database.
 
 1. Add some test data: copy file
@@ -209,7 +209,7 @@ to folder _xtravels/db/data_. This provides some test data for mocking the
 
     <br>![](/exercises/ex3/images/03_06_0010.png)
 
-    Have a look into the csv file: it only contains data for the columns we actually use
+    Have a look into the csv file: it only contains data for the columns actually used
     in the consumption view.
 
 2. In the xtravels terminal, run
@@ -248,7 +248,7 @@ and is filled with the data from the csv file.
 
 The app looks almost like the last time you have started it
 in [Exercise 2.5](../ex2/README.md#exercise-25---run-the-xtravels-app-with-flights-being-mocked).
-This time, however, we see different data for "Customer", namely the test data we have just added via the csv file.
+This time, however, you see different data for "Customer", namely the test data you have just added via the csv file.
 
 
 

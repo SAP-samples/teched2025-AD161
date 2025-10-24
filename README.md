@@ -29,20 +29,20 @@ The picture shows Data Federation between two CAP apps, but the general pattern 
 The producing app provides an interface to the data and publishes its definition. The consuming app imports
 the interface definition and builds on top of it.
 
-In the first part of this session, we build two CAP apps: _xflights_ is an app that holds masterdata
+In the first part of this session, you build two CAP apps: _xflights_ is an app that holds masterdata
 for flights, airlines, ... and provides an API to access the data. _xtravels_ allows to book travels and flights
 and makes use of the masterdata provided by _xflights_.
 
 
-In the second part of the session, we extend the _xtravels_ app and also consume a BDC Data Product.
+In the second part of the session, you extend the _xtravels_ app and also consume a BDC Data Product.
 
 <br>![](./assets/images/i_0020.png)
 
 We focus on the CAP part of this integration. I.e. we assume that there already is a BDC tenant with
 the required Data Product installed, and that we have access to that tenant.
-In the HANA Cloud Instance we are using for the session, we have already created
+In the HANA Cloud Instance used for the session, we have already created
 a HANA Remote Source pointing to the BDC tenant, as well as a schema that contains virtual tables
-pointing to the corresponding share tables in the BDC tenant. In the session, we will connect
+pointing to the corresponding share tables in the BDC tenant. In the session, you will connect
 the entities in the CAP app to these virtual tables, following the Data Federation pattern
 established in the first part of the session.
 
@@ -55,11 +55,11 @@ The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique nu
 ## Exercises
 
 The exercise is divided in five parts.
-In the Getting Started section we prepare the _cds toolkit_ and set up the local workspace.
-In exercise 1 we will create CAP app "xflights" that serves flight master data.
-In exercise 2 we will create CAP app "xtravels" that consumes the masterdata from "xflights".
-In exercise 3 we will import an S/4 Data Product to the "xtravels" app and run it locally in mock mode.
-In exercise 4 we will deploy the database model of "xtravels" to a HANA Cloud, connect the Data
+In the Getting Started section you prepare the _cds toolkit_ and set up the local workspace.
+In exercise 1 you will create CAP app "xflights" that serves flight master data.
+In exercise 2 you will create CAP app "xtravels" that consumes the masterdata from "xflights".
+In exercise 3 you will import an S/4 Data Product to the "xtravels" app and run it locally in mock mode.
+In exercise 4 you will deploy the database model of "xtravels" to a HANA Cloud, connect the Data
 Product with a BDC tenant and run the app in hybrid mode.
 
 - [Getting Started](exercises/ex0/)
@@ -93,7 +93,7 @@ Product with a BDC tenant and run the app in hybrid mode.
     - [Exercise 4.1 - Log on to Cloud Foundry](exercises/ex4/README.md#exercise-41---log-on-to-cloud-foundry)
     - [Exercise 4.2 - Deploy to SAP HANA Cloud](exercises/ex4/README.md#exercise-42---deploy-to-sap-hana-cloud)
     - [Exercise 4.3 - Run in hybrid mode](exercises/ex4/README.md#exercise-43---run-in-hybrid-mode)
-    - [Exercise 4.4 - Create grantor service](exercises/ex4/README.md#exercise-44---create-grantor-service)
+    - [Exercise 4.4 - Prepare hdbgrants](exercises/ex4/README.md#exercise-44---prepare-hdbgrants)
     - [Exercise 4.5 - (optional) Manually connect to BDC share](exercises/ex4/README.md#exercise-45---optional-manually-connect-to-bdc-share)
     - [Exercise 4.6 - Connect to BDC share](exercises/ex4/README.md#exercise-46---connect-to-bdc-share)
 

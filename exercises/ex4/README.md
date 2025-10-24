@@ -1,20 +1,21 @@
 # Exercise 4 - Deploy to SAP HANA Cloud
 
-In this exercise, we will deploy the database model of the xtravels app
+In this exercise, you will deploy the database model of the xtravels app
 to a HANA Cloud instance and connect the Data Product entity `Customer`
 to a BDC tenant.
-We will run the xtravels app in hybrid mode: the app still runs locally on your laptop,
+You will run the xtravels app in hybrid mode: the app still runs locally on your laptop,
 but is connected to an HDI container in a HANA Cloud instance.
 
 
-In this session, we focus on the CAP part of the integration with a BDC Data Product.
-We have already
+This session focuses on the CAP part of the integration with a BDC Data Product.
+Prior to the session, we have already
 * prepared a BDC tenant with the "Customer" Data Product installed
 * created a HANA remote source in the HANA instance, which points to the share
 * created a schema `DP_VT_CUSTOMER` in the HANA instance with virtual tables pointing
   to the share tables in the BDC tenant.
+* prepared a user-provided service `grantor-dp-admin` in Cloud Foundry that holds credentials for accessing this schema.
 
-We will connect the Data Product entities in the CAP app to these virtual tables via synonyms.
+You will connect the Data Product entities in the CAP app to these virtual tables via synonyms.
 
 <br>![](/exercises/ex4/images/04_00_0010.png)
 
@@ -50,7 +51,7 @@ use the password provided to you at the beginning of the session.
 After completing these steps you will have deployed the database model
 of xtravels to HANA. The Data Product entities are still mocked as plain tables.
 
-1. Before we actually deploy, go to the xtravels terminal and run
+1. Before you actually deploy, go to the xtravels terminal and run
     ```sh
     cds build --for hana
     ```
@@ -116,30 +117,27 @@ SQLite in-memory database, but from a mock table in the HANA instance.
 
 
 
-## Exercise 4.4 - Create grantor service
+## Exercise 4.4 - Prepare hdbgrants
 
-After completing these steps you will have created a Cloud Foundry user provided
-service. This service is needed to grant access for schema `DP_VT_CUSTOMERS`
-to the HDI user.
+After completing these steps you will have prepared the hdbgrants mechanism
+to grant access for schema `DP_VT_CUSTOMERS` to the HDI user.
 
-1. In file _xtravels/grantor-dp-admin.json_, replace the three dots by the same password
-you have used above to log on to CF.
+In the next step you will define synonyms to connect the Data Product entities
+with virtual tables on schema `DP_VT_CUSTOMERS`.
+For deploying these synonyms, the HDI user needs access to this schema.
+In the Cloud Foundry environment there already is a user-provided service `grantor-dp-admin`
+that holds the credentials needed to grant access for schema `DP_VT_CUSTOMERS` to the HDI user.
 
-2. Go to the xtravels terminal and create the service by running
-    ```sh
-    cf cups grantor-dp-admin -p grantor-dp-admin.json
-    ```
-
-3. Bind the new service by running
+1. Bind the grantor service by running
     ```sh
     cds bind grantor-dp-admin --to grantor-dp-admin
     ```
 
     This adds a corresponding entry to _xtravels/.cdsrc-private.json_.
 
-4. Create a folder _xtravels/db/src_.
+2. Create a folder _xtravels/db/src_.
 
-5. In the new folder, create a file _.hdbgrants_ with the following content:
+3. In the new folder, create a file _.hdbgrants_ with the following content:
     ```json
     {
       "grantor-dp-admin": {
@@ -147,7 +145,6 @@ you have used above to log on to CF.
           "schema_privileges" : [
             {
               "schema" : "DP_VT_CUSTOMER",
-              "privileges" : [ "SELECT" ],
               "privileges_with_grant_option" : [ "SELECT" ]
             }
           ]
@@ -248,8 +245,8 @@ and let CAP do the necessary steps.
 Look at the data. You will notice that the customer data (names, address, ...)
 has changed, because you no longer see the local mock data, but the data from the BDC tenant.
 
-9. In the next exercise, the files we here created manually will be automatically produced
-by the `cds build`. In order for this to work, we have to clean up a bit:
+9. In the next exercise, the files that you have here created manually will be automatically produced
+by the `cds build`. In order for this to work, you have to clean up a bit:
     * Stop `cds watch` by typing `Ctrl+C` in the xtravels terminal.
     * In folder _xtravels/db/src_, delete file _.hdiconfig_.
     * In folder _xtravels/db/src_, delete file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_.
@@ -272,9 +269,8 @@ the output of `cds build` accordingly. Like the plugin that was used in
 [Exercise 2.6 - Get flights data from xflights app](exercises/ex2/README.md#exercise-26---get-flights-data-from-xflights-app),
 this plugin is not released standard CAP functionality, but preview of what we are currently working on.
 
-The plugin is activated via a configuration. Here we provide the schema in which the virtual tables
-for the Data Product entities in the imported API package can be found, and the name of
-the grantor service that provides access to the schema.
+The plugin is activated via a configuration. Here you have to provide the schema in which the virtual tables
+for the Data Product entities in the imported API package can be found.
 
 1. Open file _xtravels/package.json_ and add a `cds` section:
     ```jsonc

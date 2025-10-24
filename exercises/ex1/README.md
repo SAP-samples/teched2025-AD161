@@ -1,6 +1,6 @@
 # Exercise 1 - Build CAP app xflights
 
-In this exercise, we will create the xflights app from scratch. We will run the app locally
+In this exercise, you will create the xflights app from scratch. You will run the app locally
 and query its data via OData requests.
 
 All file or directory paths in this exercise are relative to the workspace folder _ws_
@@ -30,12 +30,11 @@ After completing these steps you will have the basic project structure of the xf
     cds.server.port = 4005
     ```
 
-4. Even though the app is still empty, we already now start it.
-    In the terminal, run `cds watch`:
+4. Even though the app is still empty, start it now. In the terminal, run `cds watch`:
     ```sh
     cds watch
     ```
-    When we add further components to the app, `cds watch` will automatically pick it up.
+    When you add further components to the app, `cds watch` will automatically pick it up.
 
 5. See the output in the terminal:
 
@@ -101,7 +100,7 @@ the still running cds watch reacts immediately with new output like this:
     bootstrapped an in-memory SQLite database when restarting the server process.
 
     Note that due to the _.env_ file, xflights is started on port 4005.
-    This becomes important later, when we start the xtravels app in parallel.
+    This becomes important later, when you start the xtravels app in parallel.
 
     It can happen that `cds watch` doesn't detect a change automatically.
     In that case, simply stop it via `Ctrl+C` and restart it.
@@ -142,7 +141,7 @@ do we have to run _npm install_?
 
 After completing these steps you will have an OData service for the _xflights_ app.
 
-Now we add an OData service that allows to see the data. This could be extended to a full fledged
+Now you add an OData service that allows to see the data. This could be extended to a full fledged
 maintenance UI for the xflights app, but this is not part of this lecture.
 
 1. In folder _xflights/srv_, create a file _fiori-service.cds_.
@@ -207,9 +206,9 @@ The entities are exposed via OData.
 
 After completing these steps you will have test data in the xflights app.
 
-Now we have a service that allows to query the content of the metadata entities,
-but this is still a bit boring, as we don't have any data in the tables.
-We will now add some CSV files with data to the xflights app.
+Now you have a service that allows to query the content of the metadata entities,
+but this is still a bit boring, as there is no data in the tables.
+You will now add some CSV files with data to the xflights app.
 
 1. Copy the folder [assets/ex1/data](../../assets/ex1/data) into folder _xflights/db_.
 The result should look like this:
@@ -289,7 +288,7 @@ index page on [localhost:4005](http://localhost:4005/) and click the
 After completing these steps you will have localized labels in the Fiori preview.
 
 In the Fiori preview, you see that the columns labels are simply the element names.
-We want to display appropriate labels in the correct language.
+You now change this to display appropriate labels in the correct language.
 
 1. In folder _xflights/db_, add a file _labels.cds_.
 
@@ -318,7 +317,7 @@ We want to display appropriate labels in the correct language.
     ```
     The annotations provide a title for some of the elements of the domain model entities.
 
-3. The values of the annotations are `i18n` keys. We need to also get the respective texts into our app.
+3. The values of the annotations are `i18n` keys. The respective texts need to be added to the app.
 Copy the folder [assets/ex1/_i18n](../../assets/ex1/_i18n) into folder _xflights_.
 
     The result should look like this:
@@ -368,14 +367,14 @@ that acts as an API to retrieve some data from the _xflights_ app.
 
     In this service, entity `Flights` is not a simple one-to-one projection of the
     respective entity in the domain model. Instead of having two separate entities
-    for connections and flights, we pull in the connection data directly
+    for connections and flights, the connection data is directly pulled
     into the `Flights` entity ("denormalization"). This is done via the `flight`
     association that is part of entity `sap.capire.flights.Flights`.
     This denormalization is applied because a consumer simply wants to see the
     list of flights and doesn't need to be bothered with the fact that in xflights
-    we have the data separated in two entities ("use-case oriented service").
+    the data is separated in two entities ("use-case oriented service").
 
-    We have added some annotations to the service that control how the data of the entities
+    The service has some annotations that control how the data of the entities
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
     (which basically is an extension of SQL that adds support for path expressions).
 
@@ -395,12 +394,12 @@ Notice how the connection data (e.g. columns `departure` and `arrival`) have bec
 After completing these steps you will have an API package for
 the new service `sap.capire.flights.data`.
 
-In [Exercise 2](../ex2/README.md) we will create the xtravels app,
+In [Exercise 2](../ex2/README.md) you will create the xtravels app,
 which calls the API service `sap.capire.flights.data` of xflights
 to get flights data. In order to do that, xtravels needs a definition
 of the API.
 
-We now export the API service `sap.capire.flights.data` as an "API package" that can be
+You now export the API service `sap.capire.flights.data` as an "API package" that can be
 seamlessly integrated in other apps.
 This package contains everything that is needed in a consuming app, including some test data.
 
@@ -420,7 +419,7 @@ This package contains everything that is needed in a consuming app, including so
     annotate sap.common.Languages with @cds.autoexpose:false;
     ```
     As the auto-exposure mechanism of the compiler doesn't yet seamlessly work together
-    with exporting and importing APIs, we need to apply these annotations as a workaround.
+    with exporting and importing APIs, you need to apply these annotations as a workaround.
 
 4. Have a look at the new folder _apis/flights-data_.
 

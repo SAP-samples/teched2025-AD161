@@ -2,7 +2,7 @@
 
 In this session, you will create two CAP applications. The apps are developed locally
 using Visual Studio Code and the _cds toolkit_.
-In this preparation section we install the _cds toolkit_ and set up the local workspace
+In this preparation section you install the _cds toolkit_ and set up the local workspace
 where you develop the apps.
 
 In this document, `XX` is the number that has been assigned to you for this session.

@@ -1,11 +1,11 @@
 # Exercise 2 - Build CAP app xtravels
 
-In this exercise, we will create a second CAP app called xtravels.
+In this exercise, you will create a second CAP app called xtravels.
 It is a travel agency app, where you can book travels and flights.
 xtravels will consume the flights masterdata provided by the xflights app.
-This time, we don't build the application from scratch, but start with
+This time, you don't build the application from scratch, but start with
 an almost complete app. The only thing that is missing is the master-data entities
-`Flights` and `Supplements`, which we will get by importing the API package
+`Flights` and `Supplements`, which you will get by importing the API package
 provided in the previous exercise.
 
 
@@ -53,7 +53,7 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
 ## Exercise 2.2 - Import API package for flights
 
 After completing these steps you will have imported the API package with the flight data
-that we have exported from the xflights app in the previous exercise.
+that you have exported from the xflights app in the previous exercise.
 
 1. In the _xtravels_ terminal, execute
     ```sh
@@ -99,12 +99,12 @@ The package name `xflights-flights-data` in the `from` clause of the `using`
 directive is resolved via the dependency in _xtravels/package.json_ and
 eventually points to the API package in the _apis_ folder.
 
-We put a projection on the external `Flights` entity, where we directly
-add fields of the associated entities `Airlines` (via association `airline`)
-and `Airports` (via associations `origin` and `departure`). In addition,
-we put a simple projection on the external entity `Supplements`.
-Each access to flights and supplements from any part of the xtravels app is
-through these projections.
+A projection is defined on top of the external `Flights` entity.
+Some fields of the associated entities `Airlines` and `Airports`are directly added
+to the projection via associations `airline`, `origin`, and `destination`.
+In addition, a simple projection is defined on top of the external entity `Supplements`.
+Each access to flights and supplements from any part of the xtravels app is made
+via these projections.
 
 
 
@@ -178,7 +178,7 @@ You should see a full fledged xtravels app:
 After completing these steps you will have both apps xflights and xtravels running,
 with xtravels being connected to the xflights app as data source for flight data.
 
-As technique for the data transfer we use "Data Federation via Initial Load replication".
+As technique for the data transfer we here use "Data Federation via Initial Load replication".
 On startup of xtravels, the CAP runtime recognizes that service `sap.capire.flights.data`
 is served in another app (xflights), where entities `Flights` and `Supplements` are exposed.
 xtravels then calls out to xflights, fetches all the data and caches it locally.
@@ -187,10 +187,8 @@ This automatic replication is not part of the released standard CAP functionalit
 but a preview of what we are currently working on.
 It is implemented as a plugin directly in the xtravels app. You can have a look at the
 implementation at [xtravels/.plugins/fed-xrv](/ws/xtravels/.plugins/fed-xrv).
-
 Besides the "Initial Load Replication", we are working on other ways of integration,
 e.g. also directly in the database.
-For more information, visit session ... __TODO__ link to Daniel's deep dive.
 
 
 1. Stop `cds watch` in the xtravels terminal by typing `Ctrl+C`.
@@ -297,7 +295,7 @@ and start the [xtravels web app](http://localhost:4004/travels/webapp/index.html
 
 ## Exercise 2.7 - Cleanup
 
-In order to keep things simple, we will again use mocked master-data entities
+In order to keep things simple, you will again use mocked master-data entities
 `Flights` and `Supplements` in the remaining exercises.
 
 1. Stop `cds watch` in the xtravels terminal by typing `Ctrl+C`.
