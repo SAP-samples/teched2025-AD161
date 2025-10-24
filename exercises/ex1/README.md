@@ -41,9 +41,6 @@ After completing these steps you will have the basic project structure of the xf
 
     <br>![](/exercises/ex1/images/01_01_0030.png)
 
-    Note that due to the _.env_ file, xflights is started on port 4005.
-    This becomes important later, when we start the xtravels app in parallel.
-
 <!--
     ```
     cds serve all --with-mocks --in-memory? 
@@ -102,6 +99,9 @@ the still running cds watch reacts immediately with new output like this:
 
     `cds watch` detected the changes in _db/schema.cds_ and automatically
     bootstrapped an in-memory SQLite database when restarting the server process.
+
+    Note that due to the _.env_ file, xflights is started on port 4005.
+    This becomes important later, when we start the xtravels app in parallel.
 
     It can happen that `cds watch` doesn't detect a change automatically.
     In that case, simply stop it via `Ctrl+C` and restart it.
@@ -371,6 +371,9 @@ that acts as an API to retrieve some data from the _xflights_ app.
     for connections and flights, we pull in the connection data directly
     into the `Flights` entity ("denormalization"). This is done via the `flight`
     association that is part of entity `sap.capire.flights.Flights`.
+    This denormalization is applied because a consumer simply wants to see the
+    list of flights and doesn't need to be bothered with the fact that in xflights
+    we have the data separated in two entities ("use-case oriented service").
 
     We have added some annotations to the service that control how the data of the entities
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
@@ -409,7 +412,7 @@ This package contains everything that is needed in a consuming app, including so
     ```
     This creates the API package as folder _apis/flights-data_ directly in our workspace in folder.
 
-3. Add these lines to the file _apis/flights-data/index.cds_:
+3. Add these lines to the end of file _apis/flights-data/index.cds_:
     ```cds
     // Workaround for @cds.autoexpose kicking in too eagerly ...
     annotate sap.common.Currencies with @cds.autoexpose:false;

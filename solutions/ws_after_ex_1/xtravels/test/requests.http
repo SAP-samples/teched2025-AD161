@@ -1,0 +1,8 @@
+@server = http://localhost:4004/odata/v4
+
+###
+GET {{server}}/travel/Travels
+
+###
+GET {{server}}/travel/Customers
+
