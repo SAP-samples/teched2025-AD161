@@ -126,7 +126,7 @@ The corresponding localized texts are also part of the Data Products's API packa
 After completing these steps you will have a CDS view that acts as
 interface to entity `Customer` of the imported API.
 
-1. In folder _xtravels/db_, add a new file _customer.cds_.
+1. In folder _xtravels/db_, add a new file _customers.cds_.
 
 2. Fill the new file with this content:
     ```cds
@@ -167,7 +167,7 @@ with entity `Customer` of the Data Product.
     ```cds
     using {
       sap.capire.travels.masterdata.Customers // the consumption view
-    } from './customer';
+    } from './customers';
     ```
 
 2. In the same file, adapt entity `Travels` so that it now uses the consumption view `Customer` instead
@@ -209,6 +209,8 @@ to folder _xtravels/db/data_. This provides some test data for mocking the
 
     <br>![](/exercises/ex3/images/03_06_0010.png)
 
+    Have a look into the csv file: it only contains data for the columns we actually use
+    in the consumption view.
 
 2. In the xtravels terminal, run
   ```sh
@@ -219,9 +221,6 @@ to folder _xtravels/db/data_. This provides some test data for mocking the
 and is filled with the data from the csv file.
 
     <br>![](/exercises/ex3/images/03_06_0020.png)
-
-    Have a look into the csv file: it only contains data for the columns we actually use
-    in the consumption view.
 
 <!--
     ```

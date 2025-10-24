@@ -1,0 +1,14 @@
+using { sap.capire.flights.data as external } from 'xflights-flights-data';
+namespace sap.capire.travels.masterdata;
+
+@federated entity Flights as projection on external.Flights {
+  *,
+  airline.icon     as icon,
+  airline.name     as airline,
+  origin.name      as origin,
+  destination.name as destination,
+}
+
+@federated entity Supplements as projection on external.Supplements {
+  ID, type, descr, price, currency
+}
