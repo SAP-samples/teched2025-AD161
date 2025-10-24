@@ -268,7 +268,9 @@ After completing these steps you will have connected the `Customer` entity
 in the imported API package via a synonym to the virtual table in schema `DP_VT_CUSTOMER`.
 
 The xtravels app already contains a build plugin (_xtravels/.plugins/dp-syn_), which modifies
-the output of `cds build` accordingly.
+the output of `cds build` accordingly. Like the plugin that was used in
+[Exercise 2.6 - Get flights data from xflights app](exercises/ex2/README.md#exercise-26---get-flights-data-from-xflights-app),
+this plugin is not released standard CAP functionality, but preview of what we are currently working on.
 
 The plugin is activated via a configuration. Here we provide the schema in which the virtual tables
 for the Data Product entities in the imported API package can be found, and the name of
