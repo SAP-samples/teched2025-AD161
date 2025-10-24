@@ -13,17 +13,13 @@
 // Synonym points to virtual table in target schema, assuming that name of VT is
 //   equal to the entity name without service prefix
 
-// Example:
-//  service: sap.s4com.Customer.v1
-//  entity:  sap.s4com.Customer.v1.Customer
-//
-// entity <--- "same name" ---> mapping view ........................SAP_S4COM_CUSTOMER_V1_CUSTOMER
+// entity <--- "same name" ---> mapping view
 //                               | selects from
 //                               V  
-//                              synonym..............................SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN
+//                              synonym
 //                               | points to
 //                               V
-//                              virtual table........................CUSTOMER
+//                              virtual table
 //                                 in schema <target_schema>
 
 const cds = require('@sap/cds');
@@ -35,24 +31,21 @@ function getDPServices(csn) {
   // get services for consumed DPs
   let dp_services = Object.entries(csn.definitions)
     .filter( ([, def]) => def.kind === 'service' && def['@data.product'] && def['@cds.external']);
-  //console.log('DP services:', dp_services);
 
   function getSchema(x) {
     return (cds.env.requires && cds.env.requires[x] && cds.env.requires[x].schema) ? cds.env.requires[x].schema : null;
   }
   dp_services = dp_services.map(([n,]) => [n, getSchema(n)]).filter(([,s]) => s)
-  //console.log('DP services with schema:', dp_services);
 
   return dp_services;
 }
 
 
 cds.compile.to.hana = function (csn, options, ...etc) {
-  console.log('######### patch plugin start #########');
+  //console.log('######### patch plugin start #########');
 
   const results = [];
   const hdiResult = toHdi(csn, options, ...etc);
-  //console.log(JSON.stringify(hdiResult, null, 2));
   let toBeRemoved = [];
 
   // get services for consumed DPs
@@ -68,26 +61,14 @@ cds.compile.to.hana = function (csn, options, ...etc) {
     let entity = csn.definitions[n];
     if (entity.kind === 'entity')
     {
-      console.log('entity name: ', n)
-      //console.log('service name:', srv_name);
-      //console.log('schema name: ', vt_schema);
-      
-      // let [ , coren] = n.match(/^sap\.sai\.\w+\.(\w+)DDP$/);
-                                                // example: n = sap.s4com.Customer.v1.Customer
-      let nU     = n.toUpperCase().replace(/\./g, '_');      // SAP_S4COM_CUSTOMER_V1_CUSTOMER
-      let coren  = n.substring(srv_name.length + 1);         // Customer
-      let corenU = coren.toUpperCase().replace(/\./g, '_');  // CUSTOMER
-      let view_name     = nU;                                // SAP_S4COM_CUSTOMER_V1_CUSTOMER
-      let view_filename = `${n}.hdbview`;                    // sap.s4com.Customer.v1.Customer.hdbview
-      let syn_name      =  nU + '_SYN';                      // SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN
-      let syn_filename  = `${n}_syn.hdbsynonym`;             // sap.s4com.Customer.v1.Customer_syn.hdbsynonym
-      let vt_name       = corenU;                            // CUSTOMER
-
-      //console.log('view name:         ', view_name);
-      //console.log('view file name:    ', view_filename);
-      //console.log('synonym name:      ', syn_name)
-      //console.log('synonym file name: ', syn_filename);
-      //console.log('virtual table name:', vt_name)
+      let nU     = n.toUpperCase().replace(/\./g, '_');
+      let coren  = n.substring(srv_name.length + 1);
+      let corenU = coren.toUpperCase().replace(/\./g, '_');
+      let view_name     = nU;
+      let view_filename = `${n}.hdbview`;
+      let syn_name      =  nU + '_SYN';
+      let syn_filename  = `${n}_syn.hdbsynonym`;
+      let vt_name       = corenU;
 
       // mapping view
       let elems = entity.elements
@@ -109,25 +90,20 @@ cds.compile.to.hana = function (csn, options, ...etc) {
         }
       }
       results.push([JSON.stringify(syn_content, null, 2),  {file: syn_filename}]);
-
-      //console.log('------------------------------');
     }
   }
-
-// removing sap.s4com.Customer.v1.Customer.hdbtable
 
   for(const result of hdiResult) {
     let content = result[0];
     let file = result[1];
     if (toBeRemoved.includes(file.file)) {
-      //console.log('remove', file.file);
     }
     else {
       results.push(result);
     }
   }
 
-  console.log('######### patch plugin end #########');
+  //console.log('######### patch plugin end #########');
   return results;
 }
 
@@ -135,12 +111,11 @@ cds.compile.to.hana = function (csn, options, ...etc) {
 
 
 // remove .hdbtabledata files from the build result
-// TODO can we also remove the corresponding csv files?
 
 let old_hdbtabledata = cds.compile.to.hdbtabledata
 
 cds.compile.to.hdbtabledata = async (model, options = {}) => {
-  console.log("######### hdbtabledata patch plugin start #########")
+  //console.log("######### hdbtabledata patch plugin start #########")
 
   // get services for consumed DPs
   let dp_services = getDPServices(model);
@@ -153,10 +128,7 @@ cds.compile.to.hdbtabledata = async (model, options = {}) => {
     let entity = model.definitions[n];
     if (entity.kind === 'entity')
     {
-                                                    // example: n = sap.s4com.Customer.v1.Customer
-      let table_name = n.toUpperCase().replace(/\./g, '_');      // SAP_S4COM_CUSTOMER_V1_CUSTOMER
-      // console.log('entity name: ', n)
-      // console.log('table:       ', table_name);
+      let table_name = n.toUpperCase().replace(/\./g, '_');
       toBeRemoved.push(table_name);
     }
   }
@@ -174,7 +146,7 @@ cds.compile.to.hdbtabledata = async (model, options = {}) => {
     }
   }
 
-  console.log("######### hdbtabledata patch plugin end #########")
+  //console.log("######### hdbtabledata patch plugin end #########")
   // caller expects a generator object
   return _toOutput(newres)
 }
