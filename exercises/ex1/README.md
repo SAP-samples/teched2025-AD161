@@ -9,7 +9,7 @@ created in the [Preparation](../ex0/README.md) section.
 
 ## Exercise 1.1 - Create xflights project
 
-After completing these steps you will have the basic project structure of the xflights app.
+After completing these steps, you will have the basic project structure of the xflights app.
 
 1. In VS Code, open a terminal.
 
@@ -34,53 +34,28 @@ After completing these steps you will have the basic project structure of the xf
     ```sh
     cds watch
     ```
-    When you add further components to the app, `cds watch` will automatically pick it up.
+    When you add further components to the app later, `cds watch` will automatically pick it up.
 
 5. See the output in the terminal:
 
     <br>![](/exercises/ex1/images/01_01_0030.png)
 
-<!--
-    ```
-    cds serve all --with-mocks --in-memory? 
-    ( live reload enabled for browsers ) 
-
-            ___________________________
-
-    [cds] - loaded model from 1 file(s):
-
-      ..\<path>\node_modules\@sap\cds\srv\outbox.cds
-
-    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
-    [cds] - connect to db > sqlite { url: ':memory:' }
-    /> successfully deployed to in-memory database. 
-
-    [cds] - server listening on { url: 'http://localhost:4005' }
-    [cds] - server v9.3.1 launched in 782 ms
-    [cds] - [ terminate with ^C ]
-
-
-        No service definitions found in loaded models.
-        Waiting for some to arrive...
-    ```
--->
-
 
 
 ## Exercise 1.2 - Add the domain model
 
-After completing these steps you will have defined the essential entities of the xflights app.
+After completing these steps, you will have defined the essential entities of the xflights app.
 
 The first part of the new app is the domain model with these entities:
 * Airlines  
-  A list of airlines that operate flights
+  A list of airlines that operate flights (e.g. "Sunset Wings").
 * Airports  
-  Airports where flights depart and arrive  
+  Airports where flights depart and arrive.
 * Connections  
   Defines flight connections. Each connection is operated by an airline
-  and has a departure and an arrival airport.
+  and has a departure and an arrival airport (e.g. "SW0058" by Sunset Wings from San Francisco to Frankfurt departing at 01:45 P.M.).
 * Flights  
-  Lists the concrete flights, i.e. a connection operated at a given date.
+  Lists the concrete flights, i.e. a connection operated at a given date (e.g. "SW0058" operated at 2023-07-31).
 * Supplements  
   Things you can add to a flight, like additional luggage, food, drinks.
 
@@ -102,8 +77,10 @@ the still running cds watch reacts immediately with new output like this:
     Note that due to the _.env_ file, xflights is started on port 4005.
     This becomes important later, when you start the xtravels app in parallel.
 
-    It can happen that `cds watch` doesn't detect a change automatically.
-    In that case, simply stop it via `Ctrl+C` and restart it.
+
+> [!TIP]
+> It can happen that `cds watch` doesn't detect a change automatically.
+In that case, simply stop it via `Ctrl+C` and restart it.
 
 <!--
     ```
@@ -139,10 +116,10 @@ do we have to run _npm install_?
 
 ## Exercise 1.3 - Add OData service
 
-After completing these steps you will have an OData service for the _xflights_ app.
+After completing these steps, you will have an OData service for the _xflights_ app.
 
-Now you add an OData service that allows to see the data. This could be extended to a full fledged
-maintenance UI for the xflights app, but this is not part of this lecture.
+Now you add an OData service that allows to see the data in the app. This could be extended
+to a full fledged maintenance UI for the xflights app, but this is not part of this lecture.
 
 1. In folder _xflights/srv_, create a file _fiori-service.cds_.
 
@@ -204,7 +181,7 @@ The entities are exposed via OData.
 
 ## Exercise 1.4 - Add test data
 
-After completing these steps you will have test data in the xflights app.
+After completing these steps, you will have test data in the xflights app.
 
 Now you have a service that allows to query the content of the metadata entities,
 but this is still a bit boring, as there is no data in the tables.
@@ -240,11 +217,11 @@ The result should look like this:
 
 ## Exercise 1.5 - Fiori preview
 
-After completing these steps you will have preconfigured columns in the Fiori preview.
+After completing these steps, you will have preconfigured columns in the Fiori preview.
 
 If you want use the Fiori preview functionality of the index page, you have to
 manually configure the columns to be displayed. This can be avoided
-by adding a few Fiori `@UI.LineItem` annotations that define a default layout
+by adding a few Fiori `@UI.LineItem` annotations to define a default layout
 for entities `Flights` and `Connections`.
 
 1. In folder _xflights/app_, create a new file _layout.cds_.
@@ -285,9 +262,9 @@ index page on [localhost:4005](http://localhost:4005/) and click the
 
 ## Exercise 1.6 - Localized metadata
 
-After completing these steps you will have localized labels in the Fiori preview.
+After completing these steps, you will have localized labels in the Fiori preview.
 
-In the Fiori preview, you see that the columns labels are simply the element names.
+In the Fiori preview, you see that the column labels are simply the element names.
 You now change this to display appropriate labels in the correct language.
 
 1. In folder _xflights/db_, add a file _labels.cds_.
@@ -321,18 +298,20 @@ You now change this to display appropriate labels in the correct language.
 Copy the folder [assets/ex1/_i18n](../../assets/ex1/_i18n) into folder _xflights_.
 
     The result should look like this:
+
     <br>![](/exercises/ex1/images/01_06_0010.png)
 
 3. Go back to the browser window with the Fiori preview and refresh.
 Notice the change in the column labels.
+
     <br>![](/exercises/ex1/images/01_06_0020-60.png)
 
 
 
 ## Exercise 1.7 - Add API service
 
-After completing these steps you will have an additional service
-that acts as an API to retrieve some data from the _xflights_ app.
+After completing these steps, you will have an additional service
+that acts as an API to retrieve some data from the xflights app.
 
 1. In folder _xflights/srv_, add a file _data-service.cds_.
 
@@ -386,12 +365,12 @@ on [localhost:4005](http://localhost:4005/) and see the new service being presen
 
 4. Click for example the [Flights](http://localhost:4005/rest/data/Flights) link in
 the section for the rest service to see the data.
-Notice how the connection data (e.g. columns `departure` and `arrival`) have become part of the Flight data.
+Notice how the connection data (e.g. columns `departure` and `arrival`) have become part of the Flights entity.
 
 
 ## Exercise 1.8 - Export API service
 
-After completing these steps you will have an API package for
+After completing these steps, you will have an API package for
 the new service `sap.capire.flights.data`.
 
 In [Exercise 2](../ex2/README.md) you will create the xtravels app,
@@ -409,9 +388,9 @@ This package contains everything that is needed in a consuming app, including so
     ```sh
     cds export -s sap.capire.flights.data --to ../apis/flights-data
     ```
-    This creates the API package as folder _apis/flights-data_ directly in our workspace in folder.
+    This creates the API package as folder _apis/flights-data_ directly in our workspace folder.
 
-3. Add these lines to the end of file _apis/flights-data/index.cds_:
+3. Add these lines to the end of the generated file _apis/flights-data/index.cds_:
     ```cds
     // Workaround for @cds.autoexpose kicking in too eagerly ...
     annotate sap.common.Currencies with @cds.autoexpose:false;
@@ -429,7 +408,7 @@ This package contains everything that is needed in a consuming app, including so
       It is a CSN that contains only the entities exposed in service `sap.capire.flights.data`.
       Note that the CSN only describes the API: the `query` sections are not present in the entities.
     * The API package has a _package.json_ that defines a name `xflights-flights-data` for the package.
-      This name will in the next exercise be used to import the API package.
+      This name will be used to import the API package in the next exercise.
     * The package has an _\_i18n_ folder with the localized metadata that is used in the service.
     * There is a _data_ folder with some test data. This data is extracted by starting the app in the
       background and querying the entities in the service.

@@ -16,7 +16,7 @@ You will then replace local entity `Passenger` with entity `Customer` from the D
 
 ## Exercise 3.1 - Discovery
 
-After completing these steps you will have found Data Product "Customer" from S/4
+After completing these steps, you will have found Data Product "Customer" from S/4
 in [SAP Business Accelerator Hub](https://api.sap.com/).
 
 1. Go to [SAP Business Accelerator Hub](https://api.sap.com/).
@@ -40,7 +40,7 @@ Enter "Customer"  in the search field and press "Return".
 
 ## Exercise 3.2 - Download Data Product metadata
 
-After completing these steps you will have downloaded a CSN file with the metadata of
+After completing these steps, you will have downloaded a CSN file with the metadata of
 Data Product "Customer" to _ws/xtravels_.
 
 1. At the bottom of the screen, follow the link to the
@@ -62,7 +62,7 @@ as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
 
 ## Exercise 3.3 - Import Data Product metadata
 
-After completing these steps you will have imported the Data Product's
+After completing these steps, you will have imported the Data Product's
 metadata as API package into your xtravels project.
 
 1. Go to the terminal of the xtravels app.
@@ -123,7 +123,7 @@ The corresponding localized texts are also part of the Data Products's API packa
 
 ## Exercise 3.4 - Add consumption view
 
-After completing these steps you will have a CDS view that acts as
+After completing these steps, you will have a CDS view that acts as
 interface to entity `Customer` of the imported API.
 
 1. In folder _xtravels/db_, add a new file _customers.cds_.
@@ -160,7 +160,7 @@ thus you don't add consumption views for them.
 
 ## Exercise 3.5 - Use the Data Product in the model
 
-After completing these steps you will have replaced local entity `Passenger`
+After completing these steps, you will have replaced local entity `Passenger`
 with entity `Customer` of the Data Product.
 
 1. In file _xtravels/db/schema.cds_, below the `using` directives at the top of the file, add
@@ -195,7 +195,7 @@ entity `Passengers` can easily be replaced by the Data Product entity `Customers
 
 ## Exercise 3.6 - Mock
 
-After completing these steps you will have run the xtravels app with
+After completing these steps, you will have run the xtravels app with
 the Data Product entity `Customers` being mocked by a local table.
 
 Following the CAP principle of "local development and testing", you first

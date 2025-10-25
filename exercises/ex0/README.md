@@ -1,7 +1,7 @@
 # Getting started
 
 In this session, you will create two CAP applications. The apps are developed locally
-using Visual Studio Code and the _cds toolkit_.
+using Visual Studio Code and the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli).
 In this preparation section you install the _cds toolkit_ and set up the local workspace
 where you develop the apps.
 
@@ -14,7 +14,7 @@ In this document, `XX` is the number that has been assigned to you for this sess
 1. Open a console (Command Prompt).
     <br>![](/exercises/ex0/images/00_01_0010.png)
 
-2. Install the newest version of the _cds toolkit_ globally. In the console, run the command
+2. Install the newest version of the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli) globally. In the console, run the command
     ```sh
     npm add -g @sap/cds-dk
     ```
@@ -36,8 +36,7 @@ developing the CAP applications. Go to that folder and start VS Code.
 ```sh
 cd C:\Users\TE-XX
 git clone https://github.com/SAP-samples/teched2025-AD161.git
-cd teched2025-AD161
-cd ws
+cd teched2025-AD161\ws
 code .
 ```
 
@@ -58,7 +57,7 @@ Alternatively, you can also activate the "Auto Save" feature of VS code via the 
 
 ## Preparation 4 - Copying 
 
-In the course of the exercises, you will need to copy some files from [assets](../../assets)
+In the course of the exercises, you will need to copy some files from the [assets](../../assets) folder
 into the workspace. The simplest way to do this is to open folder _C:\Users\TE-XX\teched2025-AD161\assets_
 in Windows Explorer and then copy the files from there into VS Code via Drag & Drop.
 

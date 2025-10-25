@@ -10,7 +10,7 @@ In this document we use the following abbreviations:
 * CAP for [SAP Cloud Application Programming Model](https://cap.cloud.sap/docs/)
 * HANA for [SAP HANA Cloud](https://www.sap.com/products/data-cloud/hana.html)
 * BTP for [SAP Business Technology Platform](https://www.sap.com/products/technology-platform.html)
-* BDC for [SAP Business Data Cloud](https://www.sap.com/products/data-cloud/hana.html)
+* BDC for [SAP Business Data Cloud](https://www.sap.com/products/data-cloud.html)
 
 
 ## Overview
@@ -38,7 +38,7 @@ In the second part of the session, you extend the _xtravels_ app and also consum
 
 <br>![](./assets/images/i_0020.png)
 
-We focus on the CAP part of this integration. I.e. we assume that there already is a BDC tenant with
+This session focuses on the CAP part of the integration: we assume that there already is a BDC tenant with
 the required Data Product installed, and that we have access to that tenant.
 In the HANA Cloud Instance used for the session, we have already created
 a HANA Remote Source pointing to the BDC tenant, as well as a schema that contains virtual tables
@@ -58,9 +58,9 @@ The exercise is divided in five parts.
 In the Getting Started section you prepare the _cds toolkit_ and set up the local workspace.
 In exercise 1 you will create CAP app "xflights" that serves flight master data.
 In exercise 2 you will create CAP app "xtravels" that consumes the masterdata from "xflights".
-In exercise 3 you will import an S/4 Data Product to the "xtravels" app and run it locally in mock mode.
-In exercise 4 you will deploy the database model of "xtravels" to a HANA Cloud, connect the Data
-Product with a BDC tenant and run the app in hybrid mode.
+In exercise 3 you will import an S/4 Data Product to the "xtravels" app and run the app locally in mock mode.
+In exercise 4 you will deploy the database model of "xtravels" to a HANA Cloud, connect the imported Data
+Product entities with virtual tables in the prepared schema (and thus to a BDC tenant) and run the app in hybrid mode.
 
 - [Getting Started](exercises/ex0/)
 - [Exercise 1 - Build CAP app xflights](exercises/ex1/)
@@ -77,7 +77,7 @@ Product with a BDC tenant and run the app in hybrid mode.
     - [Exercise 2.1 - Prepare](exercises/ex2/README.md#exercise-21---prepare)
     - [Exercise 2.2 - Import API package for flights](exercises/ex2/README.md#exercise-22---import-api-package-for-flights)
     - [Exercise 2.3 - Use the masterdata](exercises/ex2/README.md#exercise-23---use-the-masterdata)
-    - [Exercise 2.4 - Inspect how the xflights data is used](exercises/ex2/README.md#exercise-24---inspect-how-the-xflights-masterdata-is-used)
+    - [Exercise 2.4 - Inspect how the xflights data is used](exercises/ex2/README.md#exercise-24---inspect-how-the-xflights-data-is-used)
     - [Exercise 2.5 - Run the XTravels app with flights being mocked](exercises/ex2/README.md#exercise-25---run-the-xtravels-app-with-flights-being-mocked)
     - [Exercise 2.6 - Get flights data from xflights app](exercises/ex2/README.md#exercise-26---get-flights-data-from-xflights-app)
     - [Exercise 2.7 - Cleanup](exercises/ex2/README.md#exercise-27---cleanup)

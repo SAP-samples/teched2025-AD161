@@ -23,7 +23,7 @@ You will connect the Data Product entities in the CAP app to these virtual table
 
 ## Exercise 4.1 - Log on to Cloud Foundry
 
-After completing these steps you will have logged on to Cloud Foundry via
+After completing these steps, you will have logged on to Cloud Foundry via
 the Cloud Foundry CLI. This is necessary to deploy the database part of xtravels
 to HANA via the CDS CLI in subsequent steps.
 
@@ -48,7 +48,7 @@ use the password provided to you at the beginning of the session.
 
 ## Exercise 4.2 - Deploy to SAP HANA Cloud
 
-After completing these steps you will have deployed the database model
+After completing these steps, you will have deployed the database model
 of xtravels to HANA. The Data Product entities are still mocked as plain tables.
 
 1. Before you actually deploy, go to the xtravels terminal and run
@@ -76,7 +76,7 @@ like _sap.s4com.Customer.v1.Customer.hdbtable_.
 
 ## Exercise 4.3 - Run in hybrid mode
 
-After completing these steps you will have your xtravels app running locally on your laptop,
+After completing these steps, you will have your xtravels app running locally on your laptop,
 connected to a SAP HANA Cloud instance. The Data Product entities are still mocked by database tables.
 
 1. Start `cds watch` in hybrid mode: In the xtravels terminal, run
@@ -119,7 +119,7 @@ SQLite in-memory database, but from a mock table in the HANA instance.
 
 ## Exercise 4.4 - Prepare hdbgrants
 
-After completing these steps you will have prepared the hdbgrants mechanism
+After completing these steps, you will have prepared the hdbgrants mechanism
 to grant access for schema `DP_VT_CUSTOMERS` to the HDI user.
 
 In the next step you will define synonyms to connect the Data Product entities
@@ -261,7 +261,7 @@ by the `cds build`. In order for this to work, you have to clean up a bit:
 
 ## Exercise 4.6 - Connect to BDC share
 
-After completing these steps you will have connected the `Customer` entity
+After completing these steps, you will have connected the `Customer` entity
 in the imported API package via a synonym to the virtual table in schema `DP_VT_CUSTOMER`.
 
 The xtravels app already contains a build plugin (_xtravels/.plugins/dp-syn_), which modifies

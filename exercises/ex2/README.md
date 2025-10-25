@@ -52,7 +52,7 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
 
 ## Exercise 2.2 - Import API package for flights
 
-After completing these steps you will have imported the API package with the flight data
+After completing these steps, you will have imported the API package with the flight data
 that you have exported from the xflights app in the previous exercise.
 
 1. In the _xtravels_ terminal, execute
@@ -119,7 +119,7 @@ The imported entities `Flights` and `Supplements` are used in various places:
 
 ## Exercise 2.5 - Run the xtravels app with flights being mocked
 
-After completing these steps you will have xtravels running with the entities
+After completing these steps, you will have xtravels running with the entities
 from the API package being mocked by local entities.
 
 1. In the terminal for _xtravels_, start the xtravels app.
@@ -175,7 +175,7 @@ You should see a full fledged xtravels app:
 
 ## Exercise 2.6 - Get flights data from xflights app
 
-After completing these steps you will have both apps xflights and xtravels running,
+After completing these steps, you will have both apps xflights and xtravels running,
 with xtravels being connected to the xflights app as data source for flight data.
 
 As technique for the data transfer we here use "Data Federation via Initial Load replication".
