@@ -266,10 +266,10 @@ in the imported API package via a synonym to the virtual table in schema `DP_VT_
 
 The xtravels app already contains a build plugin (_xtravels/.plugins/dp-syn_), which modifies
 the output of `cds build` accordingly. Like the plugin that was used in
-[Exercise 2.6 - Get flights data from xflights app](exercises/ex2/README.md#exercise-26---get-flights-data-from-xflights-app),
-this plugin is not released standard CAP functionality, but preview of what we are currently working on.
+[Exercise 2.6 - Get flights data from xflights app](../ex2/README.md#exercise-26---get-flights-data-from-xflights-app),
+this plugin is not released standard CAP functionality, but a preview of what we are currently working on.
 
-The plugin is activated via a configuration. Here you have to provide the schema in which the virtual tables
+The plugin is activated via configuration. Here you have to provide the schema in which the virtual tables
 for the Data Product entities in the imported API package can be found.
 
 1. Open file _xtravels/package.json_ and add a `cds` section:
@@ -295,7 +295,7 @@ for the Data Product entities in the imported API package can be found.
 For all entities in the Data Product service `sap.s4com.Customer.v1`, no _.hdbtable_ files
 are generated any more. Instead, there are corresponding _.hdbsynonym_ files to connect to
 the virtual tables in schema `DP_VT_CUSTOMER`, and _.hdbview_ files that align the
-case sensitive names in BDC with "unquoted" names database names in CAP CDS.
+case sensitive names in BDC with "unquoted" database names in CAP CDS.
 
 4. Deploy to HANA: in the xtravels terminal, run
     ```sh

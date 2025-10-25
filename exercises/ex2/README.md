@@ -28,7 +28,7 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
     * Bookings:  
       A list of flight bookings. This entity has an association to a `Flights` entity,
       and there is also an association to a `Supplements`entity.
-      Both association targets are currently missing. The using directives in the beginning of
+      Both association targets are currently missing. The using directive in the beginning of
       the file indicates that these entities are expected to be in file _xtravels/db/master-data.cds_,
       but this file currently is empty. The missing entities will later be provided by
       the API package exported from xflights.
@@ -39,7 +39,7 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
 
     <br>![](/exercises/ex2/images/02_01_0030.png)
 
-3. Change to the _xtravels_ folder (assuming the new terminal has opened in your workspace root folder _ws_):
+3. In the new terminal, change to the _xtravels_ folder (assuming the terminal has opened in your workspace root folder _ws_):
     ```sh
     cd xtravels
     ```
@@ -73,7 +73,7 @@ that you have exported from the xflights app in the previous exercise.
 
 ## Exercise 2.3 - Use the masterdata
 
-After completing this step you will have a complete xtravels app.
+After completing this step, you will have a complete xtravels app.
 
 Add the following content to the empty file _xtravels/db/master-data.cds_ to
 provide the missing entities `Flights` and `Supplements`:
