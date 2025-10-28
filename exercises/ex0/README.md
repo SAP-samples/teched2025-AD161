@@ -9,15 +9,16 @@ In this document, `XX` is the number that has been assigned to you for this sess
 
 
 
-## Preparation 1 - Install the cds toolkit
+## Preparation 1 - Install latest version of the cds toolkit
 
 1. Open a console (Command Prompt).
     <br>![](/exercises/ex0/images/00_01_0010.png)
 
-2. Install the newest version of the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli) globally. In the console, run the command
+2. Install the latest version of the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli) globally. In the console, run the command
     ```sh
-    npm add -g @sap/cds-dk
+    npm i -g @sap/cds-dk --prefix "C:\software\CLI\CDS"
     ```
+    > The --prefix option is only needed due to the setup of the TechEd machines. If you are running this tutorial on your own machine, omit it.
 
 3. Check the version:
     ```sh
@@ -25,7 +26,9 @@ In this document, `XX` is the number that has been assigned to you for this sess
     ```
     You should have version `9.4.x` of `@sap/cds` and `@sap/cds-dk`.
 
+<!--
 You may need to add `C:\Users\TE-XX\AppData\Roaming\npm` to the `PATH` environment variable.
+-->
 
 
 
