@@ -55,14 +55,14 @@ The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique nu
 ## Exercises
 
 The exercise is divided in five parts.
-In the Getting Started section you prepare the _cds toolkit_ and set up the local workspace.
+In the Preparation section you prepare the _cds toolkit_ and set up the local workspace.
 In exercise 1 you will create CAP app "xflights" that serves flight master data.
 In exercise 2 you will create CAP app "xtravels" that consumes the masterdata from "xflights".
 In exercise 3 you will import an S/4 Data Product to the "xtravels" app and run the app locally in mock mode.
 In exercise 4 you will deploy the database model of "xtravels" to a HANA Cloud, connect the imported Data
 Product entities with virtual tables in the prepared schema (and thus to a BDC tenant) and run the app in hybrid mode.
 
-- [Getting Started](exercises/ex0/)
+- [Preparation](exercises/ex0/)
 - [Exercise 1 - Build CAP app xflights](exercises/ex1/)
     - [Exercise 1.1 - Create xflights project](exercises/ex1/README.md#exercise-11---create-xflights-project)
     - [Exercise 1.2 - Add the domain model](exercises/ex1/README.md#exercise-12---add-the-domain-model)

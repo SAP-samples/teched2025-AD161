@@ -1,4 +1,4 @@
-# Getting started
+# Preparation
 
 In this session, you will create two CAP applications. The apps are developed locally
 using Visual Studio Code and the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli).
