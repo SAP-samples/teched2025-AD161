@@ -80,7 +80,7 @@ the still running cds watch reacts immediately with new output like this:
 
 > [!TIP]
 > It can happen that `cds watch` doesn't detect a change automatically.
-In that case, simply stop it via `Ctrl+C` and restart it.
+In that case, simply press Enter within the log output, or stop it via `Ctrl+C` and restart it.
 
 <!--
     ```
