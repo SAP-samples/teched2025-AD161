@@ -68,6 +68,6 @@ in Windows Explorer and then copy the files from there into VS Code via Drag & D
 
 ## Summary
 
-You have now installed the _cds toolkit_ and prepared the worskspace.
+You have now installed the _cds toolkit_ and prepared the workspace.
 
 Continue to - [Exercise 1 - Build CAP app xflights](../ex1/README.md)
