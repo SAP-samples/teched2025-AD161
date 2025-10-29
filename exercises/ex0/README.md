@@ -34,8 +34,10 @@ You may need to add `C:\Users\TE-XX\AppData\Roaming\npm` to the `PATH` environme
 
 ## Preparation 2 - Setup workspace
 
-Clone the repo for this session. It containes a folder _ws_ where you will be
-developing the CAP applications. Go to that folder and start VS Code.
+Clone the repo for this session, first making sure you replace the `XX` with
+the number from your username. The cloned repo contains a folder _ws_ where you
+will be developing the CAP applications. Go to that folder and start VS Code.
+
 ```sh
 cd C:\Users\TE-XX
 git clone https://github.com/SAP-samples/teched2025-AD161.git
