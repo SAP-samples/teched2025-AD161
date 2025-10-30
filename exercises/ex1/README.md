@@ -80,7 +80,7 @@ the still running cds watch reacts immediately with new output like this:
 
 > [!TIP]
 > It can happen that `cds watch` doesn't detect a change automatically.
-In that case, simply stop it via `Ctrl+C` and restart it.
+In that case, simply press Enter within the log output, or stop it via `Ctrl+C` and restart it.
 
 <!--
     ```
@@ -118,8 +118,8 @@ do we have to run _npm install_?
 
 After completing these steps, you will have an OData service for the _xflights_ app.
 
-Now you add an OData service that allows to see the data in the app. This could be extended
-to a full fledged maintenance UI for the xflights app, but this is not part of this lecture.
+Now you add an OData service that allows us to see the data in the app. This could be extended
+to a full fledged maintenance UI for the xflights app, but this is not part of this session.
 
 1. In folder _xflights/srv_, create a file _fiori-service.cds_.
 
@@ -176,16 +176,16 @@ The entities are exposed via OData.
 
     <br>![](/exercises/ex1/images/01_03_0020-60.png)
 
-5. Click on the link for `Flights`. You will see that the entities are empty.
+5. Click on the link for `Flights`. You will see that there are no entities yet.
 
 
 ## Exercise 1.4 - Add test data
 
 After completing these steps, you will have test data in the xflights app.
 
-Now you have a service that allows to query the content of the metadata entities,
+Now you have a service that allows us to query the metadata and the entities,
 but this is still a bit boring, as there is no data in the tables.
-You will now add some CSV files with data to the xflights app.
+You will now add some CSV files with data for the xflights app.
 
 1. Copy the folder [assets/ex1/data](../../assets/ex1/data) into folder _xflights/db_.
 The result should look like this:
@@ -355,7 +355,7 @@ that acts as an API to retrieve some data from the xflights app.
 
     The service has some annotations that control how the data of the entities
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
-    (which basically is an extension of SQL that adds support for path expressions).
+    (which basically is the transport of [CQL](https://cap.cloud.sap/docs/cds/cql) - an extension of SQL that adds support for path expressions - over HTTP).
 
 3. `cds watch` automatically picks up the new service. In the browser, go back to the index page
 on [localhost:4005](http://localhost:4005/) and see the new service being presented via these protocols.
