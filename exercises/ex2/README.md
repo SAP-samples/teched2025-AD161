@@ -21,8 +21,8 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
 <br>![](/exercises/ex2/images/02_01_0010.png)
 
 As some parts of the app are missing, the editor may show some error indicators,
-e.g. red underlines in file _schema.cds_. Don't worry about them, they will disappear
-when we add the missing parts.
+e.g. red underlines in file _xtravels/db/schema.cds_. Don't worry about them, they
+will disappear when we add the missing parts.
 
 1. Have a look at the main entities of xtravels in file _xtravels/db/schema.cds_:
     * Travels:  
@@ -144,29 +144,12 @@ from the API package being mocked by local entities.
 
 
 3. Observe the output of `cds watch`.  
-The output indicates that imported service `sap.capire.flights.data` is mocked.
 The entities in this service are represented as tables in the SQLite in-memory database
 and are filled with _csv_ data from the imported package:
 
     <br>![](/exercises/ex2/images/02_05_0010.png)
 
-<!--
-    ```
-    [cds] - connect to db > sqlite { url: ':memory:' }
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Supplements.csv 
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Flights.csv 
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Airports.csv 
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Airlines.csv 
 
-    ....
-
-    [cds] - mocking sap.capire.flights.data {
-      at: [ '/odata/v4/data', '/rest/data', '/hcql/data' ],
-      decl: '..\\apis\\flights-data\\services.csn:3',
-      impl: '..\\node_modules\\@sap\\cds\\srv\\app-service.js'
-    }
-    ```
--->
 
 4. Open the automatically served index page in your browser at [localhost:4004](http://localhost:4004/).
 
