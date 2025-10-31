@@ -56,7 +56,7 @@ Ignore folder _xtravels_ for the time being, it will only be used in [Exercise 2
 ## Preparation 3 - (optional) Activate auto-save
 
 Each time you change a file in the course of this exercise, don't forget to save with `Ctrl+S` or via the "File" menu.
-Alternatively, you can also activate the "Auto Save" feature of VS code via the "File" menu.
+Alternatively, you can also activate the "Auto Save" feature of VS Code via the "File" menu.
 
 
 

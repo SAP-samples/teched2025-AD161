@@ -35,7 +35,7 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
 
     <br>![](/exercises/ex2/images/02_01_0020.png)
 
-2. In VS code, split the terminal:
+2. In VS Code, split the terminal:
 
     <br>![](/exercises/ex2/images/02_01_0030.png)
 
@@ -44,7 +44,7 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
     cd xtravels
     ```
 
-    Your VS code window should now look like this:
+    Your VS Code window should now look like this:
 
     <br>![](/exercises/ex2/images/02_01_0040.png)
 

@@ -40,7 +40,7 @@ assigned to you in the beginning of the session.
 2. At the prompt, enter user and password. Replace XX with your number and
 use the password provided to you at the beginning of the session.
     ```
-    User: capworkshopuser+0XX@gmail.com
+    Email: capworkshopuser+0XX@gmail.com
     Password: ...
     ```
 
@@ -207,7 +207,7 @@ and let CAP do the necessary steps.
     This mapping view is necessary to align the naming convention of CAP for database names
     with the case sensitive names in the BDC share.
 
-5. In the same folder, creat a file _.hdiconfig_ with the following content:
+5. In the same folder, create a file _.hdiconfig_ with the following content:
     ```json
     {
       "file_suffixes": {

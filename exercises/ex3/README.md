@@ -103,7 +103,7 @@ and the data sets of the Data Product are represented as entities:
     }
     ```
 
-    The name of the service reflects the ORD ID of the Data product.
+    The name of the service reflects the ORD ID of the Data Product.
 
 4. Have a look at file _annotations.cds_ in the same folder.  
 The Data Product entities come with a lot of annotations, e.g. `@title` for labels.
