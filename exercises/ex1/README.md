@@ -121,7 +121,7 @@ After completing these steps, you will have an OData service for the _xflights_ 
 Now you add an OData service that allows us to see the data in the app. This could be extended
 to a full fledged maintenance UI for the xflights app, but this is not part of this session.
 
-1. In folder _xflights/srv_, create a file _fiori-service.cds_.
+1. In folder _xflights/srv_, create a file _flights-service.cds_.
 
 2. Fill the file with this content:
     ```cds
@@ -148,7 +148,7 @@ to a full fledged maintenance UI for the xflights app, but this is not part of t
     [cds] - loaded model from 4 file(s):
 
       ..\<path>\node_modules\@sap\cds\srv\outbox.cds
-      srv\fiori-service.cds
+      srv\flights-service.cds
       db\schema.cds
       ..\<path>\node_modules\@sap\cds\common.cds
 
@@ -162,7 +162,7 @@ to a full fledged maintenance UI for the xflights app, but this is not part of t
     }
     [cds] - serving FlightsService {
       at: [ '/odata/v4/flights' ],
-      decl: 'srv\\fiori-service.cds:3',
+      decl: 'srv\\flights-service.cds:3',
       impl: '..\\<path>\\node_modules\\@sap\\cds\\srv\\app-service.js'
     }
     [cds] - server listening on { url: 'http://localhost:4005' }
@@ -228,7 +228,7 @@ for entities `Flights` and `Connections`.
 
 2. Fill the file with this content:
     ```cds
-    using { FlightsService } from '../srv/fiori-service';
+    using { FlightsService } from '../srv/flights-service';
 
     annotate FlightsService.Connections with @UI.LineItem: [
       { Value: ID },
@@ -357,6 +357,10 @@ that acts as an API to retrieve some data from the xflights app.
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
     (which basically is the transport of [CQL](https://cap.cloud.sap/docs/cds/cql) - an extension of SQL that adds support for path expressions - over HTTP).
 
+    > [!TIP]
+    > Annotations `@hcql`, `@rest`, and `@odata` are shortcuts for the corresponding
+    [`@protocol`](https://cap.cloud.sap/docs/node.js/cds-serve#protocol) annotation.
+
 3. `cds watch` automatically picks up the new service. In the browser, go back to the index page
 on [localhost:4005](http://localhost:4005/) and see the new service being presented via these protocols.
 
@@ -389,6 +393,8 @@ This package contains everything that is needed in a consuming app, including so
     cds export -s sap.capire.flights.data --to ../apis/flights-data
     ```
     This creates the API package as folder _apis/flights-data_ directly in our workspace folder.
+    Usually you would publish the API package, e.g. via npm or github. For our session it
+    is sufficient to have it inside the workspaces folder.
 
 3. Add these lines to the end of the generated file _apis/flights-data/index.cds_:
     ```cds

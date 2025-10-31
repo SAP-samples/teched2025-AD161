@@ -1,4 +1,4 @@
-using { FlightsService } from '../srv/fiori-service';
+using { FlightsService } from '../srv/flights-service';
 
 annotate FlightsService.Connections with @UI.LineItem: [
   { Value: ID },

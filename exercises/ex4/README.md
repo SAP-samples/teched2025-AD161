@@ -3,14 +3,14 @@
 In this exercise, you will deploy the database model of the xtravels app
 to a HANA Cloud instance and connect the Data Product entity `Customer`
 to a BDC tenant.
-You will run the xtravels app in hybrid mode: the app still runs locally on your laptop,
-but is connected to an HDI container in a HANA Cloud instance.
+You will run the xtravels app in [hybrid mode](https://cap.cloud.sap/docs/advanced/hybrid-testing#hybrid-testing):
+the app still runs locally on your laptop, but is connected to an HDI container in a HANA Cloud instance.
 
 
 This session focuses on the CAP part of the integration with a BDC Data Product.
 Prior to the session, we have already
 * prepared a BDC tenant with the "Customer" Data Product installed
-* created a HANA remote source in the HANA instance, which points to the share
+* created a HANA remote source in the HANA instance, which points to the share (see also [assets/ex4/HANA-setup](../../assets/ex4/HANA-setup.md))
 * created a schema `DP_VT_CUSTOMER` in the HANA instance with virtual tables pointing
   to the share tables in the BDC tenant.
 * prepared a user-provided service `grantor-dp-admin` in Cloud Foundry that holds credentials for accessing this schema.
@@ -71,6 +71,9 @@ like _sap.s4com.Customer.v1.Customer.hdbtable_.
     deploy the database model of your app to it.
 
     Note that a file `.cdsrc-private.json` has been created in the _xtravels_ folder.
+    When running the app in hybrid mode in the next step, this file helps to bind
+    the `db` service of the app to a managed Cloud Foundry service of kind `hana`
+    with plan `hdi-shared` that represents your HDI container.
 
 
 
@@ -111,7 +114,8 @@ but this time it is connected to the HANA Cloud instance:
 
 3. Open the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
 You still see the same test data as before, but now the data isn't coming from an
-SQLite in-memory database, but from a mock table in the HANA instance.
+SQLite in-memory database, but from a table in the HANA instance filled with the same
+test data.
 
 4. Stop `cds watch` by typing `Ctrl+C` into the xtravels terminal.
 
@@ -177,6 +181,9 @@ and let CAP do the necessary steps.
 2. Move the file _sap.s4com-Customer.v1.Customer.csv_ from folder _xtravels/db/data_ to folder _xtravels_.
 
     <br>![](/exercises/ex4/images/04_05_0010.png)
+
+    This is simply to avoid that the _.csv_ file with test data for `Customer` is deployed.
+    Otherwise the deployment would fail, because there is no `Customer` table anymore.
 
 3. In folder _xtravels/db/src_, create a file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ with the following content:
     ```json
@@ -273,9 +280,9 @@ The plugin is activated via configuration. Here you have to provide the schema i
 for the Data Product entities in the imported API package can be found.
 
 1. Open file _xtravels/package.json_ and add a `cds` section:
-    ```jsonc
+    ```json
     {
-      // ...
+      ... existing content ...
       "cds": {
         "requires": {
           "sap.s4com.Customer.v1": {

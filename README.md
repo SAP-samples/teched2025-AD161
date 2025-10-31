@@ -8,15 +8,15 @@ This repository contains the material for the SAP TechEd 2025 session called AD1
 
 In this document we use the following abbreviations:
 * CAP for [SAP Cloud Application Programming Model](https://cap.cloud.sap/docs/)
-* HANA for [SAP HANA Cloud](https://www.sap.com/products/data-cloud/hana.html)
+* HANA for [SAP HANA Cloud, SAP HANA Database](https://www.sap.com/products/data-cloud/hana.html)
 * BTP for [SAP Business Technology Platform](https://www.sap.com/products/technology-platform.html)
 * BDC for [SAP Business Data Cloud](https://www.sap.com/products/data-cloud.html)
 
 
 ## Overview
 
-This session introduces attendees to Data Federation with CAP,
-and in particular shows how to integrate a Data Product of BDC into a CAP application.
+This session introduces attendees to the concept of Data Federation with CAP,
+and then shows how to apply this concept to integrate a Data Product of BDC into a CAP application.
 
 CAP Data Federation is about sharing data between two CAP apps or between a CAP app and another party.
 We distinguish between what a developer needs to do in the model and the technical
@@ -29,14 +29,20 @@ The picture shows Data Federation between two CAP apps, but the general pattern 
 The producing app provides an interface to the data and publishes its definition. The consuming app imports
 the interface definition and builds on top of it.
 
-In the first part of this session, you build two CAP apps: _xflights_ is an app that holds masterdata
+In the first part of this session (Exercises 1 and 2), you build two CAP apps: _xflights_ is an app that holds masterdata
 for flights, airlines, ... and provides an API to access the data. _xtravels_ allows to book travels and flights
 and makes use of the masterdata provided by _xflights_.
 
 
-In the second part of the session, you extend the _xtravels_ app and also consume a BDC Data Product.
+In the second part of the session (Exercises 3 and 4), you extend the _xtravels_ app and also consume a BDC Data Product.
 
 <br>![](./assets/images/i_0020.png)
+
+In CAP, Data Product consumption is always realized via virtual tables and remote sources in a HANA Cloud database instance.
+That is, the CAP application doesn't directly communicate with BDC via the Delta Sharing protocol,
+but utilizes a HANA remote source with the "deltasharing" adapter for this communication. 
+The Data Product's share tables are represented via virtual tables in HANA, so that from a modelling perspective
+they are not different from local tables.
 
 This session focuses on the CAP part of the integration: we assume that there already is a BDC tenant with
 the required Data Product installed, and that we have access to that tenant.
@@ -81,7 +87,7 @@ Product entities with virtual tables in the prepared schema (and thus to a BDC t
     - [Exercise 2.5 - Run the XTravels app with flights being mocked](exercises/ex2/README.md#exercise-25---run-the-xtravels-app-with-flights-being-mocked)
     - [Exercise 2.6 - Get flights data from xflights app](exercises/ex2/README.md#exercise-26---get-flights-data-from-xflights-app)
     - [Exercise 2.7 - Cleanup](exercises/ex2/README.md#exercise-27---cleanup)
-- [Exercise 3 - Consume S/4 Data Product Customer](exercises/ex3/)
+- [Exercise 3 - Consume Data Product "Customer" from S/4](exercises/ex3/)
     - [Exercise 3.1 - Discovery](exercises/ex3/README.md#exercise-31---discovery)
     - [Exercise 3.2 - Download Data Product metadata](exercises/ex3/README.md#exercise-32---download-data-product-metadata)
     - [Exercise 3.3 - Import Data Product metadata](exercises/ex3/README.md#exercise-33---import-data-product-metadata)

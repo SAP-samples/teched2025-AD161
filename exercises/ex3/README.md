@@ -1,4 +1,4 @@
-# Exercise 3 - Consume S/4 Data Product Customer
+# Exercise 3 - Consume Data Product "Customer" from S/4
 
 From a modelling point of view, there is no difference between consuming
 data from another CAP app (like you did in the previous exercise) or consuming
@@ -21,20 +21,20 @@ in [SAP Business Accelerator Hub](https://api.sap.com/).
 
 1. Go to [SAP Business Accelerator Hub](https://api.sap.com/).
 
-    <br>![](/exercises/ex3/images/03_01_0010.png)
+
 
 2. In the top row, go to tab [Data Products](https://api.sap.com/dataproducts).
 
-    <br>![](/exercises/ex3/images/03_01_0020.png)
+    <br>![](/exercises/ex3/images/03_01_0010.png)
 
 3. Here you can browse the available Data Products.
-Enter "Customer"  in the search field and press "Return".
+Enter "Customer" in the search field and press "Return".
 
-    <br>![](/exercises/ex3/images/03_01_0030.png)
+    <br>![](/exercises/ex3/images/03_01_0020.png)
 
 4. Click on the tile for Data Product [Customer](https://api.sap.com/dataproduct/sap-s4com-Customer-v1/overview).
 
-    <br>![](/exercises/ex3/images/03_01_0040.png)
+    <br>![](/exercises/ex3/images/03_01_0030.png)
 
 
 
@@ -43,20 +43,26 @@ Enter "Customer"  in the search field and press "Return".
 After completing these steps, you will have downloaded a CSN file with the metadata of
 Data Product "Customer" to _ws/xtravels_.
 
-1. At the bottom of the screen, follow the link to the
+1. At the bottom of the screen for Data Product "Customer", follow the link to the
 [Delta Sharing API](https://api.sap.com/api/sap-s4com-Customer-v1/overview).
 
-    <br>![](/exercises/ex3/images/03_02_0010.png)
+    <br>![](/exercises/ex3/images/03_01_0040.png)
 
-    The ORD ID uniquely identifies this API.
+2. On this page, you find the "ORD ID" that uniquely identifies this API.
+The ID is based on the [Open Resource Discovery (ORD)](https://open-resource-discovery.github.io/specification/introduction) protocol.
+The API is described as "CSN Interop JSON", which can be downloaded from here.
+
+    <br>![](/exercises/ex3/images/03_02_0010.png)
 
 2. Download the CSN Interop JSON. It will probably be stored
 as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
 
+    If you should not be able to download the CSN Interop JSON for any reason,
+    you can use [_assets/ex3/sap-s4com-Customer-v1.json_](../../assets/ex3/sap-s4com-Customer-v1.json).
+
 3. Copy the file to folder _xtravels_ in your workspace.
 
     <br>![](/exercises/ex3/images/03_02_0020.png)
-
 
 
 
@@ -134,7 +140,7 @@ interface to entity `Customer` of the imported API.
 
     namespace sap.capire.travels.masterdata;
 
-    entity Customers as projection on Cust.Customer {
+    @federated entity Customers as projection on Cust.Customer {
       Customer as ID,
       CustomerName as FullName,
       StreetName as Street,

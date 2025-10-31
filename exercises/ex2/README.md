@@ -20,6 +20,10 @@ almost complete xtravels app, including a Fiori UI in _xtravels/app/travels_.
 
 <br>![](/exercises/ex2/images/02_01_0010.png)
 
+As some parts of the app are missing, the editor may show some error indicators,
+e.g. red underlines in file _schema.cds_. Don't worry about them, they will disappear
+when we add the missing parts.
+
 1. Have a look at the main entities of xtravels in file _xtravels/db/schema.cds_:
     * Travels:  
       A list of travels. Each travel is assigned to a customer and has some flight bookings.
@@ -310,5 +314,7 @@ In order to keep things simple, you will again use mocked master-data entities
 ## Summary
 
 You've now created CAP app xtravels and consumed the masterdata served by the xflights app.
+So far we have been only looking at CAP level Data Federation with service level replication.
+In the next section we will apply the principles of CAP Data Federation to consume a BDC Data Product.
 
 Continue to - [Exercise 3 - Consume S/4 Data Product Customer](../ex3/README.md)

@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e" pages="3">
     <diagram id="kVEzuawM1S-jlqFsaMEJ" name="cap2cap">
-        <mxGraphModel dx="1642" dy="1056" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1334" dy="1009" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -70,7 +70,7 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="s32LUL7cA8wiKnCFT8fK-16" value="&lt;div&gt;&lt;i&gt;DB level integration&lt;/i&gt;&lt;/div&gt;&lt;ul style=&quot;padding-left: 20px; margin-top: 4px; margin-bottom: 4px; line-height: 150%;&quot;&gt;&lt;li&gt;&lt;i&gt;locally mocked in consumer&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;synonym&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;virtual table&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=#660000;labelBackgroundColor=none;" parent="1" vertex="1">
+                <mxCell id="s32LUL7cA8wiKnCFT8fK-16" value="&lt;div&gt;&lt;i&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;DB level integration&lt;/font&gt;&lt;/i&gt;&lt;/div&gt;&lt;ul style=&quot;padding-left: 20px; margin-top: 4px; margin-bottom: 4px; line-height: 100%;&quot;&gt;&lt;li&gt;&lt;i&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;locally mocked in consumer&lt;/font&gt;&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;synonym&lt;/font&gt;&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&lt;i&gt;&lt;font style=&quot;color: rgb(0, 0, 0);&quot;&gt;virtual table&lt;/font&gt;&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fontSize=11;fontFamily=Helvetica;fontColor=#660000;labelBackgroundColor=none;" parent="1" vertex="1">
                     <mxGeometry x="430" y="510.25" width="161" height="95" as="geometry"/>
                 </mxCell>
                 <mxCell id="s32LUL7cA8wiKnCFT8fK-17" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;fillColor=#d5e8d4;strokeColor=light-dark(#666666, #446e2c);curved=1;strokeWidth=2;dashPattern=1 1;entryX=0;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;fontColor=#000000;" parent="1" source="1HSGBgU8w3I4QAmkm9zI-1" target="1HSGBgU8w3I4QAmkm9zI-2" edge="1">
@@ -98,6 +98,9 @@
                 </mxCell>
                 <mxCell id="s32LUL7cA8wiKnCFT8fK-3" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;CDS&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;rounded=1;strokeColor=#000000;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=none;fillColor=default;perimeterSpacing=4;fontStyle=1" parent="1" vertex="1">
                     <mxGeometry x="450" y="184" width="66" height="33" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;span style=&quot;font-style: normal;&quot;&gt;behind the scenes:&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-style: normal;&quot;&gt;you choose&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-style: normal; background-color: transparent;&quot;&gt;between&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-style: normal; background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;&quot;service level integration&quot;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; font-style: normal;&quot;&gt;and &quot;DB level integration&quot;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Helvetica;fontSize=12;fontColor=#000000;labelBackgroundColor=none;fontStyle=2" vertex="1" parent="1">
+                    <mxGeometry x="130" y="522.87" width="210" height="69.75" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
