@@ -83,27 +83,6 @@ the still running cds watch reacts immediately with new output like this:
 In that case, simply press Enter within the log output, or stop it via `Ctrl+C` and restart it.
 
 <!--
-    ```
-    [cds] - loaded model from 3 file(s):
-
-      ..\<path>\node_modules\@sap\cds\srv\outbox.cds
-      db\schema.cds
-      ..\<path>\node_modules\@sap\cds\common.cds
-
-    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
-    [cds] - connect to db > sqlite { url: ':memory:' }
-    /> successfully deployed to in-memory database. 
-
-    [cds] - server listening on { url: 'http://localhost:4005' }
-    [cds] - server v9.3.1 launched in 784 ms
-    [cds] - [ terminate with ^C ]
-
-        No service definitions found in loaded models.
-        Waiting for some to arrive...
-    ```
--->
-
-<!--
 Error: The module '\\?\C:\SAPDevelop\node\cap\DEV\cds-dk\node_modules\better-sqlite3\build\Release\better_sqlite3.node'
 was compiled against a different Node.js version using
 NODE_MODULE_VERSION 108. This version of Node.js requires
@@ -143,34 +122,6 @@ to a full fledged maintenance UI for the xflights app, but this is not part of t
 
     Service `FlightsService` is now served as OData service.
 
-<!--
-    ```
-    [cds] - loaded model from 4 file(s):
-
-      ..\<path>\node_modules\@sap\cds\srv\outbox.cds
-      srv\flights-service.cds
-      db\schema.cds
-      ..\<path>\node_modules\@sap\cds\common.cds
-
-    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
-    [cds] - connect to db > sqlite { url: ':memory:' }
-    /> successfully deployed to in-memory database.
-
-    [cds] - using auth strategy {
-      kind: 'mocked',
-      impl: '..\\<path>\\node_modules\\@sap\\cds\\lib\\srv\\middlewares\\auth\\basic-auth.js'
-    }
-    [cds] - serving FlightsService {
-      at: [ '/odata/v4/flights' ],
-      decl: 'srv\\flights-service.cds:3',
-      impl: '..\\<path>\\node_modules\\@sap\\cds\\srv\\app-service.js'
-    }
-    [cds] - server listening on { url: 'http://localhost:4005' }
-    [cds] - server v9.3.1 launched in 6595 ms
-    [cds] - [ terminate with ^C ]
-    ```
--->
-
 4. Open the automatically served index page in your browser at [localhost:4005](http://localhost:4005/).
 The entities are exposed via OData.
 
@@ -196,21 +147,6 @@ The result should look like this:
 2. Observe the console output: `cds watch` automatically restarts and detects the data files:
 
     <br>![](/exercises/ex1/images/01_04_0020.png)
-
-<!--
-    ```
-    [cds] - connect using bindings from: { registry: '~/.cds-services.json' }
-    [cds] - connect to db > sqlite { url: ':memory:' }
-      > init from db\data\sap.capire.flights-SupplementTypes.csv 
-      > init from db\data\sap.capire.flights-Supplements.texts.csv 
-      > init from db\data\sap.capire.flights-Supplements.csv 
-      > init from db\data\sap.capire.flights-Flights.csv 
-      > init from db\data\sap.capire.flights-Connections.csv 
-      > init from db\data\sap.capire.flights-Airports.csv 
-      > init from db\data\sap.capire.flights-Airlines.csv 
-    /> successfully deployed to in-memory database.
-    ```
--->
 
 3. Go back to the index page [localhost:4005](http://localhost:4005/) and click on any of the entities to see the new content.
 
@@ -353,16 +289,20 @@ that acts as an API to retrieve some data from the xflights app.
     list of flights and doesn't need to be bothered with the fact that in xflights
     the data is separated in two entities ("use-case oriented service").
 
+    As this service is intended to be imported in other apps, we have chosen
+    a longer name that indicates, where it comes from.
+
     The service has some annotations that control how the data of the entities
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
     (which basically is the transport of [CQL](https://cap.cloud.sap/docs/cds/cql) - an extension of SQL that adds support for path expressions - over HTTP).
 
-    > [!TIP]
-    > Annotations `@hcql`, `@rest`, and `@odata` are shortcuts for the corresponding
-    [`@protocol`](https://cap.cloud.sap/docs/node.js/cds-serve#protocol) annotation.
+> [!TIP]
+> Annotations `@hcql`, `@rest`, and `@odata` are shortcuts for the corresponding
+[`@protocol`](https://cap.cloud.sap/docs/node.js/cds-serve#protocol) annotation.
 
 3. `cds watch` automatically picks up the new service. In the browser, go back to the index page
-on [localhost:4005](http://localhost:4005/) and see the new service being presented via these protocols.
+on [localhost:4005](http://localhost:4005/) and see the new service being presented via these protocols
+(you may need to refresh the page).
 
     <br>![](/exercises/ex1/images/01_07_0010-60.png)
 
@@ -394,7 +334,7 @@ This package contains everything that is needed in a consuming app, including so
     ```
     This creates the API package as folder _apis/flights-data_ directly in our workspace folder.
     Usually you would publish the API package, e.g. via npm or github. For our session it
-    is sufficient to have it inside the workspaces folder.
+    is sufficient to have it inside the workspace folder.
 
 3. Add these lines to the end of the generated file _apis/flights-data/index.cds_:
     ```cds

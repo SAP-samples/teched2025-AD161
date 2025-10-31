@@ -2,7 +2,7 @@
 
 In this session, you will create two CAP applications. The apps are developed locally
 using Visual Studio Code and the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli).
-In this preparation section you install the _cds toolkit_ and set up the local workspace
+In this preparation section, you install the _cds toolkit_ and set up the local workspace
 where you develop the apps.
 
 In this document, `XX` is the number that has been assigned to you for this session.
@@ -24,11 +24,7 @@ In this document, `XX` is the number that has been assigned to you for this sess
     ```sh
     cds v
     ```
-    You should have version `9.4.x` of `@sap/cds` and `@sap/cds-dk`.
-
-<!--
-You may need to add `C:\Users\TE-XX\AppData\Roaming\npm` to the `PATH` environment variable.
--->
+    You should have version `9.4.4` of `@sap/cds` and version `9.4.3` of `@sap/cds-dk`.
 
 
 

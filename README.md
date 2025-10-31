@@ -55,7 +55,7 @@ established in the first part of the session.
 
 ## Requirements
 
-The instructors will assign a user and a password to you. This will only be needed in exercise 4 to deploy to SAP HANA Cloud.
+The instructors will assign a user and a password to you. They will only be needed in exercise 4 to deploy to SAP HANA Cloud.
 The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique number that is assigned to you.
 
 ## Exercises
