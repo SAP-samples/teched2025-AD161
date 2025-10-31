@@ -99,9 +99,6 @@ Product entities with virtual tables in the prepared schema (and thus to a BDC t
 
 Start the exercises [here](exercises/ex0/).
 
-**IMPORTANT**
-
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
 
 ## Contributing
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
