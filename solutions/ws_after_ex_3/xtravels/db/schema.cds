@@ -19,7 +19,7 @@ entity Travels : managed {
   Currency     : Currency default 'EUR';
   Status       : Association to TravelStatus @readonly default 'O';
   Agency       : Association to TravelAgencies;
-  // Customer     : Association to Passengers;
+  //Customer     : Association to Passengers;
   Customer     : Association to Customers;
   Bookings     : Composition of many Bookings on Bookings.Travel = $self;
 }
