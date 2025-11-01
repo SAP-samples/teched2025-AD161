@@ -60,7 +60,7 @@ The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique nu
 
 ## Exercises
 
-The exercise is divided in five parts.
+The exercises are divided in five sections.
 In the Preparation section you prepare the _cds toolkit_ and set up the local workspace.
 In exercise 1 you will create CAP app "xflights" that serves flight master data.
 In exercise 2 you will create CAP app "xtravels" that consumes the master data from "xflights".
@@ -117,4 +117,4 @@ Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
 
 ## License
-Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
+Copyright (c) 2025 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
