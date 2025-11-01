@@ -183,7 +183,7 @@ and let CAP do the necessary steps.
     `grantor-dp-admin` to grant `SELECT WITH GRANT OPTION` for schema `DP_VT_CUSTOMER`
     to the HDI user. Without this, the HDI user wouldn't have access to the schema.
 
-5. In folder _xtravels/db/src_, create a file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ with the following content:
+5. In the same folder, create a file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ with the following content:
     ```json
     {
       "SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN": {
@@ -275,7 +275,7 @@ the output of `cds build` accordingly. Like the plugin that was used in
 this plugin is not released standard CAP functionality, but a preview of what we are currently working on.
 
 The plugin is activated via configuration. Here you have to provide the schema in which the virtual tables
-for the Data Product entities in the imported API package can be found.
+for the Data Product entities in the imported API package can be found and the name of the grantor service.
 
 1. Open file _xtravels/package.json_ and add a `cds` section:
     ```json
