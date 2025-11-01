@@ -126,7 +126,7 @@ This adds an entry for the grantor service to _xtravels/.cdsrc-private.json_.
 ## Exercise 4.5 - (optional) Manually connect to BDC share
 
 If you have enough time, you can now manually create all the necessary artefacts to
-connect the `Customer` entity in the imported API package via a synonym to the
+connect the `Customer` entity in the imported API package via a synonym to the corresponding
 virtual table in schema `DP_VT_CUSTOMER`. Alternatively, you can directly
 jump to [Exercise 4.6 - Connect to BDC share](./README.md#exercise-46---connect-to-bdc-share)
 and let CAP do the necessary steps.
@@ -143,9 +143,18 @@ and let CAP do the necessary steps.
     This is simply to avoid that the _.csv_ file with test data for `Customer` is deployed.
     Otherwise the deployment would fail, because there is no `Customer` table anymore.
 
-3. Create a folder _xtravels/db/src_.
+3. Copy the folder [assets/ex4/src](../../assets/ex4/src) into folder _xtravels/db_.
+Your folder structure should now look like this:
 
-4. In the new folder, create a file _.hdbgrants_ with the following content:
+    <br>![](/exercises/ex4/images/04_05_0010.png)
+    
+
+4. Have a look at the files in folder _xtravels/db/src_.
+
+    File _.hdbgrants_ tells the HDI deployer to use the credentials stored in service
+    `grantor-dp-admin` to grant `SELECT WITH GRANT OPTION` for schema `DP_VT_CUSTOMER`
+    to the HDI user. Without this, the HDI user wouldn't have access to the schema.
+
     ```json
     {
       "grantor-dp-admin": {
@@ -161,40 +170,7 @@ and let CAP do the necessary steps.
     }
     ```
 
-    This file tells the HDI deployer to use the credentials stored in service
-    `grantor-dp-admin` to grant `SELECT WITH GRANT OPTION` for schema `DP_VT_CUSTOMER`
-    to the HDI user. Without this, the HDI user wouldn't have access to the schema.
-
-5. In the same folder, create a file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ with the following content:
-    ```json
-    {
-      "SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN": {
-        "target": {
-          "object": "CUSTOMER",
-          "schema": "DP_VT_CUSTOMER"
-        }
-      }
-    }
-    ```
-
-    This defines a synonym pointing to the virtual table `CUSTOMER` in the schema `DP_VT_CUSTOMER`.
-
-6. In the same folder, create a file _sap.s4com.Customer.v1.Customer.hdbview_ with the following content:
-    ```sql
-    VIEW SAP_S4COM_CUSTOMER_V1_CUSTOMER AS SELECT
-      "Customer"         AS "CUSTOMER",
-      "CustomerName"     AS "CUSTOMERNAME",
-      "CityName"         AS "CITYNAME",
-      "PostalCode"       AS "POSTALCODE",
-      "StreetName"       AS "STREETNAME",
-      "TelephoneNumber1" AS "TELEPHONENUMBER1"
-    FROM SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN
-    ```
-
-    This mapping view is necessary to align the naming convention of CAP for database names
-    with the case sensitive names in the BDC share.
-
-7. In the same folder, create a file _.hdiconfig_ with the following content:
+    File _.hdiconfig_ configures the HDI plugins for synonyms and views:
     ```json
     {
       "file_suffixes": {
@@ -208,12 +184,34 @@ and let CAP do the necessary steps.
     }
     ```
 
-    Your folder structure should now look like this:
+    File _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ defines a synonym pointing to
+    the virtual table `CUSTOMER` in the schema `DP_VT_CUSTOMER`. This synonym replaces the table that has been created for
+    the `Customer` entity until now.
+    ```json
+    {
+      "SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN": {
+        "target": {
+          "object": "CUSTOMER",
+          "schema": "DP_VT_CUSTOMER"
+        }
+      }
+    }
+    ```
 
-    <br>![](/exercises/ex4/images/04_05_0030.png)
+    File _sap.s4com.Customer.v1.Customer.hdbview_ defines a mapping view. It is necessary to align
+    the naming convention of CAP for database names with the case sensitive names in the BDC share.
+    ```sql
+    VIEW SAP_S4COM_CUSTOMER_V1_CUSTOMER AS SELECT
+      "Customer"         AS "CUSTOMER",
+      "CustomerName"     AS "CUSTOMERNAME",
+      "CityName"         AS "CITYNAME",
+      "PostalCode"       AS "POSTALCODE",
+      "StreetName"       AS "STREETNAME",
+      "TelephoneNumber1" AS "TELEPHONENUMBER1"
+    FROM SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN
+    ```
 
-
-8. Deploy to HANA: in the xtravels terminal, run
+5. Deploy to HANA: in the xtravels terminal, run
     ```sh
     cds bind --exec -- cds deploy --to hana
     ```
@@ -223,18 +221,18 @@ and let CAP do the necessary steps.
     After successful deployment, entity `Customer` is now connected via a synonym
     to a virtual table in schema `DP_VT_CUSTOMER`.
 
-9. Start the app in hybrid mode: in the xtravels terminal, run
+6. Start the app in hybrid mode: in the xtravels terminal, run
     ```sh
     cds watch --profile hybrid
     ```
 
-10. Start the [xtravels web app](http://localhost:4004/travels/webapp/index.html).
+7. Start the [xtravels web app](http://localhost:4004/travels/webapp/index.html).
 
     Look at the data. You will notice that the customer data (names, address, ...)
     has changed, because you no longer see the local mock data, but the data from the
     Data Product in the BDC tenant.
 
-11. In the next exercise, the files that you have here created manually will be automatically produced
+8. In the next exercise, the files that you have here created manually will be automatically produced
 by the `cds build`. In order for this to work, you have to clean up a bit:
     * Stop `cds watch` by typing `Ctrl+C` in the xtravels terminal.
     * Delete folder _xtravels/db/src_.
@@ -243,7 +241,8 @@ by the `cds build`. In order for this to work, you have to clean up a bit:
 
     Your folder structure should now look like this:
 
-    <br>![](/exercises/ex4/images/04_05_0040.png)
+    <br>![](/exercises/ex4/images/04_05_0020.png)
+
 
 
 ## Exercise 4.6 - Connect to BDC share
