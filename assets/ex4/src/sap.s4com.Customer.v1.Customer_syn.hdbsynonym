@@ -1,0 +1,8 @@
+{
+  "SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN": {
+    "target": {
+      "object": "CUSTOMER",
+      "schema": "DP_VT_CUSTOMER"
+    }
+  }
+}

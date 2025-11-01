@@ -1,0 +1,8 @@
+VIEW SAP_S4COM_CUSTOMER_V1_CUSTOMER AS SELECT
+  "Customer"         AS "CUSTOMER",
+  "CustomerName"     AS "CUSTOMERNAME",
+  "CityName"         AS "CITYNAME",
+  "PostalCode"       AS "POSTALCODE",
+  "StreetName"       AS "STREETNAME",
+  "TelephoneNumber1" AS "TELEPHONENUMBER1"
+FROM SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN

@@ -1,0 +1,12 @@
+{
+  "grantor-dp-admin": {
+    "object_owner": { 
+      "schema_privileges" : [
+        {
+          "schema" : "DP_VT_CUSTOMER",
+          "privileges_with_grant_option" : [ "SELECT" ]
+        }
+      ]
+    }
+  }
+}
