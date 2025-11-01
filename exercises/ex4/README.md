@@ -94,24 +94,6 @@ but this time it is connected to the HANA Cloud instance:
 
     For the Data Product entity, still a regular table is created and filled with the test data.
 
-<!--
-    ```
-    [cds] - connect to db > hana {
-      database_id: '...',
-      host: '...hanacloud.ondemand.com',
-      port: '443',
-      driver: 'com.sap.db.jdbc.Driver',
-      url: '...',
-      schema: '...',
-      certificate: '...',
-      hdi_user: '...',
-      hdi_password: '...',
-      user: '...',
-      password: '...'
-    }
-    ```
--->
-
 3. Open the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
 You still see the same test data as before, only now the data isn't coming from an
 SQLite in-memory database, but from a table in the HANA instance filled with the same
@@ -261,7 +243,7 @@ by the `cds build`. In order for this to work, you have to clean up a bit:
 
     Your folder structure should now look like this:
 
-    <br>![](/exercises/ex4/images/04_05_0041.png)
+    <br>![](/exercises/ex4/images/04_05_0040.png)
 
 
 ## Exercise 4.6 - Connect to BDC share

@@ -202,72 +202,11 @@ of this service).
 
     <br>![](/exercises/ex2/images/02_06_0020.png)
 
-
-<!--
-    ```
-    [cds] - connect to sap.capire.flights.data > hcql { url: 'http://localhost:4005/hcql/data' }
-    ```
--->
-
-<!--
-```
-[cds.data] - initially loaded: {
-  entity: 'sap.capire.travels.masterdata.Supplements',
-  from: 'sap.capire.flights.data',
-  via: 'hcql'
-}
-[cds.data] - initially loaded: {
-  entity: 'sap.capire.travels.masterdata.Flights',
-  from: 'sap.capire.flights.data',
-  via: 'hcql'
-}
-```
--->
-
 5. Observe the output of `cds watch` in the xflights terminal.  
 Here you can see the incoming calls (from xtravels) to `GET` the
 data from entities `Flights` and `Supplements`.
 
     <br>![](/exercises/ex2/images/02_06_0030.png)
-
-<!--
-```
-[hcql] - GET /hcql/data/ {
-  SELECT: {
-    from: { ref: [ 'sap.capire.flights.data.Supplements' ] },
-    columns: [
-      { ref: [ 'ID' ], as: 'ID' },
-      { ref: [ 'type_code' ], as: 'type_code' },
-      { ref: [ 'descr' ], as: 'descr' },
-      { ref: [ 'price' ], as: 'price' },
-      { ref: [ 'currency_code' ], as: 'currency_code' }
-    ]
-  }
-}
-[hcql] - GET /hcql/data/ {
-  SELECT: {
-    from: { ref: [ 'sap.capire.flights.data.Flights' ] },
-    columns: [
-      { ref: [ 'ID' ], as: 'ID' },
-      { ref: [ 'airline', 'name' ], as: 'airline' },
-      { ref: [ 'origin', 'name' ], as: 'origin' },
-      { ref: [ 'destination', 'name' ], as: 'destination' },
-      { ref: [ 'departure' ], as: 'departure' },
-      { ref: [ 'arrival' ], as: 'arrival' },
-      { ref: [ 'distance' ], as: 'distance' },
-      { ref: [ 'date' ], as: 'date' },
-      { ref: [ 'aircraft' ], as: 'aircraft' },
-      { ref: [ 'price' ], as: 'price' },
-      { ref: [ 'currency_code' ], as: 'currency_code' },
-      { ref: [ 'maximum_seats' ], as: 'maximum_seats' },
-      { ref: [ 'occupied_seats' ], as: 'occupied_seats' },
-      { ref: [ 'free_seats' ], as: 'free_seats' },
-      { ref: [ 'airline', 'icon' ], as: 'icon' }
-    ]
-  }
-}
-```
--->
 
 6. Go to the index page [localhost:4004](http://localhost:4004/) of the xtravels app
 and start the [xtravels web app](http://localhost:4004/travels/webapp/index.html).

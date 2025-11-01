@@ -21,20 +21,20 @@ in [SAP Business Accelerator Hub](https://api.sap.com/).
 
 1. Go to [SAP Business Accelerator Hub](https://api.sap.com/).
 
-    <br>![](/exercises/ex3/images/03_01_0005.png)
+    <br>![](/exercises/ex3/images/03_01_0010.png)
 
 2. In the top row, go to tab [Data Products](https://api.sap.com/dataproducts).
 
-    <br>![](/exercises/ex3/images/03_01_0010.png)
+    <br>![](/exercises/ex3/images/03_01_0020.png)
 
 3. Here you can browse the available Data Products.
 Enter "Customer" in the search field and press "Return".
 
-    <br>![](/exercises/ex3/images/03_01_0020.png)
+    <br>![](/exercises/ex3/images/03_01_0030.png)
 
 4. Click on the tile for Data Product [Customer](https://api.sap.com/dataproduct/sap-s4com-Customer-v1/overview).
 
-    <br>![](/exercises/ex3/images/03_01_0030.png)
+    <br>![](/exercises/ex3/images/03_01_0040.png)
 
 
 
@@ -46,13 +46,13 @@ Data Product "Customer" to _ws/xtravels_.
 1. At the bottom of the screen for Data Product "Customer", follow the link to the
 [Delta Sharing API](https://api.sap.com/api/sap-s4com-Customer-v1/overview).
 
-    <br>![](/exercises/ex3/images/03_01_0040.png)
+    <br>![](/exercises/ex3/images/03_01_0010.png)
 
 2. On this page, you find the "ORD ID" that uniquely identifies this API.
 The ID is based on the [Open Resource Discovery (ORD)](https://open-resource-discovery.github.io/specification/introduction) protocol.
 The API is described as "CSN Interop JSON", which can be downloaded from here.
 
-    <br>![](/exercises/ex3/images/03_02_0010.png)
+    <br>![](/exercises/ex3/images/03_02_0020.png)
 
 2. Download the CSN Interop JSON. It will probably be stored
 as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
@@ -62,7 +62,7 @@ as file _sap-s4com-Customer-v1.json_ in directory _C:\Users\TE-XX\Downloads_.
 
 3. Copy the file to folder _xtravels_ in your workspace.
 
-    <br>![](/exercises/ex3/images/03_02_0020.png)
+    <br>![](/exercises/ex3/images/03_02_0030.png)
 
 
 
@@ -227,24 +227,6 @@ to folder _xtravels/db/data_. This provides some test data for mocking the
 and is filled with the data from the csv file.
 
     <br>![](/exercises/ex3/images/03_06_0020.png)
-
-<!--
-    ```
-    [cds] - connect to db > sqlite { url: ':memory:' }
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Supplements.csv 
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Flights.csv 
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Airports.csv 
-      > init from ..\apis\flights-data\data\sap.capire.flights.data.Airlines.csv 
-      > init from db\data\sap.s4com-Customer.v1.Customer.csv    // <---------------------
-      > init from db\data\sap.capire.travels-TravelStatus.texts.csv 
-      > init from db\data\sap.capire.travels-TravelStatus.csv 
-      > init from db\data\sap.capire.travels-Travels.csv 
-      > init from db\data\sap.capire.travels-TravelAgencies.csv 
-      > init from db\data\sap.capire.travels-Passengers.csv 
-      > init from db\data\sap.capire.travels-Bookings.Supplements.csv 
-      > init from db\data\sap.capire.travels-Bookings.csv
-    ```
--->
 
 4. Open the automatically served index page in your browser at [localhost:4004](http://localhost:4004/).
 
