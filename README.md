@@ -99,7 +99,7 @@ Product entities with virtual tables in the prepared schema (and thus to a BDC t
     - [Exercise 4.1 - Log on to Cloud Foundry](exercises/ex4/README.md#exercise-41---log-on-to-cloud-foundry)
     - [Exercise 4.2 - Deploy to SAP HANA Cloud](exercises/ex4/README.md#exercise-42---deploy-to-sap-hana-cloud)
     - [Exercise 4.3 - Run in hybrid mode](exercises/ex4/README.md#exercise-43---run-in-hybrid-mode)
-    - [Exercise 4.4 - Prepare hdbgrants](exercises/ex4/README.md#exercise-44---prepare-hdbgrants)
+    - [Exercise 4.4 - Bind grantor service](exercises/ex4/README.md#exercise-44---bind-grantor-service)
     - [Exercise 4.5 - (optional) Manually connect to BDC share](exercises/ex4/README.md#exercise-45---optional-manually-connect-to-bdc-share)
     - [Exercise 4.6 - Connect to BDC share](exercises/ex4/README.md#exercise-46---connect-to-bdc-share)
 

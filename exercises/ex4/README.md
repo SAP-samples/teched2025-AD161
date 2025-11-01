@@ -113,7 +113,7 @@ but this time it is connected to the HANA Cloud instance:
 -->
 
 3. Open the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
-You still see the same test data as before, but now the data isn't coming from an
+You still see the same test data as before, only now the data isn't coming from an
 SQLite in-memory database, but from a table in the HANA instance filled with the same
 test data.
 
@@ -121,10 +121,10 @@ test data.
 
 
 
-## Exercise 4.4 - Prepare hdbgrants
+## Exercise 4.4 - Bind grantor service
 
-After completing these steps, you will have prepared the hdbgrants mechanism
-to grant access for schema `DP_VT_CUSTOMERS` to the HDI user.
+After completing this step, you will have bound the grantor service
+that has been provided as a Cloud Foundry User Provided Service.
 
 In the next step you will define synonyms to connect the Data Product entities
 with virtual tables on schema `DP_VT_CUSTOMERS`.
@@ -132,16 +132,38 @@ For deploying these synonyms, the HDI user needs access to this schema.
 In the Cloud Foundry environment there already is a user-provided service `grantor-dp-admin`
 that holds the credentials needed to grant access for schema `DP_VT_CUSTOMERS` to the HDI user.
 
-1. Bind the grantor service by running
-    ```sh
-    cds bind grantor-dp-admin --to grantor-dp-admin
+Bind the grantor service by running
+```sh
+cds bind grantor-dp-admin --to grantor-dp-admin
+```
+
+This adds an entry for the grantor service to _xtravels/.cdsrc-private.json_.
+
+
+
+## Exercise 4.5 - (optional) Manually connect to BDC share
+
+If you have enough time, you can now manually create all the necessary artefacts to
+connect the `Customer` entity in the imported API package via a synonym to the
+virtual table in schema `DP_VT_CUSTOMER`. Alternatively, you can directly
+jump to [Exercise 4.6 - Connect to BDC share](./README.md#exercise-46---connect-to-bdc-share)
+and let CAP do the necessary steps.
+
+1. Open file _xtravels/db/customer.cds_ and add the following line at the end of the file:
+    ```cds
+    annotate Cust.Customer with @cds.persistence.exists;
     ```
 
-    This adds a corresponding entry to _xtravels/.cdsrc-private.json_.
+    With this annotation, no table will be created for the entity.
 
-2. Create a folder _xtravels/db/src_.
+2. In folder _xtravels/db/data_, rename the file _sap.s4com-Customer.v1.Customer.csv_ to _sap.s4com-Customer.v1.Customer.txt_.
 
-3. In the new folder, create a file _.hdbgrants_ with the following content:
+    This is simply to avoid that the _.csv_ file with test data for `Customer` is deployed.
+    Otherwise the deployment would fail, because there is no `Customer` table anymore.
+
+3. Create a folder _xtravels/db/src_.
+
+4. In the new folder, create a file _.hdbgrants_ with the following content:
     ```json
     {
       "grantor-dp-admin": {
@@ -161,31 +183,7 @@ that holds the credentials needed to grant access for schema `DP_VT_CUSTOMERS` t
     `grantor-dp-admin` to grant `SELECT WITH GRANT OPTION` for schema `DP_VT_CUSTOMER`
     to the HDI user. Without this, the HDI user wouldn't have access to the schema.
 
-
-
-## Exercise 4.5 - (optional) Manually connect to BDC share
-
-If you have enough time, you can now manually create all the necessary artefacts to
-connect the `Customer` entity in the imported API package via a synonym to the
-virtual table in schema `DP_VT_CUSTOMER`. Alternatively, you can directly
-jump to [Exercise 4.6 - Connect to BDC share](./README.md#exercise-46---connect-to-bdc-share)
-and let CAP do the necessary steps.
-
-1. Open file _xtravels/db/customer.cds_ and add the following line at the end of the file:
-    ```cds
-    annotate Cust.Customer with @cds.persistence.exists;
-    ```
-
-    With this annotation, no table will be created for the entity.
-
-2. Move the file _sap.s4com-Customer.v1.Customer.csv_ from folder _xtravels/db/data_ to folder _xtravels_.
-
-    <br>![](/exercises/ex4/images/04_05_0010.png)
-
-    This is simply to avoid that the _.csv_ file with test data for `Customer` is deployed.
-    Otherwise the deployment would fail, because there is no `Customer` table anymore.
-
-3. In folder _xtravels/db/src_, create a file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ with the following content:
+5. In folder _xtravels/db/src_, create a file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_ with the following content:
     ```json
     {
       "SAP_S4COM_CUSTOMER_V1_CUSTOMER_SYN": {
@@ -199,7 +197,7 @@ and let CAP do the necessary steps.
 
     This defines a synonym pointing to the virtual table `CUSTOMER` in the schema `DP_VT_CUSTOMER`.
 
-4. In the same folder, create a file _sap.s4com.Customer.v1.Customer.hdbview_ with the following content:
+6. In the same folder, create a file _sap.s4com.Customer.v1.Customer.hdbview_ with the following content:
     ```sql
     VIEW SAP_S4COM_CUSTOMER_V1_CUSTOMER AS SELECT
       "Customer"         AS "CUSTOMER",
@@ -214,7 +212,7 @@ and let CAP do the necessary steps.
     This mapping view is necessary to align the naming convention of CAP for database names
     with the case sensitive names in the BDC share.
 
-5. In the same folder, create a file _.hdiconfig_ with the following content:
+7. In the same folder, create a file _.hdiconfig_ with the following content:
     ```json
     {
       "file_suffixes": {
@@ -233,7 +231,7 @@ and let CAP do the necessary steps.
     <br>![](/exercises/ex4/images/04_05_0030.png)
 
 
-6. Deploy to HANA: in the xtravels terminal, run
+8. Deploy to HANA: in the xtravels terminal, run
     ```sh
     cds bind --exec -- cds deploy --to hana
     ```
@@ -243,27 +241,27 @@ and let CAP do the necessary steps.
     After successful deployment, entity `Customer` is now connected via a synonym
     to a virtual table in schema `DP_VT_CUSTOMER`.
 
-7. Start the app in hybrid mode: in the xtravels terminal, run
+9. Start the app in hybrid mode: in the xtravels terminal, run
     ```sh
     cds watch --profile hybrid
     ```
 
-8. Start the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
-Look at the data. You will notice that the customer data (names, address, ...)
-has changed, because you no longer see the local mock data, but the data from the BDC tenant.
+10. Start the [xtravels web app](http://localhost:4004/travels/webapp/index.html).
 
-9. In the next exercise, the files that you have here created manually will be automatically produced
+    Look at the data. You will notice that the customer data (names, address, ...)
+    has changed, because you no longer see the local mock data, but the data from the
+    Data Product in the BDC tenant.
+
+11. In the next exercise, the files that you have here created manually will be automatically produced
 by the `cds build`. In order for this to work, you have to clean up a bit:
     * Stop `cds watch` by typing `Ctrl+C` in the xtravels terminal.
-    * In folder _xtravels/db/src_, delete file _.hdiconfig_.
-    * In folder _xtravels/db/src_, delete file _sap.s4com.Customer.v1.Customer_syn.hdbsynonym_.
-    * In folder _xtravels/db/src_, delete file _sap.s4com.Customer.v1.Customer.hdbview_.
-    * Move the file _sap.s4com-Customer.v1.Customer.csv_ from folder _xtravels_ back to folder _xtravels/db/data_.
+    * Delete folder _xtravels/db/src_.
+    * In folder _xtravels/db/data_, rename the file _sap.s4com-Customer.v1.Customer.txt_ back to _sap.s4com-Customer.v1.Customer.csv_.
     * In file _xtravels/db/customer.cds_, remove the line with the `annotate` statement.
 
     Your folder structure should now look like this:
 
-    <br>![](/exercises/ex4/images/04_05_0040.png)
+    <br>![](/exercises/ex4/images/04_05_0041.png)
 
 
 ## Exercise 4.6 - Connect to BDC share
@@ -286,7 +284,8 @@ for the Data Product entities in the imported API package can be found.
       "cds": {
         "requires": {
           "sap.s4com.Customer.v1": {
-            "schema": "DP_VT_CUSTOMER"
+            "schema": "DP_VT_CUSTOMER",
+            "grantor": "grantor-dp-admin"
           }
         }
       }
@@ -320,8 +319,10 @@ case sensitive names in BDC with "unquoted" database names in CAP CDS.
     ```
 
 6. Go to the [xtravels web app](http://localhost:4004/travels/webapp/index.html).  
-Look at the data. You will notice that the customer data (names, address, ...)
-has changed, because you no longer see the local mock data, but the data from the BDC tenant.
+
+    Look at the data. You will notice that the customer data (names, address, ...)
+    has changed, because you no longer see the local mock data, but the data from the
+    Data Product in the BDC tenant.
 
     <br>![](/exercises/ex4/images/04_06_0010.png)
 
