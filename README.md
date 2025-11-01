@@ -30,7 +30,7 @@ The producing app provides an interface to the data and publishes its definition
 the interface definition and builds on top of it.
 
 In the first part of this session (Exercises 1 and 2), you build two CAP apps: _xflights_ is an app that holds masterdata
-for flights, airlines, ... and provides an API to access the data. _xtravels_ allows to book travels and flights
+for flights, airlines, etc. and provides an API to access the data. _xtravels_ allows to book travels and flights
 and makes use of the masterdata provided by _xflights_.
 
 
@@ -40,8 +40,8 @@ In the second part of the session (Exercises 3 and 4), you extend the _xtravels_
 
 In CAP, Data Product consumption is always realized via virtual tables and remote sources in a HANA Cloud database instance.
 That is, the CAP application doesn't directly communicate with BDC via the Delta Sharing protocol,
-but utilizes a HANA remote source with the "deltasharing" adapter for this communication. 
-The Data Product's share tables are represented via virtual tables in HANA, so that from a modelling perspective
+but utilizes a HANA Remote Source with the "deltasharing" adapter for this communication. 
+The Data Product's share tables are represented by virtual tables in HANA, so that from a modelling perspective
 they are not different from local tables.
 
 This session focuses on the CAP part of the integration: we assume that there already is a BDC tenant with

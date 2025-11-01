@@ -10,7 +10,7 @@ the app still runs locally on your laptop, but is connected to an HDI container 
 This session focuses on the CAP part of the integration with a BDC Data Product.
 Prior to the session, we have already
 * prepared a BDC tenant with the "Customer" Data Product installed
-* created a HANA remote source in the HANA instance, which points to the share (see also [assets/ex4/HANA-setup](../../assets/ex4/HANA-setup.md))
+* created a HANA Remote Source in the HANA instance, which points to the share (see also [assets/ex4/HANA-setup](../../assets/ex4/HANA-setup.md))
 * created a schema `DP_VT_CUSTOMER` in the HANA instance with virtual tables pointing
   to the share tables in the BDC tenant.
 * prepared a user-provided service `grantor-dp-admin` in Cloud Foundry that holds credentials for accessing this schema.
