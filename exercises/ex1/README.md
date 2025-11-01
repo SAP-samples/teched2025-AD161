@@ -106,7 +106,7 @@ to a full fledged maintenance UI for the xflights app, but this is not part of t
     ```cds
     using { sap.capire.flights as my } from '../db/schema';
 
-    @fiori service FlightsService {
+    service FlightsService {
       entity Connections as projection on my.Connections;
       entity Flights as projection on my.Flights;
       entity Airlines as projection on my.Airlines;
