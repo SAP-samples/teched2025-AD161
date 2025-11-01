@@ -84,7 +84,7 @@ Product entities with virtual tables in the prepared schema (and thus to a BDC t
     - [Exercise 2.2 - Import API package for flights](exercises/ex2/README.md#exercise-22---import-api-package-for-flights)
     - [Exercise 2.3 - Use the masterdata](exercises/ex2/README.md#exercise-23---use-the-masterdata)
     - [Exercise 2.4 - Inspect how the xflights data is used](exercises/ex2/README.md#exercise-24---inspect-how-the-xflights-data-is-used)
-    - [Exercise 2.5 - Run the XTravels app with flights being mocked](exercises/ex2/README.md#exercise-25---run-the-xtravels-app-with-flights-being-mocked)
+    - [Exercise 2.5 - Run the xtravels app with flights being mocked](exercises/ex2/README.md#exercise-25---run-the-xtravels-app-with-flights-being-mocked)
     - [Exercise 2.6 - Get flights data from xflights app](exercises/ex2/README.md#exercise-26---get-flights-data-from-xflights-app)
     - [Exercise 2.7 - Cleanup](exercises/ex2/README.md#exercise-27---cleanup)
 - [Exercise 3 - Consume Data Product "Customer" from S/4](exercises/ex3/)
