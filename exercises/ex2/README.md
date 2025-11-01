@@ -2,9 +2,9 @@
 
 In this exercise, you will create a second CAP app called xtravels.
 It is a travel agency app, where you can book travels and flights.
-xtravels will consume the flights masterdata provided by the xflights app.
+xtravels will consume the flights master data provided by the xflights app.
 This time, you don't build the application from scratch, but start with
-an almost complete app. The only thing that is missing is the master-data entities
+an almost complete app. The only thing that is missing is the master data entities
 `Flights` and `Supplements`, which you will get by importing the API package
 provided in the previous exercise.
 
@@ -75,7 +75,7 @@ that you have exported from the xflights app in the previous exercise.
 
 
 
-## Exercise 2.3 - Use the masterdata
+## Exercise 2.3 - Use the master data
 
 After completing this step, you will have a complete xtravels app.
 
@@ -221,7 +221,7 @@ and start the [xtravels web app](http://localhost:4004/travels/webapp/index.html
 
 ## Exercise 2.7 - Cleanup
 
-In order to keep things simple, you will again use mocked master-data entities
+In order to keep things simple, you will again use mocked master data entities
 `Flights` and `Supplements` in the remaining exercises.
 
 1. Stop `cds watch` in the xtravels terminal by typing `Ctrl+C`.
@@ -235,7 +235,7 @@ In order to keep things simple, you will again use mocked master-data entities
 
 ## Summary
 
-You've now created CAP app xtravels and consumed the masterdata served by the xflights app.
+You've now created CAP app xtravels and consumed the master data served by the xflights app.
 So far we have been only looking at CAP level Data Federation with service level replication.
 In the next section we will apply the principles of CAP Data Federation to consume a BDC Data Product.
 

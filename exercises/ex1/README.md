@@ -369,7 +369,7 @@ If you haven't done yet, stop `cds watch` by typing `Ctrl+C` into the terminal.
 
 ## Summary
 
-You've now created CAP app xflights that serves as source for flight masterdata.
+You've now created CAP app xflights that serves as source for flight master data.
 
 Continue to - [Exercise 2 - Build CAP app xtravels](../ex2/README.md)
 
