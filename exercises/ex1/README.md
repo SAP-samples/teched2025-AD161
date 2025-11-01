@@ -333,7 +333,7 @@ This package contains everything that is needed in a consuming app, including so
     cds export -s sap.capire.flights.data --to ../apis/flights-data
     ```
     This creates the API package as folder _apis/flights-data_ directly in our workspace folder.
-    Usually you would publish the API package, e.g. via npm or github. For our session it
+    Usually you would publish the API package, e.g. via npm or GitHub. For our session it
     is sufficient to have it inside the workspace folder.
 
 3. Add these lines to the end of the generated file _apis/flights-data/index.cds_:
