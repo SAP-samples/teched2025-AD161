@@ -15,7 +15,7 @@ Prior to the session, we have already
   to the share tables in the BDC tenant.
 * prepared a user-provided service `grantor-dp-admin` in Cloud Foundry that holds credentials for accessing this schema.
 
-You will connect the Data Product entities in the CAP app to these virtual tables via synonyms.
+You will connect the Data Product entity `Customer` in the CAP app to the corresponding virtual tables via a synonym.
 
 <br>![](/exercises/ex4/images/04_00_0010.png)
 
@@ -108,8 +108,8 @@ test data.
 After completing this step, you will have bound the grantor service
 that has been provided as a Cloud Foundry User Provided Service.
 
-In the next step you will define synonyms to connect the Data Product entities
-with virtual tables on schema `DP_VT_CUSTOMERS`.
+In the next step you will define a synonym to connect the Data Product entity `Customer`
+with a virtual table in schema `DP_VT_CUSTOMERS`.
 For deploying these synonyms, the HDI user needs access to this schema.
 In the Cloud Foundry environment there already is a user-provided service `grantor-dp-admin`
 that holds the credentials needed to grant access for schema `DP_VT_CUSTOMERS` to the HDI user.
@@ -138,7 +138,8 @@ and let CAP do the necessary steps.
 
     With this annotation, no table will be created for the entity.
 
-2. In folder _xtravels/db/data_, rename the file _sap.s4com-Customer.v1.Customer.csv_ to _sap.s4com-Customer.v1.Customer.txt_.
+2. In folder _xtravels/db/data_, rename the file _sap.s4com-Customer.v1.Customer.csv_ to _sap.s4com-Customer.v1.Customer.txt_
+(i.e. change the file suffix from _.csv_ to _.txt_).
 
     This is simply to avoid that the _.csv_ file with test data for `Customer` is deployed.
     Otherwise the deployment would fail, because there is no `Customer` table anymore.
