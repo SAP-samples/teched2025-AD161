@@ -30,16 +30,21 @@ In this document, `XX` is the number that has been assigned to you for this sess
 
 ## Preparation 2 - Setup workspace
 
-Clone the repo for this session, first making sure you replace the `XX` with
-the number from your username. The cloned repo contains a folder _ws_ where you
-will be developing the CAP applications. Go to that folder and start VS Code.
+To set up your workspace, first go to your user's folder, making sure you replace the `XX` with the number from the username assigned to you:
 
 ```sh
 cd C:\Users\TE-XX
+```
+
+Once in this folder, clone ther repo, move into the `ws` folder within it, and then open it with VS Code:
+
+```sh
 git clone https://github.com/SAP-samples/teched2025-AD161.git
 cd teched2025-AD161\ws
 code .
 ```
+
+The `ws` folder is where you will be developing the CAP applications.
 
 You should see this folder structure:
 
