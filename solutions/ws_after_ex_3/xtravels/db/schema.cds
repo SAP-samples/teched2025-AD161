@@ -9,6 +9,7 @@ using {
   sap.capire.travels.masterdata.Customers // the consumption view
 } from './customers';
 
+
 entity Travels : managed {
   key ID       : Integer default 0 @readonly;
   Description  : String(1024);

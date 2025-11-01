@@ -35,7 +35,10 @@ function getDPServices(csn) {
   function getSchema(x) {
     return (cds.env.requires && cds.env.requires[x] && cds.env.requires[x].schema) ? cds.env.requires[x].schema : null;
   }
-  dp_services = dp_services.map(([n,]) => [n, getSchema(n)]).filter(([,s]) => s)
+  function getGrantor(x) {
+    return (cds.env.requires && cds.env.requires[x] && cds.env.requires[x].grantor) ? cds.env.requires[x].grantor : null;
+  }
+  dp_services = dp_services.map(([n,]) => [n, getSchema(n), getGrantor(n)]).filter(([,s]) => s)
 
   return dp_services;
 }
@@ -82,11 +85,12 @@ cds.compile.to.hana = function (csn, options, ...etc) {
       toBeRemoved.push(n + '.hdbtable');
 
       // synonym
-      let syn_content = {};
-      syn_content[syn_name] = {
-        "target": {
-          "object": vt_name,
-          "schema": vt_schema
+      let syn_content = {
+        [syn_name] : {
+          "target": {
+            "object": vt_name,
+            "schema": vt_schema
+          }
         }
       }
       results.push([JSON.stringify(syn_content, null, 2),  {file: syn_filename}]);
@@ -102,6 +106,30 @@ cds.compile.to.hana = function (csn, options, ...etc) {
       results.push(result);
     }
   }
+
+  // grants files
+  for (let s of dp_services) {
+    let srv     = s[0];
+    let schema  = s[1];
+    let grantor = s[2];
+    if (grantor) {
+      let grant_content = {
+        [grantor]: {
+          "object_owner": { 
+            "schema_privileges" : [
+              {
+                "schema" : schema,
+                "privileges_with_grant_option" : [ "SELECT" ]
+              }
+            ]
+          }
+        }
+      }
+      results.push([JSON.stringify(grant_content, null, 2), {file: `${srv}.hdbgrants`}]);
+    }
+  }
+
+
 
   //console.log('######### patch plugin end #########');
   return results;

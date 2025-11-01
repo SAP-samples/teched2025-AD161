@@ -282,8 +282,9 @@ for the Data Product entities in the imported API package can be found and the n
 3. Check the effect of the plugin: look at the build output in _xtravels/gen/db/src/gen_.  
 For all entities in the Data Product service `sap.s4com.Customer.v1`, no _.hdbtable_ files
 are generated any more. Instead, there are corresponding _.hdbsynonym_ files to connect to
-the virtual tables in schema `DP_VT_CUSTOMER`, and _.hdbview_ files that align the
-case sensitive names in BDC with "unquoted" database names in CAP CDS.
+the virtual tables in schema `DP_VT_CUSTOMER`, and _.hdbview_ files that align the case
+sensitive names in BDC with "unquoted" database names in CAP CDS. In addition, a `.hdbgrants`
+file has been generated to grant the HDI user access to schema `DP_VT_CUSTOMER`.
 
 4. Deploy to HANA: in the xtravels terminal, run
     ```sh
