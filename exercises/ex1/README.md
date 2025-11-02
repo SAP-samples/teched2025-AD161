@@ -80,7 +80,7 @@ the still running `cds watch` reacts immediately with new output like this:
 
 > [!TIP]
 > It can happen that `cds watch` doesn't detect a change automatically.
-In that case, simply press Enter within the log output, or stop it via `Ctrl+C` and restart it.
+In that case, simply press Return within the log output, or stop it via `Ctrl+C` and restart it.
 
 <!--
 Error: The module '\\?\C:\SAPDevelop\node\cap\DEV\cds-dk\node_modules\better-sqlite3\build\Release\better_sqlite3.node'
