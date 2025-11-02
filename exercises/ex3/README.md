@@ -21,7 +21,7 @@ in [SAP Business Accelerator Hub](https://api.sap.com/).
 
 1. Go to [SAP Business Accelerator Hub](https://api.sap.com/).
 
-    <br>![](/exercises/ex3/images/03_01_0010.png)
+    <br>![](/exercises/ex3/images/03_01_0015.png)
 
 2. In the top row, go to tab [Data Products](https://api.sap.com/dataproducts).
 
