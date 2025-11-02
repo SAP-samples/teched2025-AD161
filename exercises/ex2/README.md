@@ -126,12 +126,14 @@ The imported entities `Flights` and `Supplements` are used in various places:
 After completing these steps, you will have xtravels running with the entities
 from the API package being mocked by local entities.
 
-1. In the terminal for _xtravels_, start the xtravels app.
+1. In the terminal for _xflights_, ensure the CAP server (for the `cds watch` process) is stopped, [as mentioned at the end of the previous exercise](../ex1/README.md#exercise-19---cleanup).
+
+2. In the terminal for _xtravels_, start the xtravels app.
     ```sh
     cds watch
     ```
 
-2. If `cds watch` works without errors, ignore this step.  
+3. If `cds watch` works without errors, ignore this step.  
     If you see errors like
     ```
     [persistent-queue] - DataFederationService: Emit failed: Error: Error during request to remote service: Error
@@ -143,7 +145,7 @@ from the API package being mocked by local entities.
     * restart `cds watch` in the xtravels terminal
 
 
-3. Observe the output of `cds watch`.  
+4. Observe the output of `cds watch`.  
 The entities in this service are represented as tables in the SQLite in-memory database
 and are filled with _csv_ data from the imported package:
 
@@ -151,9 +153,9 @@ and are filled with _csv_ data from the imported package:
 
 
 
-4. Open the automatically served index page in your browser at [localhost:4004](http://localhost:4004/).
+5. Open the automatically served index page in your browser at [localhost:4004](http://localhost:4004/).
 
-5. Click the link [/travels/webapp](http://localhost:4004/travels/webapp/index.html) to start the Fiori UI.
+6. Click the link [/travels/webapp](http://localhost:4004/travels/webapp/index.html) to start the Fiori UI.
 You should see a full fledged xtravels app:
 
     <br>![](/exercises/ex2/images/02_05_0020.png)
