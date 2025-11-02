@@ -21,7 +21,7 @@ in [SAP Business Accelerator Hub](https://api.sap.com/).
 
 1. Go to [SAP Business Accelerator Hub](https://api.sap.com/).
 
-    <br>![](/exercises/ex3/images/03_01_0015.png)
+    <br>![](/exercises/ex3/images/03_01_0010.png)
 
 2. In the top row, go to tab [Data Products](https://api.sap.com/dataproducts).
 
@@ -46,7 +46,7 @@ Data Product "Customer" to _ws/xtravels_.
 1. At the bottom of the screen for Data Product "Customer", follow the link to the
 [Delta Sharing API](https://api.sap.com/api/sap-s4com-Customer-v1/overview).
 
-    <br>![](/exercises/ex3/images/03_01_0010.png)
+    <br>![](/exercises/ex3/images/03_02_0010.png)
 
 2. On this page, you find the "ORD ID" that uniquely identifies this API.
 The ID is based on the [Open Resource Discovery (ORD)](https://open-resource-discovery.github.io/specification/introduction) protocol.
