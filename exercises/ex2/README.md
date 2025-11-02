@@ -2,9 +2,9 @@
 
 In this exercise, you will create a second CAP app called xtravels.
 It is a travel agency app, where you can book travels and flights.
-xtravels will consume the flights masterdata provided by the xflights app.
+xtravels will consume the flights master data provided by the xflights app.
 This time, you don't build the application from scratch, but start with
-an almost complete app. The only thing that is missing is the master-data entities
+an almost complete app. The only thing that is missing is the master data entities
 `Flights` and `Supplements`, which you will get by importing the API package
 provided in the previous exercise.
 
@@ -75,7 +75,7 @@ that you have exported from the xflights app in the previous exercise.
 
 
 
-## Exercise 2.3 - Use the masterdata
+## Exercise 2.3 - Use the master data
 
 After completing this step, you will have a complete xtravels app.
 
@@ -104,8 +104,8 @@ directive is resolved via the dependency in _xtravels/package.json_ and
 eventually points to the API package in the _apis_ folder.
 
 A projection is defined on top of the external `Flights` entity.
-Some fields of the associated entities `Airlines` and `Airports`are directly added
-to the projection via associations `airline`, `origin`, and `destination`.
+Some elements of the associated entities `Airlines` and `Airports` are directly added
+to the projection via path expressions that flatten the relationships (`airline`, `origin`, and `destination`).
 In addition, a simple projection is defined on top of the external entity `Supplements`.
 Each access to flights and supplements from any part of the xtravels app is made
 via these projections.
@@ -126,12 +126,14 @@ The imported entities `Flights` and `Supplements` are used in various places:
 After completing these steps, you will have xtravels running with the entities
 from the API package being mocked by local entities.
 
-1. In the terminal for _xtravels_, start the xtravels app.
+1. In the terminal for _xflights_, ensure the CAP server (for the `cds watch` process) is stopped, [as mentioned at the end of the previous exercise](../ex1/README.md#exercise-19---cleanup).
+
+2. In the terminal for _xtravels_, start the xtravels app.
     ```sh
     cds watch
     ```
 
-2. If `cds watch` works without errors, ignore this step.  
+3. If `cds watch` works without errors, ignore this step.  
     If you see errors like
     ```
     [persistent-queue] - DataFederationService: Emit failed: Error: Error during request to remote service: Error
@@ -143,7 +145,7 @@ from the API package being mocked by local entities.
     * restart `cds watch` in the xtravels terminal
 
 
-3. Observe the output of `cds watch`.  
+4. Observe the output of `cds watch`.  
 The entities in this service are represented as tables in the SQLite in-memory database
 and are filled with _csv_ data from the imported package:
 
@@ -151,9 +153,9 @@ and are filled with _csv_ data from the imported package:
 
 
 
-4. Open the automatically served index page in your browser at [localhost:4004](http://localhost:4004/).
+5. Open the automatically served index page in your browser at [localhost:4004](http://localhost:4004/).
 
-5. Click the link [/travels/webapp](http://localhost:4004/travels/webapp/index.html) to start the Fiori UI.
+6. Click the link [/travels/webapp](http://localhost:4004/travels/webapp/index.html) to start the Fiori UI.
 You should see a full fledged xtravels app:
 
     <br>![](/exercises/ex2/images/02_05_0020.png)
@@ -221,7 +223,7 @@ and start the [xtravels web app](http://localhost:4004/travels/webapp/index.html
 
 ## Exercise 2.7 - Cleanup
 
-In order to keep things simple, you will again use mocked master-data entities
+In order to keep things simple, you will again use mocked master data entities
 `Flights` and `Supplements` in the remaining exercises.
 
 1. Stop `cds watch` in the xtravels terminal by typing `Ctrl+C`.
@@ -235,7 +237,7 @@ In order to keep things simple, you will again use mocked master-data entities
 
 ## Summary
 
-You've now created CAP app xtravels and consumed the masterdata served by the xflights app.
+You've now created CAP app xtravels and consumed the master data served by the xflights app.
 So far we have been only looking at CAP level Data Federation with service level replication.
 In the next section we will apply the principles of CAP Data Federation to consume a BDC Data Product.
 

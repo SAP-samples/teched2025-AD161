@@ -34,7 +34,7 @@ After completing these steps, you will have the basic project structure of the x
     ```sh
     cds watch
     ```
-    When you add further components to the app later, `cds watch` will automatically pick it up.
+    When you add further components to the app later, `cds watch` will automatically pick them up.
 
 5. See the output in the terminal:
 
@@ -67,7 +67,7 @@ The first part of the new app is the domain model with these entities:
 2. Copy the content of [assets/ex1/schema.cds](../../assets/ex1/schema.cds) into the new file. 
 
 3. Observe the console output for `cds watch`. As soon as you save the file _schema.cds_,
-the still running cds watch reacts immediately with new output like this:
+the still running `cds watch` reacts immediately with new output like this:
 
     <br>![](/exercises/ex1/images/01_02_0020.png)
 
@@ -80,7 +80,7 @@ the still running cds watch reacts immediately with new output like this:
 
 > [!TIP]
 > It can happen that `cds watch` doesn't detect a change automatically.
-In that case, simply press Enter within the log output, or stop it via `Ctrl+C` and restart it.
+In that case, simply press Return within the log output, or stop it via `Ctrl+C` and restart it.
 
 <!--
 Error: The module '\\?\C:\SAPDevelop\node\cap\DEV\cds-dk\node_modules\better-sqlite3\build\Release\better_sqlite3.node'
@@ -193,7 +193,7 @@ index page on [localhost:4005](http://localhost:4005/) and click the
 
     <br>![](/exercises/ex1/images/01_05_0010-60.png)
 
-    The columns specified in the `@UI.LineItem` annotation are shown by default.
+    The columns specified in the `@UI.LineItem` annotations are shown by default.
 
 
 ## Exercise 1.6 - Localized metadata
@@ -228,9 +228,9 @@ You now change this to display appropriate labels in the correct language.
       occupied_seats @title: '{i18n>OccupiedSeats}';
     }
     ```
-    The annotations provide a title for some of the elements of the domain model entities.
+    The annotations provide a title for some of the elements of the `Connections` and `Flights` entities.
 
-3. The values of the annotations are `i18n` keys. The respective texts need to be added to the app.
+3. The values of the annotations are `i18n` ("internationalization") keys. The respective texts need to be added to the app.
 Copy the folder [assets/ex1/_i18n](../../assets/ex1/_i18n) into folder _xflights_.
 
     The result should look like this:
@@ -287,10 +287,10 @@ that acts as an API to retrieve some data from the xflights app.
     association that is part of entity `sap.capire.flights.Flights`.
     This denormalization is applied because a consumer simply wants to see the
     list of flights and doesn't need to be bothered with the fact that in xflights
-    the data is separated in two entities ("use-case oriented service").
+    the data is normalized - separated into two entities ("use-case oriented service").
 
     As this service is intended to be imported in other apps, we have chosen
-    a longer name that indicates, where it comes from.
+    a longer name that indicates where it comes from.
 
     The service has some annotations that control how the data of the entities
     is made available: via OData, via plain rest, and via the CAP specific `hcql` protocol
@@ -333,7 +333,7 @@ This package contains everything that is needed in a consuming app, including so
     cds export -s sap.capire.flights.data --to ../apis/flights-data
     ```
     This creates the API package as folder _apis/flights-data_ directly in our workspace folder.
-    Usually you would publish the API package, e.g. via npm or github. For our session it
+    Usually you would publish the API package, e.g. via npm or GitHub. For our session it
     is sufficient to have it inside the workspace folder.
 
 3. Add these lines to the end of the generated file _apis/flights-data/index.cds_:
@@ -369,7 +369,7 @@ If you haven't done yet, stop `cds watch` by typing `Ctrl+C` into the terminal.
 
 ## Summary
 
-You've now created CAP app xflights that serves as source for flight masterdata.
+You've now created CAP app xflights that serves as source for flight master data.
 
 Continue to - [Exercise 2 - Build CAP app xtravels](../ex2/README.md)
 

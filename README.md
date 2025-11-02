@@ -29,9 +29,9 @@ The picture shows Data Federation between two CAP apps, but the general pattern 
 The producing app provides an interface to the data and publishes its definition. The consuming app imports
 the interface definition and builds on top of it.
 
-In the first part of this session (Exercises 1 and 2), you build two CAP apps: _xflights_ is an app that holds masterdata
+In the first part of this session (Exercises 1 and 2), you build two CAP apps: _xflights_ is an app that holds master data
 for flights, airlines, etc. and provides an API to access the data. _xtravels_ allows to book travels and flights
-and makes use of the masterdata provided by _xflights_.
+and makes use of the master data provided by _xflights_.
 
 
 In the second part of the session (Exercises 3 and 4), you extend the _xtravels_ app and also consume a BDC Data Product.
@@ -60,10 +60,10 @@ The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique nu
 
 ## Exercises
 
-The exercise is divided in five parts.
+The exercises are divided in five sections.
 In the Preparation section you prepare the _cds toolkit_ and set up the local workspace.
 In exercise 1 you will create CAP app "xflights" that serves flight master data.
-In exercise 2 you will create CAP app "xtravels" that consumes the masterdata from "xflights".
+In exercise 2 you will create CAP app "xtravels" that consumes the master data from "xflights".
 In exercise 3 you will import an S/4 Data Product to the "xtravels" app and run the app locally in mock mode.
 In exercise 4 you will deploy the database model of "xtravels" to a HANA Cloud, connect the imported Data
 Product entities with virtual tables in the prepared schema (and thus to a BDC tenant) and run the app in hybrid mode.
@@ -82,7 +82,7 @@ Product entities with virtual tables in the prepared schema (and thus to a BDC t
 - [Exercise 2 - Build CAP app xtravels](exercises/ex2/)
     - [Exercise 2.1 - Prepare](exercises/ex2/README.md#exercise-21---prepare)
     - [Exercise 2.2 - Import API package for flights](exercises/ex2/README.md#exercise-22---import-api-package-for-flights)
-    - [Exercise 2.3 - Use the masterdata](exercises/ex2/README.md#exercise-23---use-the-masterdata)
+    - [Exercise 2.3 - Use the master data](exercises/ex2/README.md#exercise-23---use-the-master-data)
     - [Exercise 2.4 - Inspect how the xflights data is used](exercises/ex2/README.md#exercise-24---inspect-how-the-xflights-data-is-used)
     - [Exercise 2.5 - Run the xtravels app with flights being mocked](exercises/ex2/README.md#exercise-25---run-the-xtravels-app-with-flights-being-mocked)
     - [Exercise 2.6 - Get flights data from xflights app](exercises/ex2/README.md#exercise-26---get-flights-data-from-xflights-app)
@@ -117,4 +117,4 @@ Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples
 Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
 
 ## License
-Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
+Copyright (c) 2025 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.
