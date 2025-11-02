@@ -104,7 +104,7 @@ directive is resolved via the dependency in _xtravels/package.json_ and
 eventually points to the API package in the _apis_ folder.
 
 A projection is defined on top of the external `Flights` entity.
-Some fields of the associated entities `Airlines` and `Airports`are directly added
+Some elements of the associated entities `Airlines` and `Airports` are directly added
 to the projection via associations `airline`, `origin`, and `destination`.
 In addition, a simple projection is defined on top of the external entity `Supplements`.
 Each access to flights and supplements from any part of the xtravels app is made
