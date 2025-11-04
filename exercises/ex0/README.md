@@ -29,7 +29,7 @@ where you develop the apps.
 
 On the TechEd machines, you have a local user of the form `EMEAnnnn` (with `nnnn` being some number).
 
-To set up your workspace, first go to your user's folder
+To set up your workspace, first go to your user's home directory
 (if the console hasn't already opened in this directory):
 
 ```sh
@@ -66,7 +66,7 @@ Alternatively, you can also activate the "Auto Save" feature of VS Code via the 
 
 In the course of the exercises, you will need to copy some files from the [assets](../../assets) folder
 into the workspace. The simplest way to do this is to open folder _C:\Users\EMEAnnnn\teched2025-AD161\assets_
-(with `EMEAnnn` being your user name)
+(with `EMEAnnnn` being your local Windows user name)
 in Windows Explorer and then copy the files from there into VS Code via Drag & Drop.
 
 
