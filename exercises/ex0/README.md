@@ -5,7 +5,17 @@ using Visual Studio Code and the [_cds toolkit_](https://cap.cloud.sap/docs/tool
 In this preparation section, you install the _cds toolkit_ and set up the local workspace
 where you develop the apps.
 
-In this document, `XX` is the number that has been assigned to you for this session.
+
+
+## Preparation 0 - Prerequisites
+
+The TechEd machines already are equipped with:
+* git
+* Node.js
+* Visual Studio Code
+* Cloud Foundry CLI `cf`
+
+If you want to run the session on your own machine, ensure to have these installed.
 
 
 
@@ -24,19 +34,23 @@ In this document, `XX` is the number that has been assigned to you for this sess
     ```sh
     cds v
     ```
-    You should have version `9.4.4` of `@sap/cds` and version `9.4.3` of `@sap/cds-dk`.
+    You should have version `9.4.4` of `@sap/cds`.
 
 
 
 ## Preparation 2 - Setup workspace
 
-To set up your workspace, first go to your user's folder, making sure you replace the `XX` with the number from the username assigned to you:
+On the TechEd machines, you have a local user of the form `EMEAnnnn` (with `nnnn` being some number).
+
+To set up your workspace, first go to your user's folder
+(if the console hasn't already opened in this directory):
 
 ```sh
-cd C:\Users\TE-XX
+cd C:\Users\EMEAnnnn
 ```
 
-Once in this folder, clone ther repo, move into the `ws` folder within it, and then open it with VS Code:
+Once in this folder, clone the repo of this session, move into the `ws` folder within it,
+and then open it with VS Code:
 
 ```sh
 git clone https://github.com/SAP-samples/teched2025-AD161.git
@@ -64,7 +78,8 @@ Alternatively, you can also activate the "Auto Save" feature of VS Code via the 
 ## Preparation 4 - Copying 
 
 In the course of the exercises, you will need to copy some files from the [assets](../../assets) folder
-into the workspace. The simplest way to do this is to open folder _C:\Users\TE-XX\teched2025-AD161\assets_
+into the workspace. The simplest way to do this is to open folder _C:\Users\EMEAnnnn\teched2025-AD161\assets_
+(with `EMEAnnn` being your user name)
 in Windows Explorer and then copy the files from there into VS Code via Drag & Drop.
 
 
