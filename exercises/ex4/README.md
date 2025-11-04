@@ -30,7 +30,7 @@ to HANA via the CDS CLI in subsequent steps.
 We have prepared a subaccount in BTP that has access to a HANA instance.
 In the subaccount, there already are users for this exercise.
 Your username is `capworkshopuser+0XX@gmail.com`, where `XX` is the number
-assigned to you in the beginning of the session.
+assigned to you for the session.
 
 1. Go to the xtravels terminal and execute
     ```sh

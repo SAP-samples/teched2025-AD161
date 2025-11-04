@@ -55,8 +55,16 @@ established in the first part of the session.
 
 ## Requirements
 
-The instructors will assign a user and a password to you. They will only be needed in exercise 4 to deploy to SAP HANA Cloud.
-The user is of the form `capworkshopuser+0XX@gmail.com`, where XX is a unique number that is assigned to you.
+The TechEd machines already are equipped with:
+
+* git
+* Node.js
+* Visual Studio Code
+* Cloud Foundry CLI `cf`
+
+If you want to run the session on your own machine, ensure to have these installed.
+
+
 
 ## Exercises
 

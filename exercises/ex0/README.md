@@ -6,19 +6,6 @@ In this preparation section, you install the _cds toolkit_ and set up the local 
 where you develop the apps.
 
 
-
-## Preparation 0 - Prerequisites
-
-The TechEd machines already are equipped with:
-* git
-* Node.js
-* Visual Studio Code
-* Cloud Foundry CLI `cf`
-
-If you want to run the session on your own machine, ensure to have these installed.
-
-
-
 ## Preparation 1 - Install latest version of the cds toolkit
 
 1. Open a console (Command Prompt).
