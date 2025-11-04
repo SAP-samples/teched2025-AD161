@@ -55,7 +55,7 @@ established in the first part of the session.
 
 ## Requirements
 
-The TechEd machines already are equipped with:
+The TechEd machines are already equipped with:
 
 * git
 * Node.js
