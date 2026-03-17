@@ -17,12 +17,16 @@ After completing these steps, you will have the basic project structure of the x
 
 2. Go to the terminal and create the xflights project with
     ```sh
-    cds init xflights && cd xflights
+    cds init xflights --nodejs && cd xflights
     ```
     This creates a directory _xflights_ with the basic structure for a CAP app.
     Then it also changes your current directory to _xflights_.
 
     <br>![](/exercises/ex1/images/01_01_0020.png)
+
+    > The screenshots have been taken with an older version of the _cds toolkit_. In newer versions, the
+    generated project may look slightly different, e.g. _readme.md_ in lower case letters, no _.gitignore_,
+    no _eslint.config.mjs_. This is no problem for this session.
 
 3. In folder _xflights_, add a file _.env_ with this content:
     ```
@@ -330,7 +334,7 @@ This package contains everything that is needed in a consuming app, including so
 
 2. Run the command (assuming you are still in folder _xflights_):
     ```sh
-    cds export -s sap.capire.flights.data --to ../apis/flights-data
+    cds export -s sap.capire.flights.data --to ../apis/flights-data --data --plugin --texts
     ```
     This creates the API package as folder _apis/flights-data_ directly in our workspace folder.
     Usually you would publish the API package, e.g. via npm or GitHub. For our session it

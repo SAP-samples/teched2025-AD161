@@ -84,6 +84,9 @@ with this command:
 
     <br>![](/exercises/ex3/images/03_03_0010.png)
 
+    > Depending on the version of the _cds toolkit_, folder _\_i18n_ and file _cds-plugin.js_ may be missing.
+    This is no problem for this session.
+
 3. Have a look at file _services.cds_ in the new folder.  
 Here you find the Data Product `Customer` represented as a service,
 and the data sets of the Data Product are represented as entities:

@@ -5,23 +5,30 @@ using Visual Studio Code and the [_cds toolkit_](https://cap.cloud.sap/docs/tool
 In this preparation section, you install the _cds toolkit_ and set up the local workspace
 where you develop the apps.
 
+## Note
+
+This exercise description has been written for Windows computers with the TechEd setup.
+If you run the exercise on your own machine, you may have to adapt at a few places.
+
 
 ## Preparation 1 - Install latest version of the cds toolkit
+
+You need a global installation of the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli),
+with `@sap/cds-dk` having version `9.7.2` or higher.
 
 1. Open a console (Command Prompt).
     <br>![](/exercises/ex0/images/00_01_0010.png)
 
-2. Install the latest version of the [_cds toolkit_](https://cap.cloud.sap/docs/tools/cds-cli) globally. In the console, run the command
+2. In the console, run the command
     ```sh
-    npm i -g @sap/cds-dk --prefix "C:\software\CLI\CDS"
+    npm i -g @sap/cds-dk
     ```
-    > The --prefix option is only needed due to the setup of the TechEd machines. If you are running this tutorial on your own machine, omit it.
+    > If you are running this tutorial on a TechEd machine, use `npm i -g @sap/cds-dk --prefix "C:\software\CLI\CDS"`.
 
 3. Check the version:
     ```sh
     cds v
     ```
-    You should have version `9.4.4` of `@sap/cds`.
 
 
 
@@ -35,6 +42,8 @@ To set up your workspace, first go to your user's home directory
 ```sh
 cd C:\Users\EMEAnnnn
 ```
+
+If you use your own machine, simply choose a suitable folder for this exercise.
 
 Once in this folder, clone the repo of this session, move into the `ws` folder within it,
 and then open it with VS Code:
